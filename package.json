@@ -1,18 +1,12 @@
 {
-  "name": "heroku_test",
-  "version": "0.0.1",
-  "description": "",
-  "devDependencies": {
-    "@ui5/cli": "1.13.0",
-    "@sap/ui5-builder-webide-extension": "1.0.x",
-    "express": "^4.17.1"
+  "name": "teched2018NetworkGraphDemo",
+  "version": "1.0.0",
+  "description": "Demo for network graph for landscape visualization for TechEd 2018",
+  "dependencies": {
+    "express": "^4.16.3"
   },
   "scripts": {
-    "start": "node server.js"
+  	"start": "node server.js"
   },
-  "ui5": {
-    "dependencies": [
-      "@sap/ui5-builder-webide-extension"
-    ]
-  }
+  "author": "Risa Newyear-Ramirez"
 }

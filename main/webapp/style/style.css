@@ -1,0 +1,88 @@
+.breadcrumbLinkCurrentPage {
+	color : #333333 !important;
+	opacity: 1 !important;
+}
+
+.overviewPage .sapFDynamicPageContent {
+	padding: 0 !important;
+}
+
+.overviewPage .sapFDynamicPageContentFitContainer {
+	padding: 0 !important;
+}
+
+.overviewPageBlockLayout .overviewPageBlockLayoutCell .sapUiBlockCellContent
+	{
+	font-size: 1.5rem !important;
+}
+
+.overviewPageBlockLayout .overviewPageBlockLayoutCell .sapMTitle
+	{
+	font-size: 2.25rem !important;
+}
+
+.titleSmallIcon {
+	font-size: 1rem !important;
+	vertical-align: top !important;
+}
+
+.overviewPageBlockLayout .overviewPageBlockLayoutCell .sapUiBlockCellContent>.sapMText
+	{
+	font-size: 1.125rem !important;
+}
+
+.overviewPagePictureBlockLayoutCell {
+	background-image: url("./../images/transportTruckBanner.jpg");
+	background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 0;
+    padding-top: 24%;
+}
+
+.overviewLandscapeText .sapMText {
+	font-size: 1.125rem !important;
+}
+
+.overviewLandscapeText .sapMLnk {
+	font-size: 1.125rem !important;
+}
+
+.monitorImportsChart {
+	height:16rem !important;
+	width:32rem !important;
+}
+
+.monitorImportsChart .sapSuiteIDCSemanticMarker {
+	display: none;
+}
+
+.overviewColorBlue {
+	background-color: #bbd0e6;
+}
+
+.overviewColorLightBlue {
+	background-color: #d5e2ef;
+}
+
+#__component0---TransportLandscape--sideContent {
+	border-left: 1px solid #cccccc;
+}
+
+.tableCustomCSS {
+	margin-right: 0px;
+	width: 100% !important;
+}
+
+.sapUiRespGridMedia-Std-LargeDesktop.sapUiRespGridHSpace1>.sapUiRespGridSpanXL3
+	{
+	width: 100% !important;
+	float: none;
+}
+
+.sapUiRespGridMedia-Std-LargeDesktop.sapUiRespGridHSpace1>.sapUiRespGridSpanXL9
+	{
+	margin-bottom: 0px !important;
+	width: 100% !important;
+	float: none;
+}

@@ -1,0 +1,179 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:commons="sap.ui.commons"
+	xmlns="sap.suite.ui.commons.networkgraph" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:l="sap.ui.layout" xmlns:m="sap.m" xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:layout="sap.suite.ui.commons.networkgraph.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	controllerName="techEd2018NetworkGraph.controller.TransportLandscape"
+	id="mainView">
+	<m:Page>
+		<m:headerContent>
+			<m:Breadcrumbs class="sapUiSmallMarginBegin"
+				currentLocationText="Transport Landscape">
+				<m:Link text="Overview" press="goToOverviewPage"/>
+			</m:Breadcrumbs>
+		</m:headerContent>
+		<m:content>
+			<l:Splitter>
+				<Graph height="100%" width="100%" orientation="{settings>/orientation}" nodes="{/nodes}"
+					lines="{/lines}" groups="{/groups}" id="graph" selectionChange="onGraphSelect" graphReady="autoZoom">
+					<layoutData>
+						<m:FlexItemData growFactor="1" shrinkFactor="1" baseSize="0%"  minWidth="300px" minHeight="600px"/>
+					</layoutData>
+					<layoutAlgorithm>
+						<layout:LayeredLayout mergeEdges="{settings>/mergeEdges}"
+							nodePlacement="{settings>/nodePlacement}" nodeSpacing="{settings>/nodeSpacing}" />
+					</layoutAlgorithm>
+					<nodes>
+						<Node key="{key}" title="{title}" icon="{icon}" group="{group}"
+							attributes="{path:'attributes', templateShareable:true}" shape="Box"
+							status="{status}" width="220" height="200"
+							showExpandButton="false" showDetailButton="false"
+							showActionLinksButton="false">
+							<attributes>
+								<ElementAttribute label="{label}" value="{value}" />
+							</attributes>
+							<actionButtons>
+								<ActionButton icon="sap-icon://connected" title="Add Route"
+									press="onAddRoutePress" />
+								<ActionButton icon="sap-icon://list" title="Go to Import Queue"
+									press="navigateToImportQueue" />
+								<ActionButton icon="sap-icon://edit" title="Edit Node"
+									press="onEditNodePress" />
+								<ActionButton icon="sap-icon://delete" title="Delete Node"
+									press="onDeleteNodePress" />
+							</actionButtons>
+						</Node>
+					</nodes>
+					<lines>
+						<Line arrowPosition="{settings>/arrowPosition}"
+							arrowOrientation="{settings>/arrowOrientation}" from="{from}"
+							to="{to}" status="{status}" press="onRoutePress">
+						</Line>
+					</lines>
+					<groups>
+						<Group key="{key}" title="{title}">
+						</Group>
+					</groups>
+				</Graph>
+				<m:Panel id="sideContent">
+					<m:layoutData>
+						<l:SplitterLayoutData id="panelSplitterLayoutData" size="0%" resizable="true"/>
+					</m:layoutData>
+					<m:headerToolbar style="Clear">
+						<m:Toolbar>
+							<m:ToolbarSpacer />
+							<m:Button icon="sap-icon://decline" press="hideSideContent" />
+						</m:Toolbar>
+					</m:headerToolbar>
+					<m:content>
+						<!-- Node / Route properties here -->
+						<m:Text id="propertiesPlaceholderText" text="Please select a node or route to display detailed information."/>
+						<f:Form id="nodeProperties" class="sapUiSmallMargin" visible="false">
+							<f:toolbar>
+								<m:Toolbar>
+									<m:Title text="Node Properties" level="H5"
+										titleStyle="H5" />
+									<m:ToolbarSpacer />
+									<m:Button icon="sap-icon://edit" press="onEditNodePress"/>
+									<m:Button icon="sap-icon://delete" press="onDeleteNodePress"/>
+								</m:Toolbar>
+							</f:toolbar>
+							<f:layout>
+								<f:ResponsiveGridLayout labelSpanXL="3"
+									labelSpanL="3" labelSpanM="3" labelSpanS="12"
+									adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+									emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1"
+									columnsM="1" singleContainerFullSize="false" />
+							</f:layout>
+							<f:formContainers>
+								<f:FormContainer>
+									<f:formElements>
+										<f:FormElement label="{i18n>NODE_NAME}">
+											<f:fields>
+												<m:Text id="nodeNameProperty" text="{selectedNode>/name}" />
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="{i18n>NODE_DESCRIPTION}">
+											<f:fields>
+												<m:Text id="nodeDescriptionProperty" text="{selectedNode>/description}" />
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="{i18n>UPLOAD_ALLOWED_LABEL}">
+											<f:fields>
+												<m:Text id="nodeUploadProperty" text="{ path: 'selectedNode>/upload_allowed', formatter: '.formatUploadAllowed' }" />
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="{i18n>ROLE_LABEL}">
+											<f:fields>
+												<m:Text id="nodeRoleProperty" text="{selectedNode>/role}" />
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="{i18n>TARGET_CONTENT_TYPE}">
+											<f:fields>
+												<m:Text id="nodeCTProperty" text="{selectedNode>/content_type}" />
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="{i18n>TARGET_DESTINATION}">
+											<f:fields>
+												<m:Text id="nodeDestinationProperty" text="{selectedNode>/destination}" />
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement>
+											<f:fields>
+												<m:Button id="nodeImportQueue" text="{i18n>GO_TO_IQ}" press="navigateToImportQueue" />
+											</f:fields>
+										</f:FormElement>
+									</f:formElements>
+								</f:FormContainer>
+							</f:formContainers>
+						</f:Form>
+						<f:Form id="routeProperties" class="sapUiSmallMargin" visible="false">
+							<f:toolbar>
+								<m:Toolbar>
+									<m:Title text="Route Properties" level="H5"
+										titleStyle="H5" />
+									<m:ToolbarSpacer />
+									<m:Button icon="sap-icon://edit" press="onEditRoutePress"/>
+									<m:Button icon="sap-icon://delete" press="onDeleteRoutePress"/>
+								</m:Toolbar>
+							</f:toolbar>
+							<f:layout>
+								<f:ResponsiveGridLayout labelSpanXL="3"
+									labelSpanL="3" labelSpanM="3" labelSpanS="12"
+									adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+									emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1"
+									columnsM="1" singleContainerFullSize="false" />
+							</f:layout>
+							<f:formContainers>
+								<f:FormContainer>
+									<f:formElements>
+										<f:FormElement label="{i18n>ROUTE_NAME}">
+											<f:fields>
+												<m:Text id="routeNameProperty" text="{selectedRoute>/name}" />
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="{i18n>ROUTE_DESCRIPTION}">
+											<f:fields>
+												<m:Text id="routeDescriptionProperty" text="{selectedRoute>/description}" />
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="{i18n>SOURCE_NODE}">
+											<f:fields>
+												<m:Text id="sourceNodeProperty" text="{selectedRoute>/sourceNode}" />
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="{i18n>TARGET_NODE}">
+											<f:fields>
+												<m:Text id="targetNodeProperty" text="{selectedRoute>/targetNode}" />
+											</f:fields>
+										</f:FormElement>
+									</f:formElements>
+								</f:FormContainer>
+							</f:formContainers>
+						</f:Form>
+					</m:content>
+				</m:Panel>
+			</l:Splitter>
+		</m:content>
+	</m:Page>
+</mvc:View>

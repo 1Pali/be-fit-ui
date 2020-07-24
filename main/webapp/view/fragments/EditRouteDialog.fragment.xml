@@ -1,0 +1,36 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified"
+	xmlns:l="sap.ui.layout"
+	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	id="createRouteFragment">
+	<Dialog id="editRouteDialog" title="{i18n>EDIT_ROUTE}"
+		resizable="false" afterOpen="afterEditRouteOpen">
+		<content>
+			<FlexBox direction="Column" height="auto" alignItems="Stretch"
+				class="sapUiMediumMargin">
+				<items>
+					<Label text="{i18n>ROUTE_NAME}" class="sapUiSmallMarginTop" />
+					<Input id="editRouteName" value="{selectedRoute>/name}"
+						maxLength="30" editable="false"/>
+					<Label text="{i18n>DESCRIPTION_LABEL}" class="sapUiSmallMarginTop"/>
+					<TextArea id="editRouteDescription" width="100%"
+						value="{selectedRoute>/description}" maxLength="512" class="editRouteDescription"/>
+					<Label text="{i18n>ROUTE_SOURCE_NODE}" class="sapUiSmallMarginTop" required="true"/>
+					<Select id="editSourceNode" forceSelection="false"
+						class="sapUiMediumMarginBottom" width="100%" selectedKey="{selectedRoute>/from}" items="{ path: 'availableEditSources>/', sorter: { path: 'name' }}" change="onEditSourceTargetSelect">
+						<core:Item key="{availableEditSources>id}" text="{availableEditSources>name} ({availableEditSources>description})" />
+					</Select>
+					<Label text="{i18n>ROUTE_TARGET_NODE}" class="sapUiSmallMarginTop" required="true"/>
+					<Select id="editTargetNode" forceSelection="false"
+						class="sapUiMediumMarginBottom" width="100%" selectedKey="{selectedRoute>/to}" items="{ path: 'availableEditTargets>/', sorter: { path: 'name' }}" change="onEditSourceTargetSelect">
+						<core:Item key="{availableEditTargets>id}" text="{availableEditTargets>name} ({availableEditTargets>description})" />
+					</Select>
+				</items>
+			</FlexBox>
+		</content>
+		<buttons>
+			<Button id="editRouteGoBtn" press="onEditRoute" text="{i18n>OK_LABEL}" class="editRouteGoBtn"/>
+			<Button press="onEditRouteClosePress" text="{i18n>CANCEL}" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,141 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:m="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tnt="sap.tnt"
+	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:vm="sap.ui.comp.variants" xmlns="sap.uxap" xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:layout="sap.ui.layout" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form"
+	xmlns:g="sap.suite.ui.commons.networkgraph" xmlns:glayout="sap.suite.ui.commons.networkgraph.layout"
+	controllerName="techEd2018NetworkGraph.controller.ImportQueue">
+	<ObjectPageLayout id="ObjectPageLayoutImportQueue"
+		enableLazyLoading="false" showTitleInHeaderContent="false"
+		alwaysShowContentHeader="true" useIconTabBar="true">
+		<headerTitle>
+			<ObjectPageHeader objectTitle="Node: {nodeObject>/name}">
+				<actions>
+					<ObjectPageHeaderActionButton icon="sap-icon://overview-chart" type="Transparent" press="goToTransportLandscapePage" tooltip="See in Transport Landscape Visualization"/>
+				</actions>
+				<breadCrumbsLinks>
+					<m:Link text="{i18n>GO_TO_OV}" press="goToOverviewPage"/>
+					<m:Link text="{i18n>GO_TO_TL}" press="goToTransportLandscapePage"/>
+					<m:Link text="{nodeObject>/name}" class="breadcrumbLinkCurrentPage"
+						enabled="false" />
+				</breadCrumbsLinks>
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<layout:VerticalLayout>
+				<m:ObjectStatus title="{i18n>DESCRIPTION_LABEL}"
+					text="{nodeObject>/description}" />
+				<m:ObjectStatus title="{i18n>TARGET_CONTENT_TYPE}"
+					text="{nodeObject>/content_type}" />
+				<m:ObjectStatus title="{i18n>TARGET_DESTINATION}"
+					text="{nodeObject>/destination}"/>
+			</layout:VerticalLayout>
+		</headerContent>
+		<sections>
+			<ObjectPageSection id="objPageImportQueueSection"
+				title="{i18n>GO_TO_IM}">
+				<subSections>
+					<ObjectPageSubSection>
+						<fb:FilterBar id="importQueueFilterBar"
+							showFilterConfiguration="false" showGoOnFB="false"
+							showRestoreOnFB="true" showClearButton="false" class="importQueueFilterBar"
+							reset="resetNodeImportQueue">
+							<fb:filterItems>
+								<fb:FilterItem name="Status" label="{i18n>STATUS_LABEL}">
+									<fb:control>
+										<m:MultiComboBox selectionChange="onStatusSelect"
+											width="250px" id="statusSelection" placeholder="{i18n>IQ_STATUS_PLACEHOLDER}"
+											class="statusSelection">
+											<core:Item key="in" text="{i18n>INITIAL_LABEL}" />
+											<core:Item key="ru" text="{i18n>RUNNING_LABEL}" />
+											<core:Item key="re" text="{i18n>REPEATABLE_LABEL}" />
+											<core:Item key="su" text="{i18n>SUCCEEDED_LABEL}" />
+											<core:Item key="er" text="{i18n>ERROR_LABEL}" />
+											<core:Item key="fa" text="{i18n>FATAL_LABEL}" />
+											<core:Item key="de" text="{i18n>DELETED_LABEL}" />
+										</m:MultiComboBox>
+									</fb:control>
+								</fb:FilterItem>
+								<fb:FilterItem name="Time" label="{i18n>TIME_LABEL}">
+									<fb:control>
+										<m:Select change="onTimeSelect" width="250px" id="timeSelection"
+											placeholder="{i18n>IQ_TIME_PLACEHOLDER)}" class="timeSelection">
+											<core:Item key="All" text="{i18n>ALL_LABEL}" />
+											<core:Item key="24Hours" text="{i18n>TWENTY_FOUR_HOURS_LABEL}" />
+											<core:Item key="7Days" text="{i18n>SEVEN_DAYS_LABEL}" />
+											<core:Item key="30Days" text="{i18n>THIRTY_DAYS_LABEL}" />
+										</m:Select>
+									</fb:control>
+								</fb:FilterItem>
+								<fb:FilterItem name="Date" label="{i18n>DATE_LABEL}">
+									<fb:control>
+										<m:DatePicker id="datePicker" placeholder="{i18n>ENTER_DATE_LABEL}"
+											valueFormat="MM dd, yyyy" change="handleDateChange" class="sapUiSmallMarginBottom" />
+									</fb:control>
+								</fb:FilterItem>
+								<fb:FilterItem name="Time Interval" label="{i18n>TIME_INTERVAL_LABEL}">
+									<fb:control>
+										<m:DateRangeSelection id="timeIntervalPicker"
+											delimiter="-" placeholder="{i18n>ENTER_TIME_INTERVAL_LABEL}"
+											valueFormat="MM dd, yyyy" change="handleTimeIntervalChange" />
+									</fb:control>
+								</fb:FilterItem>
+							</fb:filterItems>
+						</fb:FilterBar>
+						<m:Table id="nodeObjectQueueTable"
+							class="tableCustomCSS" mode="SingleSelectMaster" items="{nodeObjectQueue>/}">
+							<m:headerToolbar>
+								<m:OverflowToolbar>
+									<m:Title text="{i18n>TITL_ALL} (10)" level="H1" />
+									<m:ToolbarSpacer />
+									<m:Button text="{i18n>ADD_LABEL}" id="uploadFileBtn"
+										type="Default" press="onPressUploadDialog" hideText="false"
+										tooltip="{uploadTooltip>/}" class="uploadFileBtn" />
+									<m:Button text="{i18n>IMPORT_LABEL}" type="Default"
+										enabled="false" class="sapUiSmallMarginBegin importBtn" id="importBtn"
+										press="importApproveDialog" tooltip="{importTooltip>/}" />
+								</m:OverflowToolbar>
+							</m:headerToolbar>
+							<m:columns>
+								<m:Column hAlign="Left" width="24.5%">
+									<m:Text text="{i18n>TRANSPORT_DESCRIPTION}" />
+								</m:Column>
+								<m:Column hAlign="Center" width="24.5%">
+									<m:Text text="{i18n>QET_STATUS}" />
+								</m:Column>
+								<m:Column hAlign="Left" width="24.5%">
+									<m:Text text="{i18n>QET_FILENAME}" />
+								</m:Column>
+								<m:Column hAlign="Left" width="24.5%">
+									<m:Text text="{i18n>QET_CONTENTTYPE}" />
+								</m:Column>
+								<m:Column hAlign="Center" width="24.5%" />
+							</m:columns>
+							<m:items>
+								<m:ColumnListItem vAlign="Middle">
+									<m:cells>
+										<m:ObjectIdentifier title="{nodeObjectQueue>description}" />
+										<m:ObjectStatus class="nodeObjectStatusText"
+											text="{nodeObjectQueue>status}" state="{nodeObjectQueue>state}" />
+										<m:Text text="{nodeObjectQueue>file}" />
+										<m:Text
+											text="{nodeObjectQueue>contentType}" />
+										<m:HBox>
+											<m:Button icon="sap-icon://overview-chart" type="Transparent" press="goToTransportLandscapePage" tooltip="See in Transport Landscape Visualization"/>
+											<m:Button icon="sap-icon://documents" type="Transparent" tooltip="{i18n>TT_IMPORTQUEUELOGS}" />
+											<m:Button icon="sap-icon://delete" type="Transparent"
+												id="removeSelected"
+												tooltip="{i18n>TT_REMOVESELECTED}"/>
+											<m:Button icon="sap-icon://reset" type="Transparent"
+												id="resetSelected" tooltip="{i18n>TT_RESETSELECTED}"/>
+										</m:HBox>
+									</m:cells>
+								</m:ColumnListItem>
+							</m:items>
+						</m:Table>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>

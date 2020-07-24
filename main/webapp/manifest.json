@@ -1,0 +1,132 @@
+{
+	"_version": "1.0.0",
+	"sap.app": {
+		"id": "techEd2018NetworkGraph",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{MAIN_TITLE}}"
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": false
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal",
+			"sap_belize"
+		],
+		"fullWidth": true
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "techEd2018NetworkGraph.view.Standalone",
+			"type": "XML"
+		},
+		"config": {
+			"defaultView": "techEd2018NetworkGraph.view.Standalone"
+		},
+		"dependencies": {
+			"minUI5Version": "1.54.3",
+			"libs": {
+				"sap.ui.core": {
+					
+				},
+				"sap.m": {
+					
+				},
+				"sap.ui.layout": {
+					
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "techEd2018NetworkGraph.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "style/style.css"
+				}
+			],
+			"img": [
+				{
+					"uri": "images/logo.png"
+				},
+				{
+					"uri": "images/logo_small.png"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "techEd2018NetworkGraph.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"async": true
+			},
+			"routes": [
+				{
+					"name": "Overview",
+					"pattern": "",
+					"greedy": false,
+					"target": [
+						"Overview"
+					]
+				},
+				{
+					"name": "TransportLandscape",
+					"pattern": "TransportLandscape",
+					"greedy": false,
+					"target": [
+						"TransportLandscape"
+					]
+				},
+				{
+					"name": "ImportQueue",
+					"pattern": "ImportQueue/{nodeid}",
+					"greedy": false,
+					"target": [
+						"ImportQueue"
+					]
+				}
+			],
+			"targets": {
+				"TransportLandscape": {
+					"viewType": "XML",
+					"transition": "fade",
+					"clearAggregation": true,
+					"viewName": "TransportLandscape",
+					"viewId": "TransportLandscape"
+				},
+				"Overview": {
+					"viewType": "XML",
+					"transition": "fade",
+					"clearAggregation": true,
+					"viewName": "Overview",
+					"viewId": "Overview"
+				},
+				"ImportQueue": {
+					"viewType": "XML",
+					"transition": "fade",
+					"clearAggregation": true,
+					"viewName": "ImportQueue",
+					"viewId": "ImportQueue"
+				}
+			}
+		}
+	}
+}

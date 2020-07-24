@@ -1,0 +1,84 @@
+[
+	{
+		"id" : 0,
+		"name" : "TEST_CLM",
+		"description" : "Test CLM node",
+		"role": "Test",
+		"upload_allowed": true,
+		"content_type": "Multi-Target Application",
+		"content_type_key": "MTA",
+		"destination": "SAP Cloud Platform",
+		"destination_key": "SAPCP",
+		"import_queue" :[
+			{"status": "Succeeded", "state": "Success", "file": "mta1.mtar", "description": "Transport1", "contentType": "Multi-Target Application"},
+			{"status": "Succeeded", "state": "Success", "file": "mta2.mtar", "description": "Transport2", "contentType": "Multi-Target Application"},
+			{"status": "Succeeded", "state": "Success", "file": "mta3.mtar", "description": "Transport3", "contentType": "Multi-Target Application"},
+			{"status": "Succeeded", "state": "Success", "file": "mta4.mtar", "description": "Transport4", "contentType": "Multi-Target Application"}
+		]
+	},
+	{
+		"id" : 1,
+		"name" : "PREPROD_CLM",
+		"description" : "Pre-production CLM node",
+		"role": "Test",
+		"upload_allowed": false,
+		"content_type": "Multi-Target Application",
+		"content_type_key": "MTA",
+		"destination": "SAP Cloud Platform",
+		"destination_key": "SAPCP",
+		"import_queue" :[
+			{"status": "Running", "state": "None", "file": "mta1.mtar", "description": "Transport1", "contentType": "Multi-Target Application"},
+			{"status": "Initial", "state": "None", "file": "mta2.mtar", "description": "Transport2", "contentType": "Multi-Target Application"},
+			{"status": "Initial", "state": "None", "file": "mta3.mtar", "description": "Transport3", "contentType": "Multi-Target Application"},
+			{"status": "Initial", "state": "None", "file": "mta4.mtar", "description": "Transport4", "contentType": "Multi-Target Application"}
+		]
+	},
+	{
+		"id" : 2,
+		"name" : "PROD_CLM" ,
+		"description" : "Productive CLM node",
+		"role": "Prod",
+		"upload_allowed": false,
+		"content_type": "Multi-Target Application",
+		"content_type_key": "MTA",
+		"destination": "SAP Cloud Platform",
+		"destination_key": "SAPCP",
+		"import_queue" :[
+			
+		]
+	},
+	{
+		"id" : 3,
+		"name" : "SANDBOX_CLM" ,
+		"description" : "Sandbox CLM node",
+		"role": "Test",
+		"upload_allowed": true,
+		"content_type": "Multi-Target Application",
+		"content_type_key": "MTA",
+		"destination": "dest2",
+		"destination_key": "dest2",
+		"import_queue" :[
+			{"status": "Succeeded", "state": "Success", "file": "mta1.mtar", "description": "Transport1", "contentType": "Multi-Target Application"},
+			{"status": "Error", "state": "Error", "file": "mta2.mtar", "description": "Transport2", "contentType": "Multi-Target Application"},
+			{"status": "Initial", "state": "None", "file": "mta3.mtar", "description": "Transport3", "contentType": "Multi-Target Application"},
+			{"status": "Initial", "state": "None", "file": "mta4.mtar", "description": "Transport4", "contentType": "Multi-Target Application"}
+		]
+	},
+	{
+		"id" : 4,
+		"name" : "DEMO_CLM" ,
+		"description" : "Demo CLM node",
+		"role": "Test",
+		"upload_allowed": true,
+		"content_type": "Multi-Target Application",
+		"content_type_key": "MTA",
+		"destination": "dest2",
+		"destination_key": "dest2",
+		"import_queue" :[
+			{"status": "Succeeded", "state": "Success", "file": "mta1.mtar", "description": "Transport1", "contentType": "Multi-Target Application"},
+			{"status": "Succeeded", "state": "Success", "file": "mta2.mtar", "description": "Transport2", "contentType": "Multi-Target Application"},
+			{"status": "Initial", "state": "None", "file": "mta3.mtar", "description": "Transport3", "contentType": "Multi-Target Application"},
+			{"status": "Initial", "state": "None", "file": "mta4.mtar", "description": "Transport4", "contentType": "Multi-Target Application"}
+		]
+	}
+]

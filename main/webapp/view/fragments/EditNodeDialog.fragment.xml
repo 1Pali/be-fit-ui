@@ -1,0 +1,48 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified"
+	xmlns:l="sap.ui.layout"
+	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Dialog id="editNodeDialog" title="{i18n>EDIT_NODE_AND_TARGET_DIALOG_TITLE}"
+		resizable="false">
+		<content>
+			<FlexBox direction="Column" height="auto" alignItems="Stretch"
+				class="sapUiMediumMargin">
+				<items>
+					<Label text="{i18n>NODE_NAME}" class="sapUiSmallMarginTop" />
+					<Input id="editNodeName" value="{selectedNode>/name}"
+						maxLength="30" editable="false" />
+					<Label text="{i18n>DESCRIPTION_LABEL}" class="sapUiSmallMarginTop"/>
+					<TextArea id="editNodeDescription" width="100%"
+						class="sapUiSmallMarginBottom editNodeDescription" value="{selectedNode>/description}"
+						maxLength="512" liveChange="validateEditNodeDescription"/>
+					<Text text="{i18n>EDIT_NODE_NAME_WARNING}" class="sapUiMediumMarginBottom" />
+					<Label id="editNodeTargetRoleLabel" text="{i18n>ROLE_LABEL}" class="sapUiSmallMarginTop"/>
+					<Select id="editNodeTargetRole" forceSelection="false" width="100%" selectedKey="{selectedNode>/role}">
+						<core:Item key="Dev" text="Development"/>
+						<core:Item key="Test" text="Test"/>
+						<core:Item key="Prod" text="Production"/>
+						<core:Item key="Sandbox" text="Sandbox"/>
+					</Select>
+					<CheckBox id="editAllowUploadCheckbox" text="{i18n>ALLOW_UPLOAD_TITLE}" selected="{selectedNode>/upload_allowed}"/>
+					<Label id="editNodeTargetCTLabel" text="{i18n>TARGET_CONTENT_TYPE}" class="sapUiSmallMarginTop"/>
+					<Select id="editNodeTargetCT" forceSelection="false" width="100%" class="editDeployTargetContentType" selectedKey="{selectedNode>/content_type_key}">
+						<core:Item key="MTA" text="{i18n>MULTI_TARGET_LABEL}"/>
+						<core:Item key="XSCDU" text="{i18n>XSC_DU_LABEL}"/>
+						<core:Item key="APP" text="{i18n>APP_LABEL}"/>
+					</Select>
+					<Label id="editNodeDestIDTargetLabel" text="{i18n>TARGET_DESTINATION}" class="sapUiSmallMarginTop"/>
+					<Select	id="editNodeDestIDTarget" forceSelection= "false" class="sapUiSmallMarginBottom editDeployTargetDestination" width="100%" selectedKey="{selectedNode>/destination_key}">
+						<core:Item key="SAPCP" text="SAP Cloud Platform" />
+						<core:Item key="dest2" text="Destination 2" />
+						<core:Item key="dest3" text="Destination 3" />
+					</Select>
+					<Text text="{i18n>DESTINATION_INFO}" class="sapUiSmallMarginBottom" width="300px" id="destinationsInfoTextEdit"/>
+				</items>
+			</FlexBox>
+		</content>
+		<buttons>
+			<Button id="editNodeGoBtn" press="onEditNode" text="{i18n>OK_LABEL}" class="editNodeGoBtn"/>
+			<Button press="onEditNodeClosePress" text="{i18n>CANCEL}" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>
