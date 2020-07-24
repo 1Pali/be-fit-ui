@@ -7,7 +7,6 @@
 			<tnt:ToolHeader>
 				<Button class="expandNav" id="sideExpanded" type="Transparent"
 					icon="sap-icon://menu2" press="onToggleSideNavigation" activeIcon="sap-icon://menu2" />
-				<Image src="./images/logo_small.png" />
 				<ToolbarSpacer />
 				<Text text="{i18n>MAIN_TITLE}" wrapping="false">
 					<layoutData>
