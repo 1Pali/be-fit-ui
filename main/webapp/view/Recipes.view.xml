@@ -14,7 +14,98 @@
 					<l:BlockLayoutCell width="100%"
 									   class="overviewPageBlockLayoutCell"
 					>
-						<Title level="H1" text="{i18n>RECIPES}" class="sapUiSmallMarginEnd"/>
+						<Title
+								level="H1" text="{i18n>RECIPES}" class="sapUiSmallMarginEnd"
+						/>
+						<Table id="idRecipesTable"
+							   inset="false"
+							   items="{
+                                    path: '/RecipesCollection',
+                                    sorter: {
+                                        path: 'Name'
+                                    }
+                                }"
+						>
+							<headerToolbar>
+								<OverflowToolbar>
+									<content>
+										<ToolbarSpacer/>
+										<Button
+												text="Add"
+										/>
+										<Button
+												text="Remove"
+										/>
+									</content>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column>
+									<Text
+											text="Name"
+									/>
+								</Column>
+								<Column
+										demandPopin="true"
+								>
+									<Text
+											text="Description"
+									/>
+								</Column>
+								<Column
+										demandPopin="true"
+								>
+									<Text
+											text="Total Proteins"
+									/>
+								</Column>
+								<Column
+										demandPopin="true"
+								>
+									<Text
+											text="Total Carbohydrates"
+									/>
+								</Column>
+								<Column
+										demandPopin="true"
+								>
+									<Text
+											text="Total Fats"
+									/>
+								</Column>
+								<Column
+										demandPopin="true"
+								>
+									<Text
+											text="Portions"
+									/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<ObjectIdentifier
+												title="{Name}"
+										/>
+										<Text
+												text="{Description}"
+										/>
+										<Text
+												text="{TotalProtein}"
+										/>
+										<Text
+												text="{TotalCarbohydrate}"
+										/>
+										<Text
+												text="{TotalFat}"
+										/>
+										<Text
+												text="{Portion}"
+										/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
 					</l:BlockLayoutCell>
 				</l:BlockLayoutRow>
 			</l:BlockLayout>

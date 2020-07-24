@@ -1,22 +1,96 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
-	xmlns="sap.m" xmlns:commons="sap.suite.ui.commons" xmlns:l="sap.ui.layout"
-	xmlns:html="http://www.w3.org/1999/xhtml"
-	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
-	xmlns:f="sap.f" xmlns:viz="sap.viz.ui5.controls" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
-	xmlns:viz.data="sap.viz.ui5.data" xmlns:chart="sap.suite.ui.microchart"
-	controllerName="pc.my.be-fit.controller.Ingredients">
-	<f:DynamicPage id="overviewPage" class="overviewPage">
-		<f:content>
-			<l:BlockLayout class="overviewPageBlockLayout"
-				background="Transparent"
-			>
-				<l:BlockLayoutRow>
-					<l:BlockLayoutCell width="100%"
-						class="overviewPageBlockLayoutCell">
-						<Title level="H1" text="{i18n>INGREDIENTS}" class="sapUiSmallMarginEnd"/>
-					</l:BlockLayoutCell>
-				</l:BlockLayoutRow>
-			</l:BlockLayout>
-		</f:content>
-	</f:DynamicPage>
+          xmlns="sap.m" xmlns:commons="sap.suite.ui.commons" xmlns:l="sap.ui.layout"
+          xmlns:html="http://www.w3.org/1999/xhtml"
+          xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+          xmlns:f="sap.f" xmlns:viz="sap.viz.ui5.controls" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+          xmlns:viz.data="sap.viz.ui5.data" xmlns:chart="sap.suite.ui.microchart"
+          controllerName="pc.my.be-fit.controller.Ingredients">
+    <f:DynamicPage id="overviewPage" class="overviewPage">
+        <f:content>
+            <l:BlockLayout class="overviewPageBlockLayout"
+                           background="Transparent"
+            >
+                <l:BlockLayoutRow>
+                    <l:BlockLayoutCell width="100%"
+                                       class="overviewPageBlockLayoutCell"
+                    >
+                        <Title
+                                level="H1"
+                                text="{i18n>INGREDIENTS}"
+                                class="sapUiSmallMarginEnd"
+                        />
+                        <Table id="idIngredientsTable"
+                               inset="false"
+                               items="{
+                                    path: '/IngredientsCollection',
+                                    sorter: {
+                                        path: 'Name'
+                                    }
+                                }"
+                        >
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <content>
+                                        <ToolbarSpacer/>
+                                        <Button
+                                            text="Add"
+                                        />
+                                        <Button
+                                            text="Remove"
+                                        />
+                                    </content>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column>
+                                    <Text
+                                        text="Name"
+                                    />
+                                </Column>
+                                <Column
+                                    demandPopin="true"
+                                >
+                                    <Text
+                                        text="Proteins"
+                                    />
+                                </Column>
+                                <Column
+                                    demandPopin="true"
+                                >
+                                    <Text
+                                        text="Carbohydrates"
+                                    />
+                                </Column>
+                                <Column
+                                    demandPopin="true"
+                                >
+                                    <Text
+                                        text="Fats"
+                                    />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <ObjectIdentifier
+                                            title="{Name}"
+                                        />
+                                        <Text
+                                            text="{Protein}"
+                                        />
+                                        <Text
+                                            text="{Carbohydrate}"
+                                        />
+                                        <Text
+                                            text="{Fat}"
+                                        />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </l:BlockLayoutCell>
+                </l:BlockLayoutRow>
+            </l:BlockLayout>
+        </f:content>
+    </f:DynamicPage>
 </mvc:View>
