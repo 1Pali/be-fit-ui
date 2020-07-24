@@ -1,7 +1,7 @@
 sap.ui.define([ "sap/ui/core/mvc/Controller", "sap/m/MessageToast" ], function(Controller, MessageToast) {
     "use strict";
 
-    return Controller.extend("pc.my.be-fit.controller.Overview", {
+    return Controller.extend("pc.my.be-fit.controller.DailyFoodPlanning", {
 
         _onObjectMatched : function() {               
                 //preselect 'All' by default
