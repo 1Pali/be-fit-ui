@@ -4,12 +4,11 @@
   "description": "",
   "devDependencies": {
     "@ui5/cli": "1.13.0",
-    "@sap/ui5-builder-webide-extension": "1.0.x"
+    "@sap/ui5-builder-webide-extension": "1.0.x",
+    "express": "^4.17.1"
   },
-  "main": "index.html",
   "scripts": {
-    "build": "ui5 build --clean-dest --include-task=generateManifestBundle generateCachebusterInfo",
-    "start": "node BCMServer.js"
+    "start": "node server.js"
   },
   "ui5": {
     "dependencies": [
