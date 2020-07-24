@@ -80,51 +80,51 @@
 			},
 			"routes": [
 				{
-					"name": "Overview",
+					"name": "Ingredients",
 					"pattern": "",
 					"greedy": false,
 					"target": [
-						"Overview"
+						"Ingredients"
 					]
 				},
 				{
-					"name": "TransportLandscape",
-					"pattern": "TransportLandscape",
+					"name": "Recipes",
+					"pattern": "Recipes",
 					"greedy": false,
 					"target": [
-						"TransportLandscape"
+						"Recipes"
 					]
 				},
 				{
-					"name": "ImportQueue",
-					"pattern": "ImportQueue/{nodeid}",
+					"name": "DailyFoodPlanning",
+					"pattern": "DailyFoodPlanning",
 					"greedy": false,
 					"target": [
-						"ImportQueue"
+						"DailyFoodPlanning"
 					]
 				}
 			],
 			"targets": {
-				"TransportLandscape": {
+				"Ingredients": {
 					"viewType": "XML",
 					"transition": "fade",
 					"clearAggregation": true,
-					"viewName": "TransportLandscape",
-					"viewId": "TransportLandscape"
+					"viewName": "Ingredients",
+					"viewId": "Ingredients"
 				},
-				"Overview": {
+				"Recipes": {
 					"viewType": "XML",
 					"transition": "fade",
 					"clearAggregation": true,
-					"viewName": "Overview",
-					"viewId": "Overview"
+					"viewName": "Recipes",
+					"viewId": "Recipes"
 				},
-				"ImportQueue": {
+				"DailyFoodPlanning": {
 					"viewType": "XML",
 					"transition": "fade",
 					"clearAggregation": true,
-					"viewName": "ImportQueue",
-					"viewId": "ImportQueue"
+					"viewName": "DailyFoodPlanning",
+					"viewId": "DailyFoodPlanning"
 				}
 			}
 		}

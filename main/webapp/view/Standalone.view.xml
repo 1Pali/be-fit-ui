@@ -24,9 +24,9 @@
 			<tnt:SideNavigation id="sideNavigation">
 				<tnt:item>
 					<tnt:NavigationList expanded="true" itemSelect="">
-						<tnt:NavigationListItem icon="sap-icon://product" text="{i18n>GO_INGREDIENTS}" select="goToOverview"/>
-						<tnt:NavigationListItem icon="sap-icon://overview-chart" text="{i18n>GO_RECIPES}" select="goToTransportLandscape"/>
-						<tnt:NavigationListItem icon="sap-icon://activate" text="{i18n>GO_DAILY_FOOD_PLANNING}"/>
+						<tnt:NavigationListItem icon="sap-icon://product" text="{i18n>GO_INGREDIENTS}" select="goToIngredients"/>
+						<tnt:NavigationListItem icon="sap-icon://overview-chart" text="{i18n>GO_RECIPES}" select="goToRecipes"/>
+						<tnt:NavigationListItem icon="sap-icon://activate" text="{i18n>GO_DAILY_FOOD_PLANNING}" select="goDailyFoodPlanning"/>
 <!--						<tnt:NavigationListItem icon="sap-icon://sys-help" text="{i18n>GO_TO_HELP}"/>-->
 					</tnt:NavigationList>
 				</tnt:item>

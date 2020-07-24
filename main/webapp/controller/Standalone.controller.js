@@ -48,14 +48,19 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
             return this.getOwnerComponent();
         },
         
-        goToOverview : function() {
+        goToIngredients : function() {
         	var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-        	oRouter.navTo("Overview", {});
+        	oRouter.navTo("Ingredients", {});
         },
         
-        goToTransportLandscape: function() {
+        goToRecipes: function() {
         	var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-        	oRouter.navTo("TransportLandscape", {});
+        	oRouter.navTo("Recipes", {});
+        },
+
+        goDailyFoodPlanning: function () {
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("DailyFoodPlanning", {});
         }
 
     });
