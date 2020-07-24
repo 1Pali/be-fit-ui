@@ -1,7 +1,7 @@
 sap.ui.define([ "sap/ui/core/UIComponent" ], function(UIComponent) {
     "use strict";
 
-    return UIComponent.extend("techEd2018NetworkGraph.Component", {
+    return UIComponent.extend("pc.my.be-fit.Component", {
         metadata : {
             manifest : "json"
         },

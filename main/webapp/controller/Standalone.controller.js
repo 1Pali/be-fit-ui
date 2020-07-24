@@ -1,10 +1,10 @@
 sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap/m/MessageBox" ], function(Controller, JSONModel, MessageBox) {
     "use strict";
 
-    return Controller.extend("techEd2018NetworkGraph.controller.Standalone", {
+    return Controller.extend("pc.my.be-fit.controller.Standalone", {
 
         onInit : function() {
-            var rootPath = jQuery.sap.getModulePath("techEd2018NetworkGraph");
+            var rootPath = jQuery.sap.getModulePath("pc.my.be-fit");
             var i18nModel = new sap.ui.model.resource.ResourceModel({
                 bundleUrl : [ rootPath, "i18n/i18n.properties" ].join("/")
             });

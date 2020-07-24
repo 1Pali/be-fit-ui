@@ -12,14 +12,14 @@
 	data-sap-ui-libs="sap.m, sap.ui.layout" data-sap-ui-theme="sap_belize"
 	data-sap-ui-xx-bindingSyntax="complex" data-sap-ui-preload="async"
 	data-sap-ui-compatVersion="edge" data-sap-ui-frameOptions='deny'
-	data-sap-ui-resourceroots='{"techEd2018NetworkGraph": "./"}'>
+	data-sap-ui-resourceroots='{"pc.my.be-fit": "./"}'>
     
 </script>
 
 <script>
     sap.ui.getCore().attachInit(function() {        
         sap.ui.component({
-            name : "techEd2018NetworkGraph",
+            name : "pc.my.be-fit",
             async : true,
             manifestFirst : true
         }).then(function(oComponent) {
@@ -28,7 +28,7 @@
                 appWidthLimited : false,
                 app : new sap.ui.core.ComponentContainer({
                     id : "tsComponent",
-                    name : "techEd2018NetworkGraph",
+                    name : "pc.my.be-fit",
                     height : "100%",
                     component : oComponent
                 })

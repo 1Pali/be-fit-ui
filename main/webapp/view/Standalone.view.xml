@@ -1,7 +1,7 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tnt="sap.tnt"
 	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
-	controllerName="techEd2018NetworkGraph.controller.Standalone" id="standaloneView">
+	controllerName="pc.my.be-fit.controller.Standalone" id="standaloneView">
 	<tnt:ToolPage id="toolPage">
 		<tnt:header>
 			<tnt:ToolHeader>

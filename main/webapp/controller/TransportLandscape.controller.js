@@ -1,7 +1,7 @@
 sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap/m/MessageBox" ], function(Controller, JSONModel, MessageBox) {
     "use strict";
 
-    return Controller.extend("techEd2018NetworkGraph.controller.TransportLandscape", {
+    return Controller.extend("pc.my.be-fit.controller.TransportLandscape", {
 
         onInit : function() {
         	var that = this;
@@ -38,7 +38,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
 				press : function() {
 					//open create node dialog
 					if (!that._createNodeDialog) {
-	                    that._createNodeDialog = sap.ui.xmlfragment("techEd2018NetworkGraph.view.fragments.CreateNodeDialog", that);
+	                    that._createNodeDialog = sap.ui.xmlfragment("pc.my.be-fit.view.fragments.CreateNodeDialog", that);
 	                    that.getView().addDependent(that._createNodeDialog);
 	                }
 					that._createNodeDialog.open();
@@ -52,7 +52,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
 				press : function() {
 					//open create route dialog
 					if (!that._createRouteDialog) {
-	                    that._createRouteDialog = sap.ui.xmlfragment("techEd2018NetworkGraph.view.fragments.CreateRouteDialog", that);
+	                    that._createRouteDialog = sap.ui.xmlfragment("pc.my.be-fit.view.fragments.CreateRouteDialog", that);
 	                    that.getView().addDependent(that._createRouteDialog);
 	                }
 					that._createRouteDialog.open();
@@ -294,7 +294,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
         		"press": function() {
         			//open create route dialog
         			if (!that._createRouteDialog) {
-        				that._createRouteDialog = sap.ui.xmlfragment("techEd2018NetworkGraph.view.fragments.CreateRouteDialog", that);
+        				that._createRouteDialog = sap.ui.xmlfragment("pc.my.be-fit.view.fragments.CreateRouteDialog", that);
         				that.getView().addDependent(that._createRouteDialog);
                     }
         			that._createRouteDialog.open();
@@ -323,7 +323,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
         		"press": function() {
         			//open edit node dialog
         			if (!that._editNodeDialog) {
-        				that._editNodeDialog = sap.ui.xmlfragment("techEd2018NetworkGraph.view.fragments.EditNodeDialog", that);
+        				that._editNodeDialog = sap.ui.xmlfragment("pc.my.be-fit.view.fragments.EditNodeDialog", that);
         				that.getView().addDependent(that._editNodeDialog);
                     }
         			
@@ -337,7 +337,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
         		"press": function() {
         			//open delete node dialog
         			if (!that._deleteNodeDialog) {
-        				that._deleteNodeDialog = sap.ui.xmlfragment("techEd2018NetworkGraph.view.fragments.DeleteNodeWarningDialog", that);
+        				that._deleteNodeDialog = sap.ui.xmlfragment("pc.my.be-fit.view.fragments.DeleteNodeWarningDialog", that);
         				that.getView().addDependent(that._deleteNodeDialog);
                     }
         			that._deleteNodeDialog.open();
@@ -409,7 +409,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
         onAddRoutePress : function() {
         	//open create route dialog
 			if (!this._createRouteDialog) {
-				this._createRouteDialog = sap.ui.xmlfragment("techEd2018NetworkGraph.view.fragments.CreateRouteDialog", this);
+				this._createRouteDialog = sap.ui.xmlfragment("pc.my.be-fit.view.fragments.CreateRouteDialog", this);
 				this.getView().addDependent(this._createRouteDialog);
             }
 			this._createRouteDialog.open();
@@ -520,7 +520,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
         onEditNodePress : function() {
         	//open edit node dialog
 			if (!this._editNodeDialog) {
-				this._editNodeDialog = sap.ui.xmlfragment("techEd2018NetworkGraph.view.fragments.EditNodeDialog", this);
+				this._editNodeDialog = sap.ui.xmlfragment("pc.my.be-fit.view.fragments.EditNodeDialog", this);
 				this.getView().addDependent(this._editNodeDialog);
             }
 			
@@ -575,7 +575,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
         		"press": function() {
         			//open create route dialog
         			if (!that._createRouteDialog) {
-        				that._createRouteDialog = sap.ui.xmlfragment("techEd2018NetworkGraph.view.fragments.CreateRouteDialog", that);
+        				that._createRouteDialog = sap.ui.xmlfragment("pc.my.be-fit.view.fragments.CreateRouteDialog", that);
         				that.getView().addDependent(that._createRouteDialog);
                     }
         			that._createRouteDialog.open();
@@ -604,7 +604,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
         		"press": function() {
         			//open edit node dialog
         			if (!that._editNodeDialog) {
-        				that._editNodeDialog = sap.ui.xmlfragment("techEd2018NetworkGraph.view.fragments.EditNodeDialog", that);
+        				that._editNodeDialog = sap.ui.xmlfragment("pc.my.be-fit.view.fragments.EditNodeDialog", that);
         				that.getView().addDependent(that._editNodeDialog);
                     }
         			
@@ -618,7 +618,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
         		"press": function() {
         			//open delete node dialog
         			if (!that._deleteNodeDialog) {
-        				that._deleteNodeDialog = sap.ui.xmlfragment("techEd2018NetworkGraph.view.fragments.DeleteNodeWarningDialog", that);
+        				that._deleteNodeDialog = sap.ui.xmlfragment("pc.my.be-fit.view.fragments.DeleteNodeWarningDialog", that);
         				that.getView().addDependent(that._deleteNodeDialog);
                     }
         			that._deleteNodeDialog.open();
@@ -666,7 +666,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
         onEditRoutePress : function() {
         	//open edit route dialog
 			if (!this._editRouteDialog) {
-				this._editRouteDialog = sap.ui.xmlfragment("techEd2018NetworkGraph.view.fragments.EditRouteDialog", this);
+				this._editRouteDialog = sap.ui.xmlfragment("pc.my.be-fit.view.fragments.EditRouteDialog", this);
 				this.getView().addDependent(this._editRouteDialog);
             }
 			this._editRouteDialog.open();
@@ -793,7 +793,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
         onDeleteNodePress : function() {
         	//open delete node dialog
 			if (!this._deleteNodeDialog) {
-				this._deleteNodeDialog = sap.ui.xmlfragment("techEd2018NetworkGraph.view.fragments.DeleteNodeWarningDialog", this);
+				this._deleteNodeDialog = sap.ui.xmlfragment("pc.my.be-fit.view.fragments.DeleteNodeWarningDialog", this);
 				this.getView().addDependent(this._deleteNodeDialog);
             }
 			this._deleteNodeDialog.open();
@@ -876,7 +876,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
         onDeleteRoutePress : function() {
         	//open delete route dialog
 			if (!this._deleteRouteDialog) {
-				this._deleteRouteDialog = sap.ui.xmlfragment("techEd2018NetworkGraph.view.fragments.DeleteRouteWarningDialog", this);
+				this._deleteRouteDialog = sap.ui.xmlfragment("pc.my.be-fit.view.fragments.DeleteRouteWarningDialog", this);
 				this.getView().addDependent(this._deleteRouteDialog);
             }
 			this._deleteRouteDialog.open();

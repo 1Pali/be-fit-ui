@@ -1,7 +1,7 @@
 {
 	"_version": "1.0.0",
 	"sap.app": {
-		"id": "techEd2018NetworkGraph",
+		"id": "pc.my.be-fit",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"title": "{{MAIN_TITLE}}"
@@ -22,11 +22,11 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "techEd2018NetworkGraph.view.Standalone",
+			"viewName": "pc.my.be-fit.view.Standalone",
 			"type": "XML"
 		},
 		"config": {
-			"defaultView": "techEd2018NetworkGraph.view.Standalone"
+			"defaultView": "pc.my.be-fit.view.Standalone"
 		},
 		"dependencies": {
 			"minUI5Version": "1.54.3",
@@ -50,7 +50,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "techEd2018NetworkGraph.i18n.i18n"
+					"bundleName": "pc.my.be-fit.i18n.i18n"
 				}
 			}
 		},
@@ -73,7 +73,7 @@
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"viewPath": "techEd2018NetworkGraph.view",
+				"viewPath": "pc.my.be-fit.view",
 				"controlId": "app",
 				"controlAggregation": "pages",
 				"async": true
