@@ -24,14 +24,10 @@
 			<tnt:SideNavigation id="sideNavigation">
 				<tnt:item>
 					<tnt:NavigationList expanded="true" itemSelect="">
-						<tnt:NavigationListItem icon="sap-icon://product" text="{i18n>GO_TO_OV}" select="goToOverview"/>
-						<tnt:NavigationListItem icon="sap-icon://overview-chart" text="{i18n>GO_TO_TL}" select="goToTransportLandscape"/>
-						<tnt:NavigationListItem icon="sap-icon://activate" text="{i18n>OVERVIEW_LANDSCAPE_WIZARD}"/>
-						<tnt:NavigationListItem icon="sap-icon://share-2" text="{i18n>GO_TO_TRN}"/>
-						<tnt:NavigationListItem icon="sap-icon://shipping-status" text="{i18n>GO_TO_TRR}"/>
-						<tnt:NavigationListItem icon="sap-icon://documents" text="{i18n>GO_TO_AL}"/>
-						<tnt:NavigationListItem icon="sap-icon://activities" text="{i18n>GO_TO_LA}"/>
-						<tnt:NavigationListItem icon="sap-icon://sys-help" text="{i18n>GO_TO_HELP}"/>
+						<tnt:NavigationListItem icon="sap-icon://product" text="{i18n>GO_INGREDIENTS}" select="goToOverview"/>
+						<tnt:NavigationListItem icon="sap-icon://overview-chart" text="{i18n>GO_RECIPES}" select="goToTransportLandscape"/>
+						<tnt:NavigationListItem icon="sap-icon://activate" text="{i18n>GO_DAILY_FOOD_PLANNING}"/>
+<!--						<tnt:NavigationListItem icon="sap-icon://sys-help" text="{i18n>GO_TO_HELP}"/>-->
 					</tnt:NavigationList>
 				</tnt:item>
 			</tnt:SideNavigation>
