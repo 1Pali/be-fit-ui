@@ -22,7 +22,7 @@
 					</l:BlockLayoutCell>
 				</l:BlockLayoutRow>
 				<l:BlockLayoutRow>
-					<l:BlockLayoutCell title="{i18n>OVERVIEW_TRANSPORT_MONITOR}"
+					<l:BlockLayoutCell title="{i18n>INGREDIENTS}"
 						width="50%" class="overviewColorBlue chartBlock">
 						<FlexBox direction="Column" backgroundDesign="Transparent"
 							width="inherit" alignItems="Center" justifyContent="SpaceBetween"
