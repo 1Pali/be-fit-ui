@@ -6,8 +6,10 @@
     "@ui5/cli": "1.13.0",
     "@sap/ui5-builder-webide-extension": "1.0.x"
   },
+  "main": "index.html",
   "scripts": {
-    "build": "ui5 build --clean-dest --include-task=generateManifestBundle generateCachebusterInfo"
+    "build": "ui5 build --clean-dest --include-task=generateManifestBundle generateCachebusterInfo",
+    "start": "node BCMServer.js"
   },
   "ui5": {
     "dependencies": [
