@@ -4,7 +4,7 @@
 		  xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 		  xmlns:f="sap.f" xmlns:viz="sap.viz.ui5.controls" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
 		  xmlns:viz.data="sap.viz.ui5.data" xmlns:chart="sap.suite.ui.microchart"
-		  controllerName="pc.my.be-fit.controller.Recipes">
+		  controllerName="pc.my.be-fit.controller.MasterRecipes">
 	<f:DynamicPage id="overviewPage" class="overviewPage">
 		<f:content>
 			<l:BlockLayout class="overviewPageBlockLayout"
@@ -20,9 +20,9 @@
 						<Table id="idRecipesTable"
 							   inset="false"
 							   items="{
-                                    path: '/RecipesCollection',
+                                    path: '/recipesCollection',
                                     sorter: {
-                                        path: 'Name'
+                                        path: 'name'
                                     }
                                 }"
 						>
@@ -82,25 +82,28 @@
 								</Column>
 							</columns>
 							<items>
-								<ColumnListItem>
+								<ColumnListItem
+										type="Navigation"
+										press=".onTableListItemPress"
+								>
 									<cells>
 										<ObjectIdentifier
-												title="{Name}"
+												title="{name}"
 										/>
 										<Text
-												text="{Description}"
+												text="{description}"
 										/>
 										<Text
-												text="{TotalProtein}"
+												text="{totalProtein}"
 										/>
 										<Text
-												text="{TotalCarbohydrate}"
+												text="{totalCarbohydrate}"
 										/>
 										<Text
-												text="{TotalFat}"
+												text="{totalFat}"
 										/>
 										<Text
-												text="{Portion}"
+												text="{portion}"
 										/>
 									</cells>
 								</ColumnListItem>
