@@ -25,7 +25,10 @@
         </headerTitle>
 
         <headerContent>
-
+            <core:Fragment
+                    fragmentName="pc.my.be-fit.src.detail.ingredients.components.header.IngredientHeaderContent"
+                    type="XML"
+            />
         </headerContent>
 
         <sections>

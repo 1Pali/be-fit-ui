@@ -16,13 +16,16 @@
     >
         <headerTitle>
             <core:Fragment
-                fragmentName="pc.my.be-fit.src.detail.recipes.components.header.IngredientHeader"
+                fragmentName="pc.my.be-fit.src.detail.recipes.components.header.RecipesHeader"
                 type="XML"
             />
         </headerTitle>
 
         <headerContent>
-
+            <core:Fragment
+                    fragmentName="pc.my.be-fit.src.detail.recipes.components.header.RecipesHeaderContent"
+                    type="XML"
+            />
         </headerContent>
 
         <sections>
