@@ -1,0 +1,29 @@
+<core:FragmentDefinition
+    xmlns="sap.tnt"
+    xmlns:core="sap.ui.core"
+>
+    <SideNavigation id="sideNavigation">
+        <item>
+            <NavigationList
+                    expanded="true"
+                    itemSelect=""
+            >
+                <NavigationListItem
+                        icon="sap-icon://product"
+                        text="{i18n>GO_INGREDIENTS}"
+                        select="goToIngredients"
+                />
+                <NavigationListItem
+                        icon="sap-icon://overview-chart"
+                        text="{i18n>GO_RECIPES}"
+                        select="goToRecipes"
+                />
+                <NavigationListItem
+                        icon="sap-icon://activate"
+                        text="{i18n>GO_DAILY_FOOD_PLANNING}"
+                        select="goDailyFoodPlanning"
+                />
+            </NavigationList>
+        </item>
+    </SideNavigation>
+</core:FragmentDefinition>

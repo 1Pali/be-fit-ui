@@ -22,10 +22,18 @@ sap.ui.define([
 
             this._updateUIElements();
 
+            switch (sRouteName) {
+                case "DetailIngredients":
+                    this.currentIngredient = oArguments.ingredient;
+                    break;
+                case "DetailRecipes":
+                    this.currentRecipe = oArguments.recipe;
+                    break;
+            }
+
             // Save the current route name
             this.currentRouteName = sRouteName;
-            this.currentProduct = oArguments.product;
-            this.currentSupplier = oArguments.supplier;
+
         },
 
         onStateChanged: function (oEvent) {
@@ -34,9 +42,31 @@ sap.ui.define([
 
             this._updateUIElements();
 
-            // Replace the URL with the new layout if a navigation arrow was used
-            if (bIsNavigationArrow) {
-                this.oRouter.navTo(this.currentRouteName, {layout: sLayout, product: this.currentProduct, supplier: this.currentSupplier}, true);
+            //MOST PROBABLY ISSUE WITH THIS AT REFRESHING APP DETAIL IS NOT DISPLAYED AUTOMATICALLY IF WAS BEFORE
+            if (this.currentRouteName.includes("Detail")) {
+                var oRouteData = {
+                    layout: sLayout
+                };
+
+                switch(this.currentRouteName) {
+                    case "DetailIngredients":
+                        oRouteData = {
+                            layout: "TwoColumnsMidExpanded",
+                            ingredient: this.currentIngredient,
+                        };
+
+                        break;
+                    case "DetailRecipes":
+                        oRouteData = {
+                            layout: "TwoColumnsMidExpanded",
+                            recipe: this.currentRecipe,
+                        };
+
+                        break;
+                }
+
+                //BUG: APP MUST NAVIGATE TO DETAIL BUT DOESNT VALUES ARE OK
+                this.oRouter.navTo(this.currentRouteName, oRouteData, true);
             }
         },
 
@@ -91,17 +121,17 @@ sap.ui.define([
         
         goToIngredients : function() {
         	var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-        	oRouter.navTo("MasterIngredients", {});
+        	oRouter.navTo("MasterIngredients", {layout: "OneColumn"});
         },
         
         goToRecipes: function() {
         	var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-        	oRouter.navTo("MasterRecipes", {});
+        	oRouter.navTo("MasterRecipes", {layout: "OneColumn"});
         },
 
         goDailyFoodPlanning: function () {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            oRouter.navTo("MasterDailyFoodPlanning", {});
+            oRouter.navTo("MasterDailyFoodPlanning", {layout: "OneColumn"});
         }
 
     });

@@ -10,32 +10,21 @@
 >
 	<tnt:ToolPage id="toolPage">
 		<tnt:header>
-			<tnt:ToolHeader>
-				<Button class="expandNav" id="sideExpanded" type="Transparent"
-					icon="sap-icon://menu2" press="onToggleSideNavigation" activeIcon="sap-icon://menu2" />
-				<ToolbarSpacer />
-				<Text text="{i18n>MAIN_TITLE}" wrapping="false">
-					<layoutData>
-						<OverflowToolbarLayoutData priority="Disappear" />
-					</layoutData>
-				</Text>
-				<ToolbarSpacer />
-				<Button text="{i18n>USER_LABEL}" icon="sap-icon://slim-arrow-down"
-					type="Transparent" iconFirst="false" press="">
-				</Button>
-			</tnt:ToolHeader>
+
+				<core:Fragment
+					fragmentName="pc.my.be-fit.src.app.fragments.ToolHeader"
+				    type="XML"
+				/>
+
 		</tnt:header>
+
 		<tnt:sideContent>
-			<tnt:SideNavigation id="sideNavigation">
-				<tnt:item>
-					<tnt:NavigationList expanded="true" itemSelect="">
-						<tnt:NavigationListItem icon="sap-icon://product" text="{i18n>GO_INGREDIENTS}" select="goToIngredients"/>
-						<tnt:NavigationListItem icon="sap-icon://overview-chart" text="{i18n>GO_RECIPES}" select="goToRecipes"/>
-						<tnt:NavigationListItem icon="sap-icon://activate" text="{i18n>GO_DAILY_FOOD_PLANNING}" select="goDailyFoodPlanning"/>
-					</tnt:NavigationList>
-				</tnt:item>
-			</tnt:SideNavigation>
+			<core:Fragment
+					fragmentName="pc.my.be-fit.src.app.fragments.SideNavigation"
+					type="XML"
+			/>
 		</tnt:sideContent>
+
 		<tnt:mainContents>
 				<f:FlexibleColumnLayout
 						id="flexibleColumnLayout"
