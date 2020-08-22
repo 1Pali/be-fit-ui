@@ -1,0 +1,38 @@
+<mvc:View
+        controllerName="pc.my.be-fit.src.detail.ingredients.components.body.sections.picture.Picture"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:form="sap.ui.layout.form"
+>
+    <Toolbar
+        visible="{ui>/editMode}"
+        class="sapUiTinyMargin"
+        id="PictureToolBar"
+    >
+        <ToolbarSpacer/>
+        <Button
+            text="{i18n>ipUploadButton}"
+            icon="sap-icon://upload"
+            press="onUploadPicturePress"
+        />
+    </Toolbar>
+    <FlexBox
+            wrap="Wrap"
+            fitContainer="true"
+            alignItems="Center"
+            justifyContent="Center"
+    >
+
+        <FlexBox
+                wrap="NoWrap"
+                fitContainer="true"
+                alignItems="Center"
+                class="sapUiTinyMarginEnd"
+        >
+            <Image
+                src="https://1.osiva-semena.sk/3488-big_default/paradajka-mercedes-f1-lycopersicon-lycopersicum-rajciak-semena-5-ks.jpg"
+                width="100%"
+            />
+        </FlexBox>
+    </FlexBox>
+</mvc:View>
