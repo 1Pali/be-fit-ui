@@ -48,6 +48,13 @@
                                     />
                                 </Column>
                                 <Column
+                                        demandPopin="true"
+                                >
+                                    <Text
+                                            text="Energy"
+                                    />
+                                </Column>
+                                <Column
                                     demandPopin="true"
                                 >
                                     <Text
@@ -68,6 +75,13 @@
                                         text="Fats"
                                     />
                                 </Column>
+                                <Column
+                                        demandPopin="true"
+                                >
+                                    <Text
+                                            text="Fiber"
+                                    />
+                                </Column>
                             </columns>
                             <items>
                                 <ColumnListItem
@@ -78,6 +92,9 @@
                                         <ObjectIdentifier
                                             title="{data>name}"
                                         />
+                                        <ObjectIdentifier
+                                                title="{data>energy}"
+                                        />
                                         <Text
                                             text="{data>protein}"
                                         />
@@ -86,6 +103,9 @@
                                         />
                                         <Text
                                             text="{data>fat}"
+                                        />
+                                        <Text
+                                                text="{data>fiber}"
                                         />
                                     </cells>
                                 </ColumnListItem>

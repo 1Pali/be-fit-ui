@@ -49,28 +49,35 @@
 										demandPopin="true"
 								>
 									<Text
-											text="Description"
+											text="Energy"
 									/>
 								</Column>
 								<Column
 										demandPopin="true"
 								>
 									<Text
-											text="Total Proteins"
+											text="Protein"
 									/>
 								</Column>
 								<Column
 										demandPopin="true"
 								>
 									<Text
-											text="Total Carbohydrates"
+											text="Carbohydrate"
 									/>
 								</Column>
 								<Column
 										demandPopin="true"
 								>
 									<Text
-											text="Total Fats"
+											text="Fat"
+									/>
+								</Column>
+								<Column
+										demandPopin="true"
+								>
+									<Text
+											text="Fiber"
 									/>
 								</Column>
 								<Column
@@ -91,19 +98,22 @@
 												title="{data>name}"
 										/>
 										<Text
-												text="{data>description}"
+												text="{data>portionEnergy}"
 										/>
 										<Text
-												text="{data>totalProtein}"
+												text="{data>portionProtein}"
 										/>
 										<Text
-												text="{data>totalCarbohydrate}"
+												text="{data>portionCarbohydrate}"
 										/>
 										<Text
-												text="{data>totalFat}"
+												text="{data>portionFat}"
 										/>
 										<Text
-												text="{data>portion}"
+												text="{data>portionFiber}"
+										/>
+										<Text
+												text="{data>portions}"
 										/>
 									</cells>
 								</ColumnListItem>
