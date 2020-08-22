@@ -5,25 +5,25 @@
       controllerName="pc.my.be-fit.src.master.ingredients.components.ingredientTable.IngredientTable"
 >
     <Table
-       id="idIngredientsTable"
+       id="idRecipesTable"
        inset="false"
        items="{
-            path: 'data>/ingredients',
+            path: 'data>/recipes',
             sorter: {
                 path: 'name'
             }
-        }"
+       }"
     >
         <headerToolbar>
             <core:Fragment
-                fragmentName="pc.my.be-fit.src.master.ingredients.components.ingredientTable.fragments.HeaderToolBar"
+                fragmentName="pc.my.be-fit.src.master.recipes.components.recipeTable.fragments.HeaderToolBar"
                 type="XML"
             />
         </headerToolbar>
 
         <columns>
             <core:Fragment
-                fragmentName="pc.my.be-fit.src.master.ingredients.components.ingredientTable.fragments.TableColumns"
+                fragmentName="pc.my.be-fit.src.master.recipes.components.recipeTable.fragments.TableColumns"
                 type="XML"
             />
         </columns>
@@ -34,7 +34,7 @@
             >
                 <cells>
                     <core:Fragment
-                        fragmentName="pc.my.be-fit..src.master.ingredients.components.ingredientTable.fragments.TableCells"
+                        fragmentName="pc.my.be-fit..src.master.recipes.components.recipeTable.fragments.TableCells"
                         type="XML"
                     />
                 </cells>
