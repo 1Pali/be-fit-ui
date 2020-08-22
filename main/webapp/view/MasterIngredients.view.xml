@@ -22,7 +22,7 @@
                         <Table id="idIngredientsTable"
                                inset="false"
                                items="{
-                                    path: '/ingredientsCollection',
+                                    path: 'data>/ingredients',
                                     sorter: {
                                         path: 'name'
                                     }
@@ -76,16 +76,16 @@
                                 >
                                     <cells>
                                         <ObjectIdentifier
-                                            title="{name}"
+                                            title="{data>name}"
                                         />
                                         <Text
-                                            text="{protein}"
+                                            text="{data>protein}"
                                         />
                                         <Text
-                                            text="{carbohydrate}"
+                                            text="{data>carbohydrate}"
                                         />
                                         <Text
-                                            text="{fat}"
+                                            text="{data>fat}"
                                         />
                                     </cells>
                                 </ColumnListItem>

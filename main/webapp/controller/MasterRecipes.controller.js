@@ -12,32 +12,7 @@ sap.ui.define([
     return Controller.extend("pc.my.be-fit.controller.MasterRecipes", {
 
         onInit: function () {
-            var oData = new JSONModel(
-                {
-                    recipesCollection: [
-                        {
-                            id: 1,
-                            name: "name1",
-                            description: 11,
-                            totalProtein: 21,
-                            totalCarbohydrate: 31,
-                            totalFat: 41,
-                            portion: 51
-                        },
-                        {
-                            id: 2,
-                            name: "name2",
-                            description: 12,
-                            totalProtein: 22,
-                            totalCarbohydrate: 32,
-                            totalFat: 42,
-                            portion: 52
-                        }
-                    ]
-                }
-            );
 
-            this.getView().setModel(oData);
         },
 
         onTableListItemPress: function (oEvent) {

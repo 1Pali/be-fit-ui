@@ -11,26 +11,7 @@ sap.ui.define([
 
     return Controller.extend("pc.my.be-fit.controller.MasterIngredients", {
 		onInit: function () {
-			var oData = new JSONModel(
-				{
-					ingredientsCollection: [
-						{
-							name: "name1",
-							protein: 10,
-							carbohydrate: 20,
-							fat: 30
-						},
-						{
-							name: "name2",
-							protein: 11,
-							carbohydrate: 21,
-							fat: 31
-						}
-					]
-				}
-			);
 
-			this.getView().setModel(oData);
 		},
 
 		onTableListItemPress: function (oEvent) {

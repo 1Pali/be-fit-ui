@@ -20,7 +20,7 @@
 						<Table id="idRecipesTable"
 							   inset="false"
 							   items="{
-                                    path: '/recipesCollection',
+                                    path: 'data>/recipes',
                                     sorter: {
                                         path: 'name'
                                     }
@@ -88,22 +88,22 @@
 								>
 									<cells>
 										<ObjectIdentifier
-												title="{name}"
+												title="{data>name}"
 										/>
 										<Text
-												text="{description}"
+												text="{data>description}"
 										/>
 										<Text
-												text="{totalProtein}"
+												text="{data>totalProtein}"
 										/>
 										<Text
-												text="{totalCarbohydrate}"
+												text="{data>totalCarbohydrate}"
 										/>
 										<Text
-												text="{totalFat}"
+												text="{data>totalFat}"
 										/>
 										<Text
-												text="{portion}"
+												text="{data>portion}"
 										/>
 									</cells>
 								</ColumnListItem>
