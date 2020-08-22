@@ -15,12 +15,14 @@ sap.ui.define([
 		},
 
 		onTableListItemPress: function (oEvent) {
-			var sIngredientId = oEvent.getSource().getBindingContext("data").getObject().id;
+			var sIngredientPath = oEvent.getSource().getBindingContext("data").getPath();
+			var sPathParts = sIngredientPath.split("/");
+			var nIngredientModelIndex = sPathParts[sPathParts.length - 1];
 
 			this.getOwnerComponent().getRouter().navTo("DetailIngredients",
 				{
 					layout: FioriLibrary.LayoutType.TwoColumnsMidExpanded,
-					ingredient: sIngredientId
+					ingredient: nIngredientModelIndex
 				});
 		}
 

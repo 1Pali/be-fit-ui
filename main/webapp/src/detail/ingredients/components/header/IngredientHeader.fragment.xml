@@ -1,0 +1,36 @@
+<core:FragmentDefinition
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.uxap"
+>
+    <ObjectPageDynamicHeaderTitle>
+        <expandedHeading>
+            <m:Title
+                text="{data>name}"
+                wrapping="true"
+                class="sapUiSmallMarginEnd"
+            />
+        </expandedHeading>
+
+        <snappedHeading>
+            <core:Fragment
+                fragmentName="pc.my.be-fit.src.detail.ingredients.components.header.fragments.SnappedHeading"
+                type="XML"
+            />
+        </snappedHeading>
+
+        <navigationActions>
+            <core:Fragment
+                fragmentName="pc.my.be-fit.src.detail.ingredients.components.header.fragments.NavigationActions"
+                type="XML"
+            />
+        </navigationActions>
+
+        <actions>
+            <core:Fragment
+                fragmentName="pc.my.be-fit.src.detail.ingredients.components.header.fragments.Actions"
+                type="XML"
+            />
+        </actions>
+    </ObjectPageDynamicHeaderTitle>
+</core:FragmentDefinition>

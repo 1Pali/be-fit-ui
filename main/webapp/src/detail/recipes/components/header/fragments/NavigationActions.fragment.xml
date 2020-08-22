@@ -1,0 +1,28 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+>
+    <OverflowToolbarButton
+        type="Transparent"
+        icon="sap-icon://full-screen"
+        press=".handleFullScreen"
+        tooltip="{i18n>FullScreenButtonTooltip}"
+        visible="{= ${/actionButtonsInfo/midColumn/fullScreen} !== null }"
+    />
+
+    <OverflowToolbarButton
+        type="Transparent"
+        icon="sap-icon://exit-full-screen"
+        press=".handleExitFullScreen"
+        tooltip="{i18n>ExitFullScreenButtonTooltip}"
+        visible="{= ${/actionButtonsInfo/midColumn/exitFullScreen} !== null }"
+    />
+
+    <OverflowToolbarButton
+        type="Transparent"
+        icon="sap-icon://decline"
+        press=".handleClose"
+        tooltip="{i18n>CloseButtonToolTip}"
+        visible="{= ${/actionButtonsInfo/midColumn/closeColumn} !== null }"
+    />
+</core:FragmentDefinition>

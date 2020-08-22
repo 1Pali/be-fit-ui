@@ -16,9 +16,10 @@ sap.ui.define([
         },
 
         _onProductMatched: function (oEvent) {
-            this._ingredient = oEvent.getParameter("arguments").ingredient || this._ingredient || "0";
+            this._ingredientModelIndex = oEvent.getParameter("arguments").ingredient || this._ingredientModelIndex || "0";
             this.getView().bindElement({
-                path: "/ingredients/" + this._ingredient
+                path: "/ingredients/" + this._ingredientModelIndex,
+                model: "data"
             });
         },
 

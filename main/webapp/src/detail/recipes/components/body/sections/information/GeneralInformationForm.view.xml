@@ -1,0 +1,42 @@
+<mvc:View
+        controllerName="pc.my.be-fit.src.detail.recipes.components.body.sections.information.GeneralInformationForm"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:form="sap.ui.layout.form"
+>
+    <form:SimpleForm
+            visible="{= ${ui>/editMode} === false}"
+            editable="false"
+            layout="ResponsiveGridLayout"
+            labelSpanXL="2"
+            labelSpanL="2"
+            labelSpanM="2"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="0"
+            emptySpanL="0"
+            emptySpanM="0"
+            emptySpanS="0"
+            columnsXL="1"
+            columnsL="1"
+            columnsM="1"
+    >
+        <form:content>
+            <Label
+                    text="{i18n>GroupName}"
+                    tooltip="{i18n>GroupNameToolTip}"
+            />
+            <Text
+                    text="{data>portionEnergy}"
+            />
+
+            <Label
+                    text="{i18n>GroupVersion}"
+                    tooltip="{i18n>GroupVersionToolTip}"
+            />
+            <Text
+                    text="{data>portionProtein}"
+            />
+        </form:content>
+    </form:SimpleForm>
+</mvc:View>

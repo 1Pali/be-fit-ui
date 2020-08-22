@@ -2,7 +2,7 @@
       xmlns:core="sap.ui.core"
       xmlns:mvc="sap.ui.core.mvc"
       xmlns="sap.m"
-      controllerName="pc.my.be-fit.src.master.ingredients.components.ingredientTable.IngredientTable"
+      controllerName="pc.my.be-fit.src.master.recipes.components.recipeTable.RecipeTable"
 >
     <Table
        id="idRecipesTable"

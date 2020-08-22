@@ -1,0 +1,30 @@
+<core:FragmentDefinition
+        xmlns="sap.uxap"
+        xmlns:core="sap.ui.core"
+        xmlns:mvc="sap.ui.core.mvc"
+>
+    <ObjectPageSection title="{i18n>GeneralInformationSection}">
+        <subSections>
+            <ObjectPageSubSection>
+                <blocks>
+                    <mvc:XMLView
+                        viewName="pc.my.be-fit.src.detail.ingredients.components.body.sections.information.GeneralInformationForm"
+                    />
+                </blocks>
+            </ObjectPageSubSection>
+        </subSections>
+    </ObjectPageSection>
+
+    <ObjectPageSection title="{i18n>GeneralInformationSection}">
+        <subSections>
+            <ObjectPageSubSection>
+                <blocks>
+                    <mvc:XMLView
+                        viewName="pc.my.be-fit.src.detail.ingredients.components.body.sections.otherInformation.OtherInformationForm"
+                    />
+                </blocks>
+            </ObjectPageSubSection>
+        </subSections>
+    </ObjectPageSection>
+
+</core:FragmentDefinition>

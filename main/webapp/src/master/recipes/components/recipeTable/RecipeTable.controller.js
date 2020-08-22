@@ -9,18 +9,20 @@ sap.ui.define([
 	) {
     "use strict";
 
-    return Controller.extend("pc.my.be-fit.src.master.ingredients.components.ingredientTable.IngredientTable", {
+    return Controller.extend("pc.my.be-fit.src.master.recipes.components.recipeTable.RecipeTable", {
 		onInit: function () {
 
 		},
 
 		onTableListItemPress: function (oEvent) {
-			var sRecipeId = oEvent.getSource().getBindingContext("data").getObject().id;
+			var sRecipePath = oEvent.getSource().getBindingContext("data").getPath();
+			var sPathParts = sRecipePath.split("/");
+			var nRecipeModelIndex = sPathParts[sPathParts.length - 1];
 
 			this.getOwnerComponent().getRouter().navTo("DetailRecipes",
 				{
 					layout: FioriLibrary.LayoutType.TwoColumnsMidExpanded,
-					recipe: sRecipeId
+					recipe: nRecipeModelIndex
 				});
 		}
 

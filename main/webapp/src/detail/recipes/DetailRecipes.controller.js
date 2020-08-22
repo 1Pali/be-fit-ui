@@ -16,9 +16,10 @@ sap.ui.define([
         },
 
         _onProductMatched: function (oEvent) {
-            this._recipe = oEvent.getParameter("arguments").recipe || this._recipe || "0";
+            this._recipeModelIndex = oEvent.getParameter("arguments").recipe || this._recipeModelIndex || "0";
             this.getView().bindElement({
-                path: "/recipesCollection/" + this._recipe
+                path: "/recipes/" + this._recipeModelIndex,
+                model: "data"
             });
         },
 
