@@ -16,10 +16,13 @@ sap.ui.define([
         },
 
         onTableListItemPress: function (oEvent) {
-            // var productPath = oEvent.getSource().getBindingContext("products").getPath(),
-            // 	product = productPath.split("/").slice(-1).pop();
+            var sRecipeId = oEvent.getSource().getBindingContext("data").getObject().id;
 
-            this.getOwnerComponent().getRouter().navTo("DetailRecipes", {layout: FioriLibrary.LayoutType.TwoColumnsMidExpanded, recipe: 0});
+            this.getOwnerComponent().getRouter().navTo("DetailRecipes",
+                {
+                    layout: FioriLibrary.LayoutType.TwoColumnsMidExpanded,
+                    recipe: sRecipeId
+                });
         },
 
         _onObjectMatched : function() {

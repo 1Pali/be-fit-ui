@@ -15,10 +15,13 @@ sap.ui.define([
 		},
 
 		onTableListItemPress: function (oEvent) {
-			// var productPath = oEvent.getSource().getBindingContext("products").getPath(),
-			// 	product = productPath.split("/").slice(-1).pop();
+			var sIngredientId = oEvent.getSource().getBindingContext("data").getObject().id;
 
-			this.getOwnerComponent().getRouter().navTo("DetailIngredients", {layout: FioriLibrary.LayoutType.TwoColumnsMidExpanded, ingredient: 0});
+			this.getOwnerComponent().getRouter().navTo("DetailIngredients",
+				{
+					layout: FioriLibrary.LayoutType.TwoColumnsMidExpanded,
+					ingredient: sIngredientId
+				});
 		},
 
 		_onObjectMatched : function() {
