@@ -23,7 +23,8 @@
 	"sap.ui5": {
 		"rootView": {
 			"viewName": "pc.my.be-fit.view.Standalone",
-			"type": "XML"
+			"type": "XML",
+			"async": true
 		},
 		"config": {
 			"defaultView": "pc.my.be-fit.view.Standalone"
@@ -39,6 +40,9 @@
 				},
 				"sap.ui.layout": {
 					
+				},
+				"sap.f": {
+
 				}
 			}
 		},
@@ -71,60 +75,87 @@
 		},
 		"routing": {
 			"config": {
-				"routerClass": "sap.m.routing.Router",
+				"routerClass": "sap.f.routing.Router",
 				"viewType": "XML",
 				"viewPath": "pc.my.be-fit.view",
-				"controlId": "app",
-				"controlAggregation": "pages",
+				"controlId": "flexibleColumnLayout",
+				"transition": "slide",
 				"async": true
 			},
 			"routes": [
 				{
-					"name": "Ingredients",
-					"pattern": "",
-					"greedy": false,
+					"pattern": "ingredient/:layout:",
+					"name": "MasterIngredients",
 					"target": [
-						"Ingredients"
+						"MasterIngredients",
+						"DetailIngredients"
 					]
 				},
 				{
-					"name": "Recipes",
-					"pattern": "Recipes",
-					"greedy": false,
+					"pattern": "ingredientDetail/{ingredient}/{layout}",
+					"name": "DetailIngredients",
 					"target": [
-						"Recipes"
+						"MasterIngredients",
+						"DetailIngredients"
 					]
 				},
 				{
-					"name": "DailyFoodPlanning",
-					"pattern": "DailyFoodPlanning",
-					"greedy": false,
+					"pattern": "recipe/:layout:",
+					"name": "MasterRecipes",
 					"target": [
-						"DailyFoodPlanning"
+						"MasterRecipes",
+						"DetailRecipes"
+					]
+				},
+				{
+					"pattern": "recipeDetail/{recipe}/{layout}",
+					"name": "DetailRecipes",
+					"target": [
+						"MasterRecipes",
+						"DetailRecipes"
+					]
+				},
+				{
+					"pattern": "dailyFoodPlanning/:layout:",
+					"name": "MasterDailyFoodPlanning",
+					"target": [
+						"MasterDailyFoodPlanning",
+						"DetailDailyFoodPlanning"
+					]
+				},
+				{
+					"pattern": "dailyFoodPlanningDetail/{dailyFoodPlanning}/{layout}",
+					"name": "DetailDailyFoodPlanning",
+					"target": [
+						"MasterDailyFoodPlanning",
+						"DetailDailyFoodPlanning"
 					]
 				}
 			],
 			"targets": {
-				"Ingredients": {
-					"viewType": "XML",
-					"transition": "fade",
-					"clearAggregation": true,
-					"viewName": "Ingredients",
-					"viewId": "Ingredients"
+				"MasterIngredients": {
+					"viewName": "MasterIngredients",
+					"controlAggregation": "beginColumnPages"
 				},
-				"Recipes": {
-					"viewType": "XML",
-					"transition": "fade",
-					"clearAggregation": true,
-					"viewName": "Recipes",
-					"viewId": "Recipes"
+				"DetailIngredients": {
+					"viewName": "DetailIngredients",
+					"controlAggregation": "midColumnPages"
 				},
-				"DailyFoodPlanning": {
-					"viewType": "XML",
-					"transition": "fade",
-					"clearAggregation": true,
-					"viewName": "DailyFoodPlanning",
-					"viewId": "DailyFoodPlanning"
+				"MasterRecipes": {
+					"viewName": "MasterRecipes",
+					"controlAggregation": "beginColumnPages"
+				},
+				"DetailRecipes": {
+					"viewName": "DetailRecipes",
+					"controlAggregation": "midColumnPages"
+				},
+				"MasterDailyFoodPlanning": {
+					"viewName": "MasterDailyFoodPlanning",
+					"controlAggregation": "beginColumnPages"
+				},
+				"DetailDailyFoodPlanning": {
+					"viewName": "DetailDailyFoodPlanning",
+					"controlAggregation": "midColumnPages"
 				}
 			}
 		}

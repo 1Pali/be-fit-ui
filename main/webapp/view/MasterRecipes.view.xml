@@ -4,7 +4,7 @@
 		  xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 		  xmlns:f="sap.f" xmlns:viz="sap.viz.ui5.controls" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
 		  xmlns:viz.data="sap.viz.ui5.data" xmlns:chart="sap.suite.ui.microchart"
-		  controllerName="pc.my.be-fit.controller.Recipes">
+		  controllerName="pc.my.be-fit.controller.MasterRecipes">
 	<f:DynamicPage id="overviewPage" class="overviewPage">
 		<f:content>
 			<l:BlockLayout class="overviewPageBlockLayout"
@@ -20,9 +20,9 @@
 						<Table id="idRecipesTable"
 							   inset="false"
 							   items="{
-                                    path: '/RecipesCollection',
+                                    path: 'data>/recipes',
                                     sorter: {
-                                        path: 'Name'
+                                        path: 'name'
                                     }
                                 }"
 						>
@@ -49,28 +49,35 @@
 										demandPopin="true"
 								>
 									<Text
-											text="Description"
+											text="Energy"
 									/>
 								</Column>
 								<Column
 										demandPopin="true"
 								>
 									<Text
-											text="Total Proteins"
+											text="Protein"
 									/>
 								</Column>
 								<Column
 										demandPopin="true"
 								>
 									<Text
-											text="Total Carbohydrates"
+											text="Carbohydrate"
 									/>
 								</Column>
 								<Column
 										demandPopin="true"
 								>
 									<Text
-											text="Total Fats"
+											text="Fat"
+									/>
+								</Column>
+								<Column
+										demandPopin="true"
+								>
+									<Text
+											text="Fiber"
 									/>
 								</Column>
 								<Column
@@ -82,25 +89,31 @@
 								</Column>
 							</columns>
 							<items>
-								<ColumnListItem>
+								<ColumnListItem
+										type="Navigation"
+										press=".onTableListItemPress"
+								>
 									<cells>
 										<ObjectIdentifier
-												title="{Name}"
+												title="{data>name}"
 										/>
 										<Text
-												text="{Description}"
+												text="{data>portionEnergy}"
 										/>
 										<Text
-												text="{TotalProtein}"
+												text="{data>portionProtein}"
 										/>
 										<Text
-												text="{TotalCarbohydrate}"
+												text="{data>portionCarbohydrate}"
 										/>
 										<Text
-												text="{TotalFat}"
+												text="{data>portionFat}"
 										/>
 										<Text
-												text="{Portion}"
+												text="{data>portionFiber}"
+										/>
+										<Text
+												text="{data>portions}"
 										/>
 									</cells>
 								</ColumnListItem>

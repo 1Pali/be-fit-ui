@@ -4,7 +4,7 @@
           xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
           xmlns:f="sap.f" xmlns:viz="sap.viz.ui5.controls" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
           xmlns:viz.data="sap.viz.ui5.data" xmlns:chart="sap.suite.ui.microchart"
-          controllerName="pc.my.be-fit.controller.Ingredients">
+          controllerName="pc.my.be-fit.controller.MasterIngredients">
     <f:DynamicPage id="overviewPage" class="overviewPage">
         <f:content>
             <l:BlockLayout class="overviewPageBlockLayout"
@@ -22,9 +22,9 @@
                         <Table id="idIngredientsTable"
                                inset="false"
                                items="{
-                                    path: '/IngredientsCollection',
+                                    path: 'data>/ingredients',
                                     sorter: {
-                                        path: 'Name'
+                                        path: 'name'
                                     }
                                 }"
                         >
@@ -48,6 +48,13 @@
                                     />
                                 </Column>
                                 <Column
+                                        demandPopin="true"
+                                >
+                                    <Text
+                                            text="Energy"
+                                    />
+                                </Column>
+                                <Column
                                     demandPopin="true"
                                 >
                                     <Text
@@ -68,21 +75,37 @@
                                         text="Fats"
                                     />
                                 </Column>
+                                <Column
+                                        demandPopin="true"
+                                >
+                                    <Text
+                                            text="Fiber"
+                                    />
+                                </Column>
                             </columns>
                             <items>
-                                <ColumnListItem>
+                                <ColumnListItem
+                                    type="Navigation"
+                                    press=".onTableListItemPress"
+                                >
                                     <cells>
                                         <ObjectIdentifier
-                                            title="{Name}"
+                                            title="{data>name}"
+                                        />
+                                        <ObjectIdentifier
+                                                title="{data>energy}"
                                         />
                                         <Text
-                                            text="{Protein}"
+                                            text="{data>protein}"
                                         />
                                         <Text
-                                            text="{Carbohydrate}"
+                                            text="{data>carbohydrate}"
                                         />
                                         <Text
-                                            text="{Fat}"
+                                            text="{data>fat}"
+                                        />
+                                        <Text
+                                                text="{data>fiber}"
                                         />
                                     </cells>
                                 </ColumnListItem>

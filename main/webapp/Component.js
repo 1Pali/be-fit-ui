@@ -1,4 +1,14 @@
-sap.ui.define([ "sap/ui/core/UIComponent" ], function(UIComponent) {
+sap.ui.define([
+    "sap/ui/core/UIComponent",
+    'sap/f/library',
+    'sap/f/FlexibleColumnLayoutSemanticHelper',
+    "sap/ui/model/json/JSONModel"
+], function(
+    UIComponent,
+    FioriLibrary,
+    FlexibleColumnLayoutSemanticHelper,
+    JSONModel
+) {
     "use strict";
 
     return UIComponent.extend("pc.my.be-fit.Component", {
@@ -15,14 +25,94 @@ sap.ui.define([ "sap/ui/core/UIComponent" ], function(UIComponent) {
          */
 
         init : function() {
-            jQuery.sap.require("jquery.sap.storage");
-            this.oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
+            this.setModel(new JSONModel());
+
+            var oDataModel = new JSONModel({
+                ingredients: undefined,
+                recipes: undefined,
+                dailyFoodPlannings: undefined
+            });
+
+            this.setModel(oDataModel, "data");
+
+            jQuery.ajax({
+                type: "GET",
+                contentType: "application/json",
+                url: "/ingredients",
+                dataType: "json",
+                data: undefined,
+                async: false,
+                success: function(oResponse) {
+                    this.getModel("data").setProperty("/ingredients" , oResponse);
+                }.bind(this),
+                error: function(oResponse) {
+
+                }.bind(this),
+                complete: function() {
+
+                }.bind(this)
+            });
+
+            jQuery.ajax({
+                type: "GET",
+                contentType: "application/json",
+                url: "/recipes",
+                dataType: "json",
+                data: undefined,
+                async: false,
+                success: function(oResponse) {
+                    this.getModel("data").setProperty("/recipes" , oResponse);
+                }.bind(this),
+                error: function(oResponse) {
+
+                }.bind(this),
+                complete: function() {
+
+                }.bind(this)
+            });
 
             // call the base component's init function
-            sap.ui.core.UIComponent.prototype.init.apply(this, arguments);
+            UIComponent.prototype.init.apply(this, arguments);
 
             this.getRouter().initialize();
+            this.getRouter().attachBeforeRouteMatched(this._onBeforeRouteMatched, this);
+        },
 
+
+        _onBeforeRouteMatched: function(oEvent) {
+            var oModel = this.getModel(),
+                sLayout = oEvent.getParameters().arguments.layout;
+
+            // If there is no layout parameter, set a default layout (normally OneColumn)
+            if (!sLayout) {
+                sLayout = FioriLibrary.LayoutType.OneColumn;
+            }
+
+            oModel.setProperty("/layout", sLayout);
+        },
+
+        getHelper: function () {
+            return this._getFlexibleColumnLayout().then(function(oFcl) {
+                var oSettings = {
+                    defaultTwoColumnLayoutType: FioriLibrary.LayoutType.TwoColumnsMidExpanded,
+                    defaultThreeColumnLayoutType: FioriLibrary.LayoutType.ThreeColumnsMidExpanded
+                };
+                return (FlexibleColumnLayoutSemanticHelper.getInstanceFor(oFcl, oSettings));
+            });
+        },
+
+        _getFlexibleColumnLayout: function () {
+            return new Promise(function(resolve, reject) {
+                var oFcl = this.getRootControl().byId('flexibleColumnLayout');
+                if (!oFcl) {
+                    this.getRootControl().attachAfterInit(function(oEvent) {
+                        resolve(oEvent.getSource().byId('flexibleColumnLayout'));
+                    }, this);
+                    return;
+                }
+                resolve(oFcl);
+
+            }.bind(this));
         },
 
         getDefaultView : function() {
