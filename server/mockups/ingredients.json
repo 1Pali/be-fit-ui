@@ -7,7 +7,8 @@
     "protein": 10,
     "carbohydrate": 20,
     "fat": 30,
-    "fiber": 2
+    "fiber": 2,
+    "price": 15
   },
   {
     "id": 2,
@@ -17,6 +18,7 @@
     "protein": 11,
     "carbohydrate": 21,
     "fat": 31,
-    "fiber": 2
+    "fiber": 2,
+    "price": 15
   }
 ]

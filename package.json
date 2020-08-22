@@ -6,7 +6,7 @@
     "express": "^4.16.3"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server/server.js"
   },
   "author": "Risa Newyear-Ramirez",
   "devDependencies": {

@@ -3,19 +3,23 @@ var app = express();
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var upload = multer();
+var path = require('path');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(upload.array());
 
 app.set('port', (process.env.PORT || 8000));
-app.use(express.static(__dirname + '/main/webapp'));
+app.use(express.static(path.join(__dirname, '../main/webapp')));
 
-var ingredients = require('./server/routers/ingredients.js');
+var ingredients = require('./routers/ingredients.js');
 app.use('/ingredients', ingredients);
 
-var recipes = require('./server/routers/recipes.js');
+var recipes = require('./routers/recipes.js');
 app.use('/recipes', recipes);
+
+var recipeDescriptions = require('./routers/recipeDescriptions.js');
+app.use('/recipeDescriptions', recipeDescriptions);
 
 //For avoiding Heroku $PORT error
 app.get('/', function(request, response) {
