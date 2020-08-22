@@ -87,32 +87,6 @@
                         required="true"
                 />
             </VBox>
-
-            <VBox>
-                <Label
-                        text="{i18n>cidPrice}"
-                        labelFor="cidPrice"
-                />
-                <Input
-                        id="cidPrice"
-                        liveChange="onFieldChange"
-                        value="{dialog>/data/price}"
-                        required="true"
-                />
-            </VBox>
-
-            <VBox>
-                <Label
-                        text="{i18n>cidDescription}"
-                        labelFor="cidDescription"
-                />
-                <TextArea
-                        width="100%"
-                        valueLiveUpdate="true"
-                        value="{dialog>/data/description}"
-                        growing="true"
-                />
-            </VBox>
         </content>
         <beginButton>
             <Button

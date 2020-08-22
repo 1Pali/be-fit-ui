@@ -6,11 +6,13 @@
         <content>
             <ToolbarSpacer/>
             <Button
-                text="{i18n>AddRecipeButton}"
+                text="{i18n>CreateRecipeButton}"
+                press="onCreatePress"
             />
 
             <Button
                 text="{i18n>DeleteRecipeButton}"
+                press="onDeletePress"
             />
         </content>
     </OverflowToolbar>

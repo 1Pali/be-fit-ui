@@ -3,25 +3,25 @@ sap.ui.define([
     "sap/ui/core/Fragment",
     "pc/my/be-fit/src/util/util",
     "pc/my/be-fit/src/api/Request",
-    "pc/my/be-fit/src/model/dialog/createIngredient",
+    "pc/my/be-fit/src/model/dialog/createRecipe",
     "pc/my/be-fit/src/model/entity/entity"
-], function(Parent, Fragment, Util, Request, CreateIngredient, Entity) {
+], function(Parent, Fragment, Util, Request, CreateRecipe, Entity) {
     "use strict";
 
-    var CREATE_INGREDIENT_DIALOG_FRAGMENT = "pc.my.be-fit.src.dialog.ingredients.createIngredient.CreateIngredient";
-    var CREATE_INGREDIENT_DIALOG_CONTROLLER = "pc.my.be-fit.src.dialog.ingredients.createIngredient.CreateIngredient";
+    var CREATE_RECIPE_DIALOG_FRAGMENT = "pc.my.be-fit.src.dialog.recipes.createRecipe.CreateRecipe";
+    var CREATE_RECIPE_DIALOG_CONTROLLER = "pc.my.be-fit.src.dialog.recipes.createRecipe.CreateRecipe";
 
-    return Parent.extend(CREATE_INGREDIENT_DIALOG_CONTROLLER, {
+    return Parent.extend(CREATE_RECIPE_DIALOG_CONTROLLER, {
 
         constructor: function(oCaller) {
             this._oCaller = oCaller;
 
             Fragment.load({
-                name: CREATE_INGREDIENT_DIALOG_FRAGMENT,
+                name: CREATE_RECIPE_DIALOG_FRAGMENT,
                 controller: this
             }).then(function(oDialog) {
                 this._oDialog = oDialog;
-                this._oDialog.setModel(CreateIngredient.getInitial(), "dialog");
+                this._oDialog.setModel(CreateRecipe.getInitial(), "dialog");
                 this._oCaller.getView().addDependent(this._oDialog);
                 this._oDialog.open();
             }.bind(this));
@@ -54,15 +54,10 @@ sap.ui.define([
         onCreatePress: function() {
             var oDialogModel = this._getDialogModel();
             var sName = oDialogModel.getProperty("/data/name");
-            var nEnergy = Number(oDialogModel.getProperty("/data/energy"));
-            var nProtein = Number(oDialogModel.getProperty("/data/protein"));
-            var nCarbohydrate = Number(oDialogModel.getProperty("/data/carbohydrate"));
-            var nFat = Number(oDialogModel.getProperty("/data/fat"));
-            var nFiber = Number(oDialogModel.getProperty("/data/fiber"));
 
-            var oIngredient = Entity.Ingredient.newObject(sName, nEnergy, nProtein, nCarbohydrate, nFat, nFiber, null, null);
+            var oRecipe = Entity.Recipe.newObject(sName, null);
 
-            Request.Ingredient.create.call(this._oCaller, oIngredient, Util.getModel.call(this._oCaller, "data"), "/ingredients", true);
+            Request.Recipe.create.call(this._oCaller, oRecipe, Util.getModel.call(this._oCaller, "data"), "/recipes", true);
             this._oDialog.close();
         },
 

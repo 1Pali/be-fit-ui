@@ -1,11 +1,14 @@
 sap.ui.define([
-    "pc/my/be-fit/src/model/entity/ingredient"
+    "pc/my/be-fit/src/model/entity/ingredient",
+    "pc/my/be-fit/src/model/entity/recipe"
 ], function(
-    Ingredient
+    Ingredient,
+    Recipe
 ) {
     "use strict";
 
     return {
-        Ingredient: Ingredient
+        Ingredient: Ingredient,
+        Recipe: Recipe
     };
 });

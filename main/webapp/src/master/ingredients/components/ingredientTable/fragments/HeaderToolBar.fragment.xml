@@ -7,7 +7,7 @@
             <ToolbarSpacer/>
 
             <Button
-                text="{i18n>AddIngredientButton}"
+                text="{i18n>CreateIngredientButton}"
                 press="onCreatePress"
             />
 

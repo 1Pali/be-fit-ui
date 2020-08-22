@@ -24,8 +24,7 @@ sap.ui.define([
                     cidProtein: false,
                     cidCarbohydrate: false,
                     cidFat: false,
-                    cidFiber: false,
-                    cidPrice: false
+                    cidFiber: false
                 },
                 enableConfirmButton: false
             });
