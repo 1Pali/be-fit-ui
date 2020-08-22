@@ -5,10 +5,14 @@
       xmlns:f="sap.f"
       controllerName="pc.my.be-fit.src.master.ingredients.MasterIngredients"
 >
-    <f:DynamicPage id="overviewPage" class="overviewPage">
+    <f:DynamicPage
+        id="overviewPage"
+        class="overviewPage"
+    >
         <f:content>
-            <l:BlockLayout class="overviewPageBlockLayout"
-                           background="Transparent"
+            <l:BlockLayout
+                class="overviewPageBlockLayout"
+                background="Transparent"
             >
                 <l:BlockLayoutRow>
                     <l:BlockLayoutCell

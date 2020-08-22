@@ -4,47 +4,47 @@
 >
     <Column>
         <Text
-                text="Name"
+            text="{i18n>IngredientName}"
         />
     </Column>
 
     <Column
-            demandPopin="true"
+        demandPopin="true"
     >
         <Text
-                text="Energy"
+            text="{i18n>IngredientEnergy}"
         />
     </Column>
 
     <Column
-            demandPopin="true"
+        demandPopin="true"
     >
         <Text
-                text="Proteins"
+            text="{i18n>IngredientProteins}"
         />
     </Column>
 
     <Column
-            demandPopin="true"
+        demandPopin="true"
     >
         <Text
-                text="Carbohydrates"
+            text="{i18n>IngredientCarbohydrates}"
         />
     </Column>
 
     <Column
-            demandPopin="true"
+        demandPopin="true"
     >
         <Text
-                text="Fats"
+            text="{i18n>IngredientFats}"
         />
     </Column>
 
     <Column
-            demandPopin="true"
+        demandPopin="true"
     >
         <Text
-                text="Fiber"
+            text="{i18n>IngredientFiber}"
         />
     </Column>
 </core:FragmentDefinition>

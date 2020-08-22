@@ -34,7 +34,7 @@
             >
                 <cells>
                     <core:Fragment
-                        fragmentName="pc.my.be-fit..src.master.ingredients.components.ingredientTable.fragments.TableCells"
+                        fragmentName="pc.my.be-fit.src.master.ingredients.components.ingredientTable.fragments.TableCells"
                         type="XML"
                     />
                 </cells>

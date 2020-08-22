@@ -4,7 +4,7 @@
 >
     <Column>
         <Text
-            text="Name"
+            text="{i18n>RecipeName}"
         />
     </Column>
 
@@ -12,7 +12,7 @@
         demandPopin="true"
     >
         <Text
-            text="Energy"
+            text="{i18n>RecipeEnergy}"
         />
     </Column>
 
@@ -20,7 +20,7 @@
         demandPopin="true"
     >
         <Text
-            text="Protein"
+            text="{i18n>RecipeProtein}"
         />
     </Column>
 
@@ -28,7 +28,7 @@
         demandPopin="true"
     >
         <Text
-            text="Carbohydrate"
+            text="{i18n>RecipeCarbohydrate}"
         />
     </Column>
 
@@ -36,7 +36,7 @@
         demandPopin="true"
     >
         <Text
-            text="Fat"
+            text="{i18n>RecipeFat}"
         />
     </Column>
 
@@ -44,7 +44,7 @@
         demandPopin="true"
     >
         <Text
-            text="Fiber"
+            text="{i18n>RecipeFiber}"
         />
     </Column>
 
@@ -52,7 +52,7 @@
         demandPopin="true"
     >
         <Text
-            text="Portions"
+            text="{i18n>RecipePortions}"
         />
     </Column>
 </core:FragmentDefinition>

@@ -5,12 +5,13 @@
     <OverflowToolbar>
         <content>
             <ToolbarSpacer/>
+
             <Button
-                    text="Add"
+                text="{i18n>AddIngredientButton}"
             />
 
             <Button
-                    text="Remove"
+                text="{i18n>RemoveIngredientButton}"
             />
         </content>
     </OverflowToolbar>

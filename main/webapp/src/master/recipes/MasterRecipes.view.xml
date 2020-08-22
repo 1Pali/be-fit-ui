@@ -5,7 +5,10 @@
     xmlns:f="sap.f"
     controllerName="pc.my.be-fit.src.master.recipes.MasterRecipes"
 >
-	<f:DynamicPage id="overviewPage" class="overviewPage">
+	<f:DynamicPage
+		id="overviewPage"
+		class="overviewPage"
+	>
 		<f:content>
 			<l:BlockLayout
 			   class="overviewPageBlockLayout"
@@ -17,7 +20,9 @@
 					    class="overviewPageBlockLayoutCell"
 					>
 						<Title
-							level="H1" text="{i18n>RECIPES}" class="sapUiSmallMarginEnd"
+							level="H1"
+							text="{i18n>RECIPES}"
+							class="sapUiSmallMarginEnd"
 						/>
 						<mvc:XMLView
 							viewName="pc.my.be-fit.src.master.recipes.components.recipeTable.RecipeTable"
