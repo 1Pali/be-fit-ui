@@ -12,6 +12,7 @@
         headerContentPinnable="true"
         isChildPage="true"
         upperCaseAnchorBar="false"
+        showFooter="{ui>/footerVisibility}"
     >
         <headerTitle>
             <core:Fragment

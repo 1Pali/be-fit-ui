@@ -13,13 +13,13 @@ app.set('port', (process.env.PORT || 8000));
 app.use(express.static(path.join(__dirname, '../main/webapp')));
 
 var ingredients = require('./routers/ingredients.js');
-app.use('/ingredients', ingredients);
+app.use('/ingredient', ingredients);
 
 var recipes = require('./routers/recipes.js');
-app.use('/recipes', recipes);
+app.use('/recipe', recipes);
 
 var recipeDescriptions = require('./routers/recipeDescriptions.js');
-app.use('/recipeDescriptions', recipeDescriptions);
+app.use('/recipeDescription', recipeDescriptions);
 
 //For avoiding Heroku $PORT error
 app.get('/', function(request, response) {

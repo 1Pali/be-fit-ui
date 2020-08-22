@@ -2,12 +2,16 @@ sap.ui.define([
     "sap/ui/core/UIComponent",
     'sap/f/library',
     'sap/f/FlexibleColumnLayoutSemanticHelper',
-    "sap/ui/model/json/JSONModel"
+    "sap/ui/model/json/JSONModel",
+    "pc/my/be-fit/src/model/data",
+    "pc/my/be-fit/src/model/ui"
 ], function(
     UIComponent,
     FioriLibrary,
     FlexibleColumnLayoutSemanticHelper,
-    JSONModel
+    JSONModel,
+    Data,
+    UI
 ) {
     "use strict";
 
@@ -27,49 +31,8 @@ sap.ui.define([
         init : function() {
             this.setModel(new JSONModel());
 
-            var oDataModel = new JSONModel({
-                ingredients: undefined,
-                recipes: undefined,
-                dailyFoodPlannings: undefined
-            });
-
-            this.setModel(oDataModel, "data");
-
-            jQuery.ajax({
-                type: "GET",
-                contentType: "application/json",
-                url: "/ingredients",
-                dataType: "json",
-                data: undefined,
-                async: false,
-                success: function(oResponse) {
-                    this.getModel("data").setProperty("/ingredients" , oResponse);
-                }.bind(this),
-                error: function(oResponse) {
-
-                }.bind(this),
-                complete: function() {
-
-                }.bind(this)
-            });
-
-            jQuery.ajax({
-                type: "GET",
-                contentType: "application/json",
-                url: "/recipes",
-                dataType: "json",
-                data: undefined,
-                async: false,
-                success: function(oResponse) {
-                    this.getModel("data").setProperty("/recipes" , oResponse);
-                }.bind(this),
-                error: function(oResponse) {
-
-                }.bind(this),
-                complete: function() {
-
-                }.bind(this)
-            });
+            this.setModel(UI.getInitial, "ui");
+            this.setModel(Data.getInitial, "data");
 
             // call the base component's init function
             UIComponent.prototype.init.apply(this, arguments);

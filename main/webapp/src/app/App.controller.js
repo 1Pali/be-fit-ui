@@ -1,11 +1,13 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
-    "sap/m/MessageBox"
+    "sap/m/MessageBox",
+    "pc/my/be-fit/src/api/Request"
 ], function(
     Controller,
     JSONModel,
-    MessageBox
+    MessageBox,
+    Request
 ) {
     "use strict";
 
@@ -120,11 +122,13 @@ sap.ui.define([
         },
         
         goToIngredients : function() {
+            Request.Ingredient.getList.call(this, this.getOwnerComponent().getModel("data"), "/ingredients", false);
         	var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
         	oRouter.navTo("MasterIngredients", {layout: "OneColumn"});
         },
         
         goToRecipes: function() {
+            Request.Recipe.getList.call(this, this.getOwnerComponent().getModel("data"), "/recipes", false);
         	var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
         	oRouter.navTo("MasterRecipes", {layout: "OneColumn"});
         },
