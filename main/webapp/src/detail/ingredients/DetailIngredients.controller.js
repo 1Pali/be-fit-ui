@@ -53,7 +53,7 @@ sap.ui.define([
         },
 
         _onClose: function () {
-            Util.restoreEditedValues.call(this, this._getBindingPath());
+            Util.restoreEditedValues.call(this, Util.getBindingPath.call(this, "data"));
             this._closeDetailPage();
         },
 
