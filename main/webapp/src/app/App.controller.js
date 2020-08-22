@@ -122,13 +122,13 @@ sap.ui.define([
         },
         
         goToIngredients : function() {
-            Request.Ingredient.getList.call(this, this.getOwnerComponent().getModel("data"), "/ingredients", false);
+            Request.Ingredient.getList.call(this, this.getOwnerComponent().getModel("data"), "/ingredients", true);
         	var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
         	oRouter.navTo("MasterIngredients", {layout: "OneColumn"});
         },
         
         goToRecipes: function() {
-            Request.Recipe.getList.call(this, this.getOwnerComponent().getModel("data"), "/recipes", false);
+            Request.Recipe.getList.call(this, this.getOwnerComponent().getModel("data"), "/recipes", true);
         	var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
         	oRouter.navTo("MasterRecipes", {layout: "OneColumn"});
         },

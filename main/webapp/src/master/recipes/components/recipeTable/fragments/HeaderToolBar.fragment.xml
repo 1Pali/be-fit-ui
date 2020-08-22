@@ -10,7 +10,7 @@
             />
 
             <Button
-                text="{i18n>RemoveRecipeButton}"
+                text="{i18n>DeleteRecipeButton}"
             />
         </content>
     </OverflowToolbar>

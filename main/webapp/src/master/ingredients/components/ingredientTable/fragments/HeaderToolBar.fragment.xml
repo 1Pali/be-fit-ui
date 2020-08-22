@@ -8,10 +8,12 @@
 
             <Button
                 text="{i18n>AddIngredientButton}"
+                press="onCreatePress"
             />
 
             <Button
-                text="{i18n>RemoveIngredientButton}"
+                text="{i18n>DeleteIngredientButton}"
+                press="onDeletePress"
             />
         </content>
     </OverflowToolbar>

@@ -11,8 +11,8 @@
     />
 
     <Button
-        text="{i18n>RemoveIngredientButton}"
-        tooltip="{i18n>RemoveIngredientButtonToolTip}"
+        text="{i18n>DeleteIngredientButton}"
+        tooltip="{i18n>DeleteIngredientButtonToolTip}"
         type="Transparent"
         press=".onDeletePress"
     />

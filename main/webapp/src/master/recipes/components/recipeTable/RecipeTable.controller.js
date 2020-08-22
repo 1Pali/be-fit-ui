@@ -13,7 +13,7 @@ sap.ui.define([
 
     return Controller.extend("pc.my.be-fit.src.master.recipes.components.recipeTable.RecipeTable", {
 		onInit: function () {
-			Request.Recipe.getList.call(this, this.getOwnerComponent().getModel("data"), "/recipes", false);
+			Request.Recipe.getList.call(this, this.getOwnerComponent().getModel("data"), "/recipes", true);
 		},
 
 		onTableListItemPress: function (oEvent) {
