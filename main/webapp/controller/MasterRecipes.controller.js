@@ -16,6 +16,7 @@ sap.ui.define([
                 {
                     recipesCollection: [
                         {
+                            id: 1,
                             name: "name1",
                             description: 11,
                             totalProtein: 21,
@@ -24,6 +25,7 @@ sap.ui.define([
                             portion: 51
                         },
                         {
+                            id: 2,
                             name: "name2",
                             description: 12,
                             totalProtein: 22,
