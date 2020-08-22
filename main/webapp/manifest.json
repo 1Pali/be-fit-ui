@@ -22,12 +22,12 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "pc.my.be-fit.view.App",
+			"viewName": "pc.my.be-fit.src.app.App",
 			"type": "XML",
 			"async": true
 		},
 		"config": {
-			"defaultView": "pc.my.be-fit.view.App"
+			"defaultView": "pc.my.be-fit.src.app.App"
 		},
 		"dependencies": {
 			"minUI5Version": "1.54.3",
@@ -77,7 +77,6 @@
 			"config": {
 				"routerClass": "sap.f.routing.Router",
 				"viewType": "XML",
-				"viewPath": "pc.my.be-fit.view",
 				"controlId": "flexibleColumnLayout",
 				"transition": "slide",
 				"async": true
@@ -135,26 +134,32 @@
 			"targets": {
 				"MasterIngredients": {
 					"viewName": "MasterIngredients",
+					"viewPath": "pc.my.be-fit.src.master.ingredients",
 					"controlAggregation": "beginColumnPages"
 				},
 				"DetailIngredients": {
 					"viewName": "DetailIngredients",
+					"viewPath": "pc.my.be-fit.src.detail.ingredients",
 					"controlAggregation": "midColumnPages"
 				},
 				"MasterRecipes": {
 					"viewName": "MasterRecipes",
+					"viewPath": "pc.my.be-fit.src.master.recipes",
 					"controlAggregation": "beginColumnPages"
 				},
 				"DetailRecipes": {
 					"viewName": "DetailRecipes",
+					"viewPath": "pc.my.be-fit.src.detail.recipes",
 					"controlAggregation": "midColumnPages"
 				},
 				"MasterDailyFoodPlanning": {
 					"viewName": "MasterDailyFoodPlanning",
+					"viewPath": "pc.my.be-fit.src.master.dailyFoodPlanning",
 					"controlAggregation": "beginColumnPages"
 				},
 				"DetailDailyFoodPlanning": {
 					"viewName": "DetailDailyFoodPlanning",
+					"viewPath": "pc.my.be-fit.src.detail.dailyFoodPlanning",
 					"controlAggregation": "midColumnPages"
 				}
 			}

@@ -4,7 +4,7 @@
           xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
           xmlns:f="sap.f" xmlns:viz="sap.viz.ui5.controls" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
           xmlns:viz.data="sap.viz.ui5.data" xmlns:chart="sap.suite.ui.microchart"
-          controllerName="pc.my.be-fit.controller.MasterIngredients">
+          controllerName="pc.my.be-fit.src.master.ingredients.MasterIngredients">
     <f:DynamicPage id="overviewPage" class="overviewPage">
         <f:content>
             <l:BlockLayout class="overviewPageBlockLayout"

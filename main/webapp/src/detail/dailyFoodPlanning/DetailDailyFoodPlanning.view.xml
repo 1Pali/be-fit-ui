@@ -1,5 +1,5 @@
 <mvc:View
-        controllerName="pc.my.be-fit.controller.DetailIngredients"
+        controllerName="pc.my.be-fit.src.detail.dailyFoodPlanning.DetailDailyFoodPlanning"
         xmlns="sap.uxap"
         xmlns:m="sap.m"
         xmlns:f="sap.f"
@@ -78,7 +78,7 @@
                 </subSections>
             </ObjectPageSection>
 
-            <ObjectPageSection title="Ingredient Details">
+            <ObjectPageSection title="Meals">
                 <subSections>
                     <ObjectPageSubSection>
                         <blocks>

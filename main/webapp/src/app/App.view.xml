@@ -6,7 +6,7 @@
 	xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:tnt="sap.tnt"
 	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
-	controllerName="pc.my.be-fit.controller.App" id="appView"
+	controllerName="pc.my.be-fit.src.app.App" id="appView"
 >
 	<tnt:ToolPage id="toolPage">
 		<tnt:header>

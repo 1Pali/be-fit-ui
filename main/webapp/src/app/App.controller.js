@@ -9,7 +9,7 @@ sap.ui.define([
 ) {
     "use strict";
 
-    return Controller.extend("pc.my.be-fit.controller.App", {
+    return Controller.extend("pc.my.be-fit.src.app.App", {
         onInit: function () {
             this.oOwnerComponent = this.getOwnerComponent();
             this.oRouter = this.oOwnerComponent.getRouter();

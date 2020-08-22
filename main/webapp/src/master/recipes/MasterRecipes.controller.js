@@ -9,7 +9,7 @@ sap.ui.define([
 ) {
     "use strict";
 
-    return Controller.extend("pc.my.be-fit.controller.MasterRecipes", {
+    return Controller.extend("pc.my.be-fit.src.master.recipes.MasterRecipes", {
 
         onInit: function () {
 

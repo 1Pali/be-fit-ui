@@ -4,21 +4,21 @@ sap.ui.define([
 ], function (JSONModel, Controller) {
     "use strict";
 
-    return Controller.extend("pc.my.be-fit.controller.DetailRecipes", {
+    return Controller.extend("pc.my.be-fit.src.detail.ingredients.DetailIngredients", {
         onInit: function () {
             var oOwnerComponent = this.getOwnerComponent();
 
             this.oRouter = oOwnerComponent.getRouter();
             this.oModel = oOwnerComponent.getModel();
 
-            this.oRouter.getRoute("MasterRecipes").attachPatternMatched(this._onProductMatched, this);
-            this.oRouter.getRoute("DetailRecipes").attachPatternMatched(this._onProductMatched, this);
+            this.oRouter.getRoute("MasterIngredients").attachPatternMatched(this._onProductMatched, this);
+            this.oRouter.getRoute("DetailIngredients").attachPatternMatched(this._onProductMatched, this);
         },
 
         _onProductMatched: function (oEvent) {
-            this._recipe = oEvent.getParameter("arguments").recipe || this._recipe || "0";
+            this._ingredient = oEvent.getParameter("arguments").ingredient || this._ingredient || "0";
             this.getView().bindElement({
-                path: "/recipesCollection/" + this._recipe
+                path: "/ingredients/" + this._ingredient
             });
         },
 
@@ -30,9 +30,8 @@ sap.ui.define([
         },
 
         onExit: function () {
-            this.oRouter.getRoute("MasterRecipes").detachPatternMatched(this._onProductMatched, this);
-            this.oRouter.getRoute("DetailRecipes").detachPatternMatched(this._onProductMatched, this);
+            this.oRouter.getRoute("MasterIngredients").detachPatternMatched(this._onProductMatched, this);
+            this.oRouter.getRoute("DetailIngredients").detachPatternMatched(this._onProductMatched, this);
         }
-
     });
 });
