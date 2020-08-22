@@ -22,12 +22,12 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "pc.my.be-fit.view.Standalone",
+			"viewName": "pc.my.be-fit.view.App",
 			"type": "XML",
 			"async": true
 		},
 		"config": {
-			"defaultView": "pc.my.be-fit.view.Standalone"
+			"defaultView": "pc.my.be-fit.view.App"
 		},
 		"dependencies": {
 			"minUI5Version": "1.54.3",
