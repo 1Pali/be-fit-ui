@@ -12,9 +12,10 @@ sap.ui.define([
         },
 
         _onIngredientMatched: function (oEvent) {
-            this._ingredientModelIndex = oEvent.getParameter("arguments").ingredient || this._ingredientModelIndex || "0";
+            var sIngredientIndex = oEvent.getParameter("arguments").ingredient;
+            Util.getModel.call(this, "ui").setProperty("/selectedObjectIndex", sIngredientIndex);
             this.getView().bindElement({
-                path: "/ingredients/" + this._ingredientModelIndex,
+                path: "/ingredients/" + sIngredientIndex,
                 model: "data"
             });
         },
@@ -30,12 +31,16 @@ sap.ui.define([
 
         handleFullScreen: function () {
             var sNextLayout = Util.getModel.call(this).getProperty("/actionButtonsInfo/midColumn/fullScreen");
-            Util.getRouter.call(this).navTo("DetailIngredients", {layout: sNextLayout, ingredient: this._ingredientModelIndex});
+            var sIngredientIndex = Util.getModel.call(this, "ui").getProperty("/selectedObjectIndex");
+
+            Util.getRouter.call(this).navTo("DetailIngredients", {layout: sNextLayout, ingredient: sIngredientIndex});
         },
 
         handleExitFullScreen: function () {
             var sNextLayout = Util.getModel.call(this).getProperty("/actionButtonsInfo/midColumn/exitFullScreen");
-            Util.getRouter.call(this).navTo("DetailIngredients", {layout: sNextLayout, ingredient: this._ingredientModelIndex});
+            var sIngredientIndex = Util.getModel.call(this, "ui").getProperty("/selectedObjectIndex");
+
+            Util.getRouter.call(this).navTo("DetailIngredients", {layout: sNextLayout, ingredient: sIngredientIndex});
         },
 
         handleClose: function () {

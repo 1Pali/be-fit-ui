@@ -14,6 +14,7 @@ sap.ui.define([
                 previousRecipe: undefined,
                 previousRecipeDescriptions: undefined
             },
+            selectedObjectIndex: undefined,
             footerVisibility: false,
             editMode: false
         })

@@ -12,9 +12,10 @@ sap.ui.define([
         },
 
         _onRecipeMatched: function (oEvent) {
-            this._recipeModelIndex = oEvent.getParameter("arguments").recipe || this._recipeModelIndex || "0";
+            var sRecipeIndex = oEvent.getParameter("arguments").recipe;
+            Util.getModel.call(this, "ui").setProperty("/selectedObjectIndex", sRecipeIndex);
             this.getView().bindElement({
-                path: "/recipes/" + this._recipeModelIndex,
+                path: "/recipes/" + sRecipeIndex,
                 model: "data"
             });
         },
@@ -30,12 +31,16 @@ sap.ui.define([
 
         handleFullScreen: function () {
             var sNextLayout = Util.getModel.call(this).getProperty("/actionButtonsInfo/midColumn/fullScreen");
-            Util.getRouter.call(this).navTo("DetailRecipes", {layout: sNextLayout, recipe: this._recipeModelIndex});
+            var sRecipeIndex = Util.getModel.call(this, "ui").getProperty("/selectedObjectIndex");
+
+            Util.getRouter.call(this).navTo("DetailRecipes", {layout: sNextLayout, recipe: sRecipeIndex});
         },
 
         handleExitFullScreen: function () {
             var sNextLayout = Util.getModel.call(this).getProperty("/actionButtonsInfo/midColumn/exitFullScreen");
-            Util.getRouter.call(this).navTo("DetailRecipes", {layout: sNextLayout, recipe: this._recipeModelIndex});
+            var sRecipeIndex = Util.getModel.call(this, "ui").getProperty("/selectedObjectIndex");
+
+            Util.getRouter.call(this).navTo("DetailRecipes", {layout: sNextLayout, recipe: sRecipeIndex});
         },
 
         handleClose: function () {
