@@ -1,0 +1,50 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Column>
+        <Text
+                text="Name"
+        />
+    </Column>
+
+    <Column
+            demandPopin="true"
+    >
+        <Text
+                text="Energy"
+        />
+    </Column>
+
+    <Column
+            demandPopin="true"
+    >
+        <Text
+                text="Proteins"
+        />
+    </Column>
+
+    <Column
+            demandPopin="true"
+    >
+        <Text
+                text="Carbohydrates"
+        />
+    </Column>
+
+    <Column
+            demandPopin="true"
+    >
+        <Text
+                text="Fats"
+        />
+    </Column>
+
+    <Column
+            demandPopin="true"
+    >
+        <Text
+                text="Fiber"
+        />
+    </Column>
+</core:FragmentDefinition>

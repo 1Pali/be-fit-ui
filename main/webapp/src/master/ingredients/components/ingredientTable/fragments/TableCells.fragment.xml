@@ -1,0 +1,23 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <ObjectIdentifier
+        title="{data>name}"
+    />
+    <ObjectIdentifier
+        title="{data>energy}"
+    />
+    <Text
+        text="{data>protein}"
+    />
+    <Text
+        text="{data>carbohydrate}"
+    />
+    <Text
+        text="{data>fat}"
+    />
+    <Text
+        text="{data>fiber}"
+    />
+</core:FragmentDefinition>

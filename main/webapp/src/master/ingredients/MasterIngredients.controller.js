@@ -14,16 +14,6 @@ sap.ui.define([
 
 		},
 
-		onTableListItemPress: function (oEvent) {
-			var sIngredientId = oEvent.getSource().getBindingContext("data").getObject().id;
-
-			this.getOwnerComponent().getRouter().navTo("DetailIngredients",
-				{
-					layout: FioriLibrary.LayoutType.TwoColumnsMidExpanded,
-					ingredient: sIngredientId
-				});
-		},
-
 		_onObjectMatched : function() {
 			//preselect 'All' by default
 			var allBtn = this.getView().byId("AllButton");

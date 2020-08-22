@@ -1,116 +1,28 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
-          xmlns="sap.m" xmlns:commons="sap.suite.ui.commons" xmlns:l="sap.ui.layout"
-          xmlns:html="http://www.w3.org/1999/xhtml"
-          xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
-          xmlns:f="sap.f" xmlns:viz="sap.viz.ui5.controls" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
-          xmlns:viz.data="sap.viz.ui5.data" xmlns:chart="sap.suite.ui.microchart"
-          controllerName="pc.my.be-fit.src.master.ingredients.MasterIngredients">
+<mvc:View
+      xmlns:mvc="sap.ui.core.mvc"
+      xmlns="sap.m"
+      xmlns:l="sap.ui.layout"
+      xmlns:f="sap.f"
+      controllerName="pc.my.be-fit.src.master.ingredients.MasterIngredients"
+>
     <f:DynamicPage id="overviewPage" class="overviewPage">
         <f:content>
             <l:BlockLayout class="overviewPageBlockLayout"
                            background="Transparent"
             >
                 <l:BlockLayoutRow>
-                    <l:BlockLayoutCell width="100%"
-                                       class="overviewPageBlockLayoutCell"
+                    <l:BlockLayoutCell
+                        width="100%"
+                        class="overviewPageBlockLayoutCell"
                     >
                         <Title
-                                level="H1"
-                                text="{i18n>INGREDIENTS}"
-                                class="sapUiSmallMarginEnd"
+                            level="H1"
+                            text="{i18n>INGREDIENTS}"
+                            class="sapUiSmallMarginEnd"
                         />
-                        <Table id="idIngredientsTable"
-                               inset="false"
-                               items="{
-                                    path: 'data>/ingredients',
-                                    sorter: {
-                                        path: 'name'
-                                    }
-                                }"
-                        >
-                            <headerToolbar>
-                                <OverflowToolbar>
-                                    <content>
-                                        <ToolbarSpacer/>
-                                        <Button
-                                            text="Add"
-                                        />
-                                        <Button
-                                            text="Remove"
-                                        />
-                                    </content>
-                                </OverflowToolbar>
-                            </headerToolbar>
-                            <columns>
-                                <Column>
-                                    <Text
-                                        text="Name"
-                                    />
-                                </Column>
-                                <Column
-                                        demandPopin="true"
-                                >
-                                    <Text
-                                            text="Energy"
-                                    />
-                                </Column>
-                                <Column
-                                    demandPopin="true"
-                                >
-                                    <Text
-                                        text="Proteins"
-                                    />
-                                </Column>
-                                <Column
-                                    demandPopin="true"
-                                >
-                                    <Text
-                                        text="Carbohydrates"
-                                    />
-                                </Column>
-                                <Column
-                                    demandPopin="true"
-                                >
-                                    <Text
-                                        text="Fats"
-                                    />
-                                </Column>
-                                <Column
-                                        demandPopin="true"
-                                >
-                                    <Text
-                                            text="Fiber"
-                                    />
-                                </Column>
-                            </columns>
-                            <items>
-                                <ColumnListItem
-                                    type="Navigation"
-                                    press=".onTableListItemPress"
-                                >
-                                    <cells>
-                                        <ObjectIdentifier
-                                            title="{data>name}"
-                                        />
-                                        <ObjectIdentifier
-                                                title="{data>energy}"
-                                        />
-                                        <Text
-                                            text="{data>protein}"
-                                        />
-                                        <Text
-                                            text="{data>carbohydrate}"
-                                        />
-                                        <Text
-                                            text="{data>fat}"
-                                        />
-                                        <Text
-                                                text="{data>fiber}"
-                                        />
-                                    </cells>
-                                </ColumnListItem>
-                            </items>
-                        </Table>
+                        <mvc:XMLView
+                            viewName="pc.my.be-fit.src.master.ingredients.components.ingredientTable.IngredientTable"
+                        />
                     </l:BlockLayoutCell>
                 </l:BlockLayoutRow>
             </l:BlockLayout>
