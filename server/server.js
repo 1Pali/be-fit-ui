@@ -3,8 +3,8 @@ var app = express();
 var bodyParser = require('body-parser');
 
 //multer causing some issues at startup of app but without him data not working properly
-var multer = require('multer');
-var upload = multer();
+// var multer = require('multer');
+// var upload = multer();
  var path = require('path');
 //
 app.use(bodyParser.json());
