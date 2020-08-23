@@ -1,13 +1,13 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var multer = require('multer');
-var upload = multer();
-var path = require('path');
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(upload.array());
+// var multer = require('multer');
+// var upload = multer();
+// var path = require('path');
+//
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(upload.array());
 
 app.set('port', (process.env.PORT || 8000));
 app.use(express.static(path.join(__dirname, '../main/webapp')));
