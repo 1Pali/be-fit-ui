@@ -15,7 +15,7 @@ sap.ui.define([
 				url: "https://be-fit-be.herokuapp.com/api/v1/space",
 				dataType: "json",
 				undefined,
-				async: bAsync,
+				async: false,
 				success: function (oResponse) {
 					MessageToast.show(oResponse.length);
 				},
@@ -23,7 +23,6 @@ sap.ui.define([
 					MessageToast.show("error");
 				},
 				complete: function () {
-					BusyDialog._getDialog.call(this).close();
 				}.bind(this)
 			});
 		},
