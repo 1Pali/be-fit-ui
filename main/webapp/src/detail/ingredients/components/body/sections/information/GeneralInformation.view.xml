@@ -4,39 +4,118 @@
         xmlns:mvc="sap.ui.core.mvc"
         xmlns:form="sap.ui.layout.form"
 >
-    <form:SimpleForm
-            visible="{= ${ui>/editMode} === false}"
-            editable="false"
-            layout="ResponsiveGridLayout"
-            labelSpanXL="2"
-            labelSpanL="2"
-            labelSpanM="2"
-            labelSpanS="12"
-            adjustLabelSpan="false"
-            emptySpanXL="0"
-            emptySpanL="0"
-            emptySpanM="0"
-            emptySpanS="0"
-            columnsXL="1"
-            columnsL="1"
-            columnsM="1"
+    <form:Form
+        visible="{ui>/editMode}"
     >
-        <form:content>
-            <Label
-                    text="{i18n>GroupName}"
-                    tooltip="{i18n>GroupNameToolTip}"
+        <form:layout>
+            <form:ResponsiveGridLayout
+                    labelSpanXL="4"
+                    labelSpanL="4"
+                    labelSpanM="12"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="0"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="2"
+                    columnsM="2"
+                    singleContainerFullSize="false"
             />
-            <Text
-                    text="{data>energy}"
-            />
+        </form:layout>
+        <form:formContainers>
+            <form:FormContainer>
+                <form:formElements>
+                    <form:FormElement
+                        label="{i18n>isName}"
+                    >
+                        <form:fields>
+                            <Input
+                                value="{data>name}"
+                                valueState="{= ${data>name} !== '' ? 'None' : 'Error'}"
+                                required="true"
+                            />
+                        </form:fields>
+                    </form:FormElement>
+                    <form:FormElement
+                        label="{i18n>isEnergy}"
+                    >
+                        <form:fields>
+                            <Input
+                                value="{data>energy}"
+                                valueState="{= ${data>energy} !== '' ? 'None' : 'Error'}"
+                                type="Number"
+                                required="true"
+                            />
 
-            <Label
-                    text="{i18n>GroupVersion}"
-                    tooltip="{i18n>GroupVersionToolTip}"
-            />
-            <Text
-                    text="{data>protein}"
-            />
-        </form:content>
-    </form:SimpleForm>
+                        </form:fields>
+                    </form:FormElement>
+                    <form:FormElement
+                        label="{i18n>isProtein}"
+                    >
+                        <form:fields>
+                            <Input
+                                value="{data>protein}"
+                                valueState="{= ${data>protein} !== '' ? 'None' : 'Error'}"
+                                type="Number"
+                                required="true"
+                            />
+                        </form:fields>
+                    </form:FormElement>
+                    <form:FormElement
+                        label="{i18n>isCarbohydrate}"
+                    >
+                        <form:fields>
+                            <Input
+                                value="{data>carbohydrate}"
+                                valueState="{= ${data>carbohydrate} !== '' ? 'None' : 'Error'}"
+                                type="Number"
+                                required="true"
+                            />
+                        </form:fields>
+                    </form:FormElement>
+                </form:formElements>
+            </form:FormContainer>
+            <form:FormContainer>
+                <form:formElements>
+                    <form:FormElement
+                        label="{i18n>isFat}"
+                    >
+                        <form:fields>
+                            <Input
+                                value="{data>fat}"
+                                valueState="{= ${data>fat} !== '' ? 'None' : 'Error'}"
+                                type="Number"
+                                required="true"
+                            />
+                        </form:fields>
+                    </form:FormElement>
+                    <form:FormElement
+                        label="{i18n>isFiber}"
+                    >
+                        <form:fields>
+                            <Input
+                                value="{data>fiber}"
+                                valueState="{= ${data>fiber} !== '' ? 'None' : 'Error'}"
+                                type="Number"
+                                required="true"
+                            />
+                        </form:fields>
+                    </form:FormElement>
+                    <form:FormElement
+                        label="{i18n>isPrice}"
+                    >
+                        <form:fields>
+                            <Input
+                                value="{data>price}"
+                                type="Number"
+                                required="false"
+                            />
+                        </form:fields>
+                    </form:FormElement>
+                </form:formElements>
+            </form:FormContainer>
+        </form:formContainers>
+    </form:Form>
 </mvc:View>
