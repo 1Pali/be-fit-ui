@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 //
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(upload.array());
+// app.use(upload.array());
 
 app.set('port', (process.env.PORT || 8000));
 app.use(express.static(path.join(__dirname, '../main/webapp')));
