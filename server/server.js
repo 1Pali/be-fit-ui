@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 // var multer = require('multer');
 // var upload = multer();
-// var path = require('path');
+ var path = require('path');
 //
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
