@@ -16,7 +16,8 @@ sap.ui.define([
             },
             selectedObjectIndex: undefined,
             footerVisibility: false,
-            editMode: false
+            editMode: false,
+            footerSaveButtonEnabled: false
         })
     };
 });

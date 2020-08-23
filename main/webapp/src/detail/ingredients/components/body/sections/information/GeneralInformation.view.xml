@@ -5,6 +5,7 @@
         xmlns:form="sap.ui.layout.form"
 >
     <form:Form
+        id="isGeneralInformationForm"
         visible="{ui>/editMode}"
     >
         <form:layout>
@@ -32,8 +33,10 @@
                     >
                         <form:fields>
                             <Input
+                                id="isName"
                                 value="{data>name}"
                                 valueState="{= ${data>name} !== '' ? 'None' : 'Error'}"
+                                change="onFieldChange"
                                 required="true"
                             />
                         </form:fields>
@@ -43,8 +46,10 @@
                     >
                         <form:fields>
                             <Input
+                                id="isEnergy"
                                 value="{data>energy}"
                                 valueState="{= ${data>energy} !== '' ? 'None' : 'Error'}"
+                                change="onFieldChange"
                                 type="Number"
                                 required="true"
                             />
@@ -56,8 +61,10 @@
                     >
                         <form:fields>
                             <Input
+                                id="isProtein"
                                 value="{data>protein}"
                                 valueState="{= ${data>protein} !== '' ? 'None' : 'Error'}"
+                                change="onFieldChange"
                                 type="Number"
                                 required="true"
                             />
@@ -68,8 +75,10 @@
                     >
                         <form:fields>
                             <Input
+                                id="isCarbohydrate"
                                 value="{data>carbohydrate}"
                                 valueState="{= ${data>carbohydrate} !== '' ? 'None' : 'Error'}"
+                                change="onFieldChange"
                                 type="Number"
                                 required="true"
                             />
@@ -84,8 +93,10 @@
                     >
                         <form:fields>
                             <Input
+                                id="isFat"
                                 value="{data>fat}"
                                 valueState="{= ${data>fat} !== '' ? 'None' : 'Error'}"
+                                change="onFieldChange"
                                 type="Number"
                                 required="true"
                             />
@@ -96,8 +107,16 @@
                     >
                         <form:fields>
                             <Input
+                                id="isFiber"
                                 value="{data>fiber}"
-                                valueState="{= ${data>fiber} !== '' ? 'None' : 'Error'}"
+                                valueState="{
+                                    parts: [
+                                        {path: 'data>fiber'},
+                                        {value: 'isFiber'}
+                                    ],
+                                    formatter: '.getStateAndValidate'
+                                }"
+                                change="onFieldChange"
                                 type="Number"
                                 required="true"
                             />

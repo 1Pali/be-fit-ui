@@ -85,6 +85,19 @@ sap.ui.define([
             }
 
             return bIsEqual;
+        },
+
+        isFieldGroupValid: function (oFieldGroup) {
+            var bIsValid = true;
+
+            for(var sField in oFieldGroup) {
+                if (oFieldGroup[sField] === false) {
+                    bIsValid = false;
+                    break;
+                }
+            }
+
+            return bIsValid;
         }
     };
 });
