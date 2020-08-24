@@ -6,7 +6,6 @@
 >
     <form:Form
         id="isGeneralInformation"
-        visible="{ui>/editMode}"
     >
         <form:layout>
             <form:ResponsiveGridLayout

@@ -6,6 +6,7 @@
     <ObjectPageSection
         title="{i18n>GeneralInformationSection}"
         titleUppercase="false"
+        visible="{ui>/editMode}"
     >
         <subSections>
             <ObjectPageSubSection>
