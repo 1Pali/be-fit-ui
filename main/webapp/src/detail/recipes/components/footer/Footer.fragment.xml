@@ -7,7 +7,7 @@
         <Button
             type="Emphasized"
             text="{i18n>FooterSaveButton}"
-            enabled="{= ${ui>/saveButtonEnabled} === true}"
+            enabled="{= ${ui>/footerSaveButtonEnabled} === true}"
             press=".onFooterSavePress"
         />
         <Button

@@ -11,7 +11,7 @@
             <ObjectPageSubSection>
                 <blocks>
                     <mvc:XMLView
-                        viewName="pc.my.be-fit.src.detail.recipes.components.body.sections.information.GeneralInformationForm"
+                        viewName="pc.my.be-fit.src.detail.recipes.components.body.sections.information.GeneralInformation"
                     />
                 </blocks>
             </ObjectPageSubSection>

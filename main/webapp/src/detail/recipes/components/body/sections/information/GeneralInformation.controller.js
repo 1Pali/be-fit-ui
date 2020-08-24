@@ -1,14 +1,14 @@
 sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/mvc/Controller",
-    "pc/my/be-fit/src/model/section/editIngredient",
+    "pc/my/be-fit/src/model/section/editRecipe",
     "pc/my/be-fit/src/util/util"
-], function (JSONModel, Controller, EditIngredient, Util) {
+], function (JSONModel, Controller, EditRecipe, Util) {
     "use strict";
 
-    return Controller.extend("pc.my.be-fit.src.detail.ingredients.components.body.sections.information.GeneralInformation", {
+    return Controller.extend("pc.my.be-fit.src.detail.recipes.components.body.sections.information.GeneralInformation", {
         onInit: function () {
-            this.getView().setModel(EditIngredient.getInitial(), "generalInformartionSection");
+            this.getView().setModel(EditRecipe.getInitial(), "generalInformartionSection");
         },
 
         getStateAndValidate: function (sValue, sId) {
@@ -26,6 +26,5 @@ sap.ui.define([
                 return "Error";
             }
         }
-
     });
 });
