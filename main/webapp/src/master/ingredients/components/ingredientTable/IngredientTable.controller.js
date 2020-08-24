@@ -37,8 +37,6 @@ sap.ui.define([
 		onDeletePress: function (oEvent) {
 
 		}
-
-
     });
 
 });

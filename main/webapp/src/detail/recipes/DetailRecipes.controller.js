@@ -1,8 +1,10 @@
 sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/mvc/Controller",
-    "pc/my/be-fit/src/util/util"
-], function (JSONModel, Controller, Util) {
+    "pc/my/be-fit/src/util/util",
+    "pc/my/be-fit/src/dialog/recipes/deleteRecipe",
+    "pc/my/be-fit/src/api/Request",
+], function (JSONModel, Controller, Util, DeleteRecipeDialog, Request) {
     "use strict";
 
     return Controller.extend("pc.my.be-fit.src.detail.recipes.DetailRecipes", {
@@ -54,7 +56,12 @@ sap.ui.define([
         },
 
         onDeletePress: function (oEvent) {
+            DeleteRecipeDialog.getDialog.call(this, this._deleteRecipe);
+        },
 
+        _deleteRecipe: function () {
+            var oRecipe = Util.getBindingObject.call(this, "data");
+            Request.Recipe.delete.call(this, oRecipe.id, Util.getModel.call(this, "data"), "/recipes", true);
         },
 
         _onClose: function () {

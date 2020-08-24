@@ -1,8 +1,10 @@
 sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/mvc/Controller",
-    "pc/my/be-fit/src/util/util"
-], function (JSONModel, Controller, Util) {
+    "pc/my/be-fit/src/util/util",
+    "pc/my/be-fit/src/dialog/ingredients/deleteIngredient",
+    "pc/my/be-fit/src/api/Request",
+], function (JSONModel, Controller, Util, DeleteIngredientDialog, Request) {
     "use strict";
 
     return Controller.extend("pc.my.be-fit.src.detail.ingredients.DetailIngredients", {
@@ -54,7 +56,12 @@ sap.ui.define([
         },
 
         onDeletePress: function (oEvent) {
+            DeleteIngredientDialog.getDialog.call(this, this._deleteIngredient);
+        },
 
+        _deleteIngredient: function () {
+            var oIngredient = Util.getBindingObject.call(this, "data");
+            Request.Ingredient.delete.call(this, oIngredient.id, Util.getModel.call(this, "data"), "/ingredients", true);
         },
 
         _onClose: function () {

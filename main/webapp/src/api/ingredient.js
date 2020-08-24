@@ -17,6 +17,14 @@ sap.ui.define([
         MessageToast.show(sSuccessMessage);
     };
 
+    var onDeleteSuccess = function (nIngredientId, oModel, sPath, sSuccessMessage) {
+        oModel.setProperty(sPath, oModel.getProperty(sPath).filter(ingredient => ingredient.id !== nIngredientId));
+        oModel.refresh(true);
+        var sNextLayout = Util.getModel.call(this).getProperty("/actionButtonsInfo/midColumn/closeColumn");
+        Util.getRouter.call(this).navTo("MasterIngredients", {layout: sNextLayout});
+        MessageToast.show(sSuccessMessage);
+    };
+
     return {
         getList: function(oModel, sPath, bAsync) {
             var sSuccessMessage = "Get Ingredient List Success";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
@@ -46,6 +54,23 @@ sap.ui.define([
                 oIngredient,
                 function (oResponse) {
                     onCreateSuccess(oResponse, oModel, sPath, sSuccessMessage);
+                }.bind(this),
+                sErrorMessage,
+                bAsync
+            );
+        },
+
+        delete: function (nIngredientId, oModel, sPath, bAsync) {
+            var sSuccessMessage = "Delete Ingredient Success";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
+            var sErrorMessage = "Delete Ingredient Error";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
+
+            Common.AJAXRequest.call(
+                this,
+                Common.RequestTypes.DELETE,
+                INGREDIENT_URL + "/" + nIngredientId,
+                undefined,
+                function () {
+                    onDeleteSuccess(nIngredientId, oModel, sPath, sSuccessMessage);
                 }.bind(this),
                 sErrorMessage,
                 bAsync
