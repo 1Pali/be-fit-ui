@@ -25,4 +25,8 @@
     <Text
         text="{data>fiber}"
     />
+
+    <Text
+        text="{data>price}"
+    />
 </core:FragmentDefinition>
