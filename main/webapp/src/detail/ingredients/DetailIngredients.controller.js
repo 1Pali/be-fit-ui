@@ -4,7 +4,9 @@ sap.ui.define([
     "pc/my/be-fit/src/util/util",
     "pc/my/be-fit/src/dialog/ingredients/deleteIngredient",
     "pc/my/be-fit/src/api/Request",
-], function (JSONModel, Controller, Util, DeleteIngredientDialog, Request) {
+    "sap/m/MessageToast",
+    "pc/my/be-fit/src/dialog/confirmDialog"
+], function (JSONModel, Controller, Util, DeleteIngredientDialog, Request, MessageToast, ConfirmDialog) {
     "use strict";
 
     return Controller.extend("pc.my.be-fit.src.detail.ingredients.DetailIngredients", {
@@ -23,7 +25,13 @@ sap.ui.define([
         },
 
         onEditPress: function (oEvent) {
+            this._storePreviousIngredient();
             Util.toggleShowFooter.call(this);
+        },
+
+        _storePreviousIngredient: function (oEvent) {
+            var oIngredientClone = Util.getObjectClone(Util.getBindingObject.call(this, "data"));
+            Util.getModel.call(this, "ui").setProperty("/ingredient/previousIngredient", oIngredientClone);
         },
 
         onExit: function () {
@@ -49,10 +57,16 @@ sap.ui.define([
             var bIsInEditMode = Util.getModel.call(this, "ui").getProperty("/editMode");
 
             if(bIsInEditMode) {
-                // Dialog.Confirm.leaveAndDiscardDialog.call(this, this._onClose);
+                ConfirmDialog.getLeaveAndDiscard.call(this, this._onClose);
             } else {
                 this._closeDetailPage();
             }
+        },
+
+        _onClose: function () {
+            var oPreviousIngredient = Util.getModel.call(this, "ui").getProperty("/ingredient/previousIngredient");
+            Util.getModel.call(this, "data").setProperty(Util.getBindingPath.call(this, "data"), oPreviousIngredient);
+            this._closeDetailPage();
         },
 
         onDeletePress: function (oEvent) {
@@ -68,10 +82,7 @@ sap.ui.define([
                 });
         },
 
-        _onClose: function () {
-            Util.restoreEditedValues.call(this, Util.getBindingPath.call(this, "data"));
-            this._closeDetailPage();
-        },
+
 
         _closeDetailPage: function () {
             var sNextLayout = Util.getModel.call(this).getProperty("/actionButtonsInfo/midColumn/closeColumn");
@@ -79,11 +90,37 @@ sap.ui.define([
         },
 
         onFooterSavePress: function (oEvent) {
-            Util.toggleShowFooter.call(this);
+            var oActualIngredient = Util.getBindingObject.call(this, "data");
+            var oPreviousIngredient = Util.getModel.call(this, "ui").getProperty("/ingredient/previousIngredient");
+
+            if (Util.isFlatObjectEqual(oActualIngredient, oPreviousIngredient)) {
+                MessageToast.show(Util.getResourceBundle.call(this).getText("NoChangeMessage"));
+                Util.toggleShowFooter.call(this);
+            } else {
+                ConfirmDialog.getSaveChanges.call(this, () => {
+                    Request.Ingredient.update.call(this, oActualIngredient, Util.getModel.call(this, "data"),
+                        Util.getBindingPath.call(this, "data"), true);
+
+                    Util.toggleShowFooter.call(this);
+                });
+            }
         },
 
         onFooterCancelPress: function (oEvent) {
-            Util.toggleShowFooter.call(this);
+            var oActualIngredient = Util.getBindingObject.call(this, "data");
+            var oPreviousIngredient = Util.getModel.call(this, "ui").getProperty("/ingredient/previousIngredient");
+
+            if (!Util.isFlatObjectEqual(oActualIngredient, oPreviousIngredient)) {
+                ConfirmDialog.getDiscardChanges.call(this, () => {
+                    Util.getModel.call(this, "data")
+                        .setProperty(Util.getBindingPath.call(this, "data"), oPreviousIngredient);
+
+                    Util.toggleShowFooter.call(this);
+                });
+            } else {
+                Util.toggleShowFooter.call(this);
+            }
+
         },
     });
 });

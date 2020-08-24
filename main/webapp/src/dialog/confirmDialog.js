@@ -39,6 +39,36 @@ sap.ui.define([
 		};
 
 	return {
-        commonDialog: commonDialog
+        commonDialog: commonDialog,
+
+		getDiscardChanges: function (fOnSubmit) {
+			commonDialog.call(
+				this,
+				fOnSubmit,
+				"cdDiscardTitle",
+				"cdDiscardQuestion",
+				"cdDiscardButton"
+			);
+		},
+
+		getSaveChanges: function (fSubmit) {
+			commonDialog.call(
+				this,
+				fSubmit,
+				"cdSaveTitle",
+				"cdSaveQuestion",
+				"cdSaveButton"
+			);
+		},
+
+		getLeaveAndDiscard: function (fOnSubmit) {
+			commonDialog.call(
+				this,
+				fOnSubmit,
+				"cdLeaveAndDiscardTitle",
+				"cdLeaveAndDiscardQuestion",
+				"cdLeaveAndDiscardButton"
+			);
+		},
 	};
 });

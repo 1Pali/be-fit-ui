@@ -4,7 +4,9 @@ sap.ui.define([
     "pc/my/be-fit/src/util/util",
     "pc/my/be-fit/src/dialog/recipes/deleteRecipe",
     "pc/my/be-fit/src/api/Request",
-], function (JSONModel, Controller, Util, DeleteRecipeDialog, Request) {
+    "sap/m/MessageToast",
+    "pc/my/be-fit/src/dialog/confirmDialog"
+], function (JSONModel, Controller, Util, DeleteRecipeDialog, Request, MessageToast, ConfirmDialog) {
     "use strict";
 
     return Controller.extend("pc.my.be-fit.src.detail.recipes.DetailRecipes", {
@@ -23,7 +25,13 @@ sap.ui.define([
         },
 
         onEditPress: function (oEvent) {
+            this._storePreviousRecipe();
             Util.toggleShowFooter.call(this);
+        },
+
+        _storePreviousRecipe: function (oEvent) {
+            var oRecipeClone = Util.getObjectClone(Util.getBindingObject.call(this, "data"));
+            Util.getModel.call(this, "ui").setProperty("/recipe/previousRecipe", oRecipeClone);
         },
 
         onExit: function () {
@@ -49,7 +57,7 @@ sap.ui.define([
             var bIsInEditMode = Util.getModel.call(this, "ui").getProperty("/editMode");
 
             if(bIsInEditMode) {
-                // Dialog.Confirm.leaveAndDiscardDialog.call(this, this._onClose);
+                ConfirmDialog.getLeaveAndDiscard.call(this, this._onClose);
             } else {
                 this._closeDetailPage();
             }
@@ -69,7 +77,8 @@ sap.ui.define([
         },
 
         _onClose: function () {
-            Util.restoreEditedValues.call(this, Util.getBindingPath.call(this, "data"));
+            var oPreviousIngredient = Util.getModel.call(this, "ui").getProperty("/ingredient/previousIngredient");
+            Util.getModel.call(this, "data").setProperty(Util.getBindingPath.call(this, "data"), oPreviousIngredient);
             this._closeDetailPage();
         },
 
@@ -79,12 +88,38 @@ sap.ui.define([
         },
 
         onFooterSavePress: function (oEvent) {
-            Util.toggleShowFooter.call(this);
+            var oActualRecipe = Util.getBindingObject.call(this, "data");
+            var oPreviousRecipe = Util.getModel.call(this, "ui").getProperty("/recipe/previousRecipe");
+
+            if (Util.isFlatObjectEqual(oActualRecipe, oPreviousRecipe)) {
+                MessageToast.show(Util.getResourceBundle.call(this).getText("NoChangeMessage"));
+                Util.toggleShowFooter.call(this);
+            } else {
+                ConfirmDialog.getSaveChanges.call(this, () => {
+                    Request.Recipe.update.call(this, oActualRecipe, Util.getModel.call(this, "data"),
+                        Util.getBindingPath.call(this, "data"), true);
+
+                    Util.toggleShowFooter.call(this);
+                });
+            }
         },
 
         onFooterCancelPress: function (oEvent) {
-            Util.toggleShowFooter.call(this);
-        }
+            var oActualRecipe = Util.getBindingObject.call(this, "data");
+            var oPreviousRecipe = Util.getModel.call(this, "ui").getProperty("/recipe/previousRecipe");
+
+            if (!Util.isFlatObjectEqual(oActualRecipe, oPreviousRecipe)) {
+                ConfirmDialog.getDiscardChanges.call(this, () => {
+                    Util.getModel.call(this, "data")
+                        .setProperty(Util.getBindingPath.call(this, "data"), oPreviousRecipe);
+
+                    Util.toggleShowFooter.call(this);
+                });
+            } else {
+                Util.toggleShowFooter.call(this);
+            }
+
+        },
 
     });
 });

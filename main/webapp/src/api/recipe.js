@@ -17,6 +17,12 @@ sap.ui.define([
         MessageToast.show(sSuccessMessage);
     };
 
+    var onUpdateSuccess = function (oResponse, oModel, sPath, sSuccessMessage) {
+        oModel.setProperty(sPath, oResponse);
+        oModel.refresh(true);
+        MessageToast.show(sSuccessMessage);
+    };
+
     var onDeleteSuccess = function (nRecipeId, oModel, sPath, sSuccessMessage) {
         oModel.setProperty(sPath, oModel.getProperty(sPath).filter(recipe => recipe.id !== nRecipeId));
         oModel.refresh(true);
@@ -52,6 +58,23 @@ sap.ui.define([
                 oRecipe,
                 function (oResponse) {
                     onCreateSuccess(oResponse, oModel, sPath, sSuccessMessage);
+                }.bind(this),
+                sErrorMessage,
+                bAsync
+            );
+        },
+
+        update: function (oRecipe, oModel, sPath, bAsync) {
+            var sSuccessMessage = "Update Recipe Success";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
+            var sErrorMessage = "Update Recipe Error";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
+
+            return Common.AJAXRequest.call(
+                this,
+                Common.RequestTypes.PUT,
+                RECIPE_URL + "/" + oRecipe.id,
+                oRecipe,
+                function (oResponse) {
+                    onUpdateSuccess(oResponse, oModel, sPath, sSuccessMessage);
                 }.bind(this),
                 sErrorMessage,
                 bAsync
