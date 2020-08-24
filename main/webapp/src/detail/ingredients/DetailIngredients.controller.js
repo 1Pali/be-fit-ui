@@ -61,7 +61,11 @@ sap.ui.define([
 
         _deleteIngredient: function () {
             var oIngredient = Util.getBindingObject.call(this, "data");
-            Request.Ingredient.delete.call(this, oIngredient.id, Util.getModel.call(this, "data"), "/ingredients", true);
+            Request.Ingredient.delete.call(this, oIngredient.id, Util.getModel.call(this, "data"), "/ingredients", true)
+                .then(() => {
+                    var sNextLayout = Util.getModel.call(this).getProperty("/actionButtonsInfo/midColumn/closeColumn");
+                    Util.getRouter.call(this).navTo("MasterIngredients", {layout: sNextLayout});
+                });
         },
 
         _onClose: function () {

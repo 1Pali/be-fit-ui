@@ -20,9 +20,8 @@ sap.ui.define([
     var onDeleteSuccess = function (nIngredientId, oModel, sPath, sSuccessMessage) {
         oModel.setProperty(sPath, oModel.getProperty(sPath).filter(ingredient => ingredient.id !== nIngredientId));
         oModel.refresh(true);
-        var sNextLayout = Util.getModel.call(this).getProperty("/actionButtonsInfo/midColumn/closeColumn");
-        Util.getRouter.call(this).navTo("MasterIngredients", {layout: sNextLayout});
         MessageToast.show(sSuccessMessage);
+        return true;
     };
 
     return {
@@ -30,7 +29,7 @@ sap.ui.define([
             var sSuccessMessage = "Get Ingredient List Success";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
             var sErrorMessage = "Get Ingredient List Error";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
 
-            Common.AJAXRequest.call(
+            return Common.AJAXRequest.call(
                 this,
                 Common.RequestTypes.GET,
                 INGREDIENT_URL,
@@ -47,7 +46,7 @@ sap.ui.define([
             var sSuccessMessage = "Create Ingredient Success";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
             var sErrorMessage = "Create Ingredient Error";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
 
-            Common.AJAXRequest.call(
+            return Common.AJAXRequest.call(
                 this,
                 Common.RequestTypes.POST,
                 INGREDIENT_URL,
@@ -64,7 +63,7 @@ sap.ui.define([
             var sSuccessMessage = "Delete Ingredient Success";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
             var sErrorMessage = "Delete Ingredient Error";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
 
-            Common.AJAXRequest.call(
+            return Common.AJAXRequest.call(
                 this,
                 Common.RequestTypes.DELETE,
                 INGREDIENT_URL + "/" + nIngredientId,

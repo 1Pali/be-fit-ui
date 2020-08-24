@@ -61,7 +61,11 @@ sap.ui.define([
 
         _deleteRecipe: function () {
             var oRecipe = Util.getBindingObject.call(this, "data");
-            Request.Recipe.delete.call(this, oRecipe.id, Util.getModel.call(this, "data"), "/recipes", true);
+            Request.Recipe.delete.call(this, oRecipe.id, Util.getModel.call(this, "data"), "/recipes", true)
+                .then(() => {
+                    var sNextLayout = Util.getModel.call(this).getProperty("/actionButtonsInfo/midColumn/closeColumn");
+                    Util.getRouter.call(this).navTo("MasterRecipes", {layout: sNextLayout});
+                });
         },
 
         _onClose: function () {

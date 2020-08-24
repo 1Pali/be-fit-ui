@@ -28,7 +28,7 @@ sap.ui.define([
             var sSuccessMessage = "Get Recipe List Success";//this.getView().getModel("i18n").getResourceBundle().getText("RecipeGetListSuccessMessage");
             var sErrorMessage = "Get Recipe List Error";//this.getView().getModel("i18n").getResourceBundle().getText("RecipeGetListSuccessMessage");
 
-            Common.AJAXRequest.call(
+            return Common.AJAXRequest.call(
                 this,
                 Common.RequestTypes.GET,
                 RECIPE_URL,
@@ -45,7 +45,7 @@ sap.ui.define([
             var sSuccessMessage = "Create Recipe Success";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
             var sErrorMessage = "Create Recipe Error";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
 
-            Common.AJAXRequest.call(
+            return Common.AJAXRequest.call(
                 this,
                 Common.RequestTypes.POST,
                 RECIPE_URL,
@@ -62,7 +62,7 @@ sap.ui.define([
             var sSuccessMessage = "Delete Recipe Success";//this.getView().getModel("i18n").getResourceBundle().getText("RecipeGetListSuccessMessage");
             var sErrorMessage = "Delete Recipe Error";//this.getView().getModel("i18n").getResourceBundle().getText("RecipeGetListSuccessMessage");
 
-            Common.AJAXRequest.call(
+            return Common.AJAXRequest.call(
                 this,
                 Common.RequestTypes.DELETE,
                 RECIPE_URL + "/" + nRecipeId,

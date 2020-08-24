@@ -18,7 +18,7 @@ sap.ui.define([
         RequestTypes: oRequestTypes,
         AJAXRequest: function(sType, sUrl, oData, fnOnSuccess, sErrorMessage, bAsync) {
             BusyDialog._getDialog.call(this).open();
-            jQuery.ajax({
+            return jQuery.ajax({
                 type: sType,
                 contentType: "application/json",
                 url: sUrl,
@@ -27,6 +27,7 @@ sap.ui.define([
                 async: bAsync,
                 success: fnOnSuccess.bind(this),
                 error: function (oResponse) {
+                    return false;
                     MessageToast.show(sErrorMessage);
                 },
                 complete: function () {
