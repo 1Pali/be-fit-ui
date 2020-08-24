@@ -2,6 +2,23 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
+
+
+
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
+/**
+ * Configure proxy middleware
+ */
+const jsonPlaceholderProxy = createProxyMiddleware({
+    target: 'https://be-fit-be.herokuapp.com',
+    changeOrigin: true, // for vhosted sites, changes host header to match to target's host
+    logLevel: 'debug',
+});
+app.use('/api', jsonPlaceholderProxy);
+
+
+
 //multer causing some issues at startup of app but without him data not working properly
 // var multer = require('multer');
 // var upload = multer();
