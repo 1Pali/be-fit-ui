@@ -7,6 +7,7 @@
     <Table
        id="idRecipesTable"
        inset="false"
+       mode="MultiSelect"
        items="{
             path: 'data>/recipes',
             sorter: {
