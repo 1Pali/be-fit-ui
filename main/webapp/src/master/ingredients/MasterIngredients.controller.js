@@ -1,30 +1,13 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller",
-	"sap/m/MessageToast"
+	"sap/ui/core/mvc/Controller"
 ], function(
-	Controller,
-	MessageToast
-	) {
+	Controller
+) {
     "use strict";
 
     return Controller.extend("pc.my.be-fit.src.master.ingredients.MasterIngredients", {
 		onInit: function () {
-			jQuery.ajax({
-				type: "GET",
-				contentType: "application/json",
-				url: "/api/v1/space",
-				dataType: "json",
-				undefined,
-				async: false,
-				success: function (oResponse) {
-					MessageToast.show(oResponse.length);
-				},
-				error: function (oResponse) {
-					MessageToast.show("error");
-				},
-				complete: function () {
-				}.bind(this)
-			});
+
 		},
 
 		_onObjectMatched : function() {
