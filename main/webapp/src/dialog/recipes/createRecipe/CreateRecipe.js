@@ -30,9 +30,10 @@ sap.ui.define([
         onFieldChange: function (oEvent) {
             var sId = oEvent.getParameter("id");
 
-            this._getDialogModel().getProperty("/fieldValidationGroup")[sId] = oEvent.getParameter("value") !== "" ? true : false;
-
-            this.validateFields();
+            if(oEvent.getSource().getRequired()) {
+                this._getDialogModel().getProperty("/fieldValidationGroup")[sId] = oEvent.getParameter("value") !== "" ? true : false;
+                this.validateFields();
+            }
         },
 
 

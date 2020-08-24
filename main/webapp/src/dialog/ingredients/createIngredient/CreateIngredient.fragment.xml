@@ -30,6 +30,7 @@
                 />
                 <Input
                         id="cidEnergy"
+                        type="Number"
                         liveChange="onFieldChange"
                         value="{dialog>/data/energy}"
                         required="true"
@@ -43,6 +44,7 @@
                 />
                 <Input
                         id="cidProtein"
+                        type="Number"
                         liveChange="onFieldChange"
                         value="{dialog>/data/protein}"
                         required="true"
@@ -56,6 +58,7 @@
                 />
                 <Input
                         id="cidCarbohydrate"
+                        type="Number"
                         liveChange="onFieldChange"
                         value="{dialog>/data/carbohydrate}"
                         required="true"
@@ -69,6 +72,7 @@
                 />
                 <Input
                         id="cidFat"
+                        type="Number"
                         liveChange="onFieldChange"
                         value="{dialog>/data/fat}"
                         required="true"
@@ -82,9 +86,24 @@
                 />
                 <Input
                         id="cidFiber"
+                        type="Number"
                         liveChange="onFieldChange"
                         value="{dialog>/data/fiber}"
                         required="true"
+                />
+            </VBox>
+
+            <VBox>
+                <Label
+                        text="{i18n>cidPrice}"
+                        labelFor="cidPrice"
+                />
+                <Input
+                        id="cidPrice"
+                        type="Number"
+                        liveChange="onFieldChange"
+                        value="{dialog>/data/price}"
+                        required="false"
                 />
             </VBox>
         </content>

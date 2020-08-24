@@ -29,10 +29,10 @@ sap.ui.define([
 
         onFieldChange: function (oEvent) {
             var sId = oEvent.getParameter("id");
-
-            this._getDialogModel().getProperty("/fieldValidationGroup")[sId] = oEvent.getParameter("value") !== "" ? true : false;
-
-            this.validateFields();
+            if(oEvent.getSource().getRequired()) {
+                this._getDialogModel().getProperty("/fieldValidationGroup")[sId] = oEvent.getParameter("value") !== "" ? true : false;
+                this.validateFields();
+            }
         },
 
 
@@ -59,8 +59,9 @@ sap.ui.define([
             var nCarbohydrate = Number(oDialogModel.getProperty("/data/carbohydrate"));
             var nFat = Number(oDialogModel.getProperty("/data/fat"));
             var nFiber = Number(oDialogModel.getProperty("/data/fiber"));
+            var nPrice = Number(oDialogModel.getProperty("/data/price"));
 
-            var oIngredient = Entity.Ingredient.newObject(sName, nEnergy, nProtein, nCarbohydrate, nFat, nFiber, null, null);
+            var oIngredient = Entity.Ingredient.newObject(sName, nEnergy, nProtein, nCarbohydrate, nFat, nFiber, nPrice, null);
 
             Request.Ingredient.create.call(this._oCaller, oIngredient, Util.getModel.call(this._oCaller, "data"), "/ingredients", true);
             this._oDialog.close();
