@@ -12,7 +12,7 @@ sap.ui.define([
 			jQuery.ajax({
 				type: "GET",
 				contentType: "application/json",
-				url: "https://be-fit-be.herokuapp.com/api/v1/space",
+				url: "/api/v1/space",
 				dataType: "json",
 				undefined,
 				async: false,
