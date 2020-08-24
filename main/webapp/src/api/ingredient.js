@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (Common, MessageToast) {
     "use strict";
 
-    var INGREDIENT_URL = "/ingredient";
+    var INGREDIENT_URL = "/api/v1/ingredient";
 
     var onGetListSuccess = function (oResponse, oModel, sPath, sSuccessMessage) {
         oModel.setProperty(sPath, oResponse);
@@ -12,15 +12,15 @@ sap.ui.define([
     };
 
     var onCreateSuccess = function (oResponse, oModel, sPath, sSuccessMessage) {
-        oModel.getProperty(sPath).push(oResponse.oIngredient);
+        oModel.getProperty(sPath).push(oResponse);
         oModel.refresh(true);
         MessageToast.show(sSuccessMessage);
     };
 
     return {
         getList: function(oModel, sPath, bAsync) {
-            var sSuccessMessage = undefined;//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
-            var sErrorMessage = undefined;//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
+            var sSuccessMessage = "Get Ingredient List Success";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
+            var sErrorMessage = "Get Ingredient List Error";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
 
             Common.AJAXRequest.call(
                 this,
@@ -36,8 +36,8 @@ sap.ui.define([
         },
 
         create: function (oIngredient, oModel, sPath, bAsync) {
-            var sSuccessMessage = undefined;//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
-            var sErrorMessage = undefined;//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
+            var sSuccessMessage = "Create Ingredient Success";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
+            var sErrorMessage = "Create Ingredient Error";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
 
             Common.AJAXRequest.call(
                 this,

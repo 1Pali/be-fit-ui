@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (Common, MessageToast) {
     "use strict";
 
-    var RECIPE_URL = "/recipe";
+    var RECIPE_URL = "/api/v1/recipe";
 
     var onGetListSuccess = function (oResponse, oModel, sPath, sSuccessMessage) {
         oModel.setProperty(sPath, oResponse);
@@ -12,15 +12,15 @@ sap.ui.define([
     };
 
     var onCreateSuccess = function (oResponse, oModel, sPath, sSuccessMessage) {
-        oModel.getProperty(sPath).push(oResponse.oRecipe);
+        oModel.getProperty(sPath).push(oResponse);
         oModel.refresh(true);
         MessageToast.show(sSuccessMessage);
     };
 
     return {
         getList: function(oModel, sPath, bAsync) {
-            var sSuccessMessage = undefined;//this.getView().getModel("i18n").getResourceBundle().getText("RecipeGetListSuccessMessage");
-            var sErrorMessage = undefined;//this.getView().getModel("i18n").getResourceBundle().getText("RecipeGetListSuccessMessage");
+            var sSuccessMessage = "Get Recipe List Success";//this.getView().getModel("i18n").getResourceBundle().getText("RecipeGetListSuccessMessage");
+            var sErrorMessage = "Get Recipe List Error";//this.getView().getModel("i18n").getResourceBundle().getText("RecipeGetListSuccessMessage");
 
             Common.AJAXRequest.call(
                 this,
@@ -36,8 +36,8 @@ sap.ui.define([
         },
 
         create: function (oRecipe, oModel, sPath, bAsync) {
-            var sSuccessMessage = undefined;//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
-            var sErrorMessage = undefined;//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
+            var sSuccessMessage = "Create Recipe Success";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
+            var sErrorMessage = "Create Recipe Error";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
 
             Common.AJAXRequest.call(
                 this,
