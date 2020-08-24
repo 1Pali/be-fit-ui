@@ -29,6 +29,16 @@ sap.ui.define([
         MessageToast.show(sSuccessMessage);
     };
 
+    var onDeleteListSuccess = function (oResponse, oModel, sPath, sSuccessMessage) {
+        oModel.setProperty(sPath, oModel.getProperty(sPath)
+            .filter(recipe => !oResponse
+                .some(deletedItem => deletedItem.id === recipe.id && deletedItem.state === "SUCCESS")));
+
+        oModel.refresh(true);
+        MessageToast.show(sSuccessMessage);
+        return true;
+    };
+
     return {
         getList: function(oModel, sPath, bAsync) {
             var sSuccessMessage = "Get Recipe List Success";//this.getView().getModel("i18n").getResourceBundle().getText("RecipeGetListSuccessMessage");
@@ -92,6 +102,23 @@ sap.ui.define([
                 undefined,
                 function () {
                     onDeleteSuccess(nRecipeId, oModel, sPath, sSuccessMessage);
+                }.bind(this),
+                sErrorMessage,
+                bAsync
+            );
+        },
+
+        deleteList: function (aRecipeIdList, oModel, sPath, bAsync) {
+            var sSuccessMessage = "Delete Recipe List Success";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
+            var sErrorMessage = "Delete Recipe List Error";//this.getView().getModel("i18n").getResourceBundle().getText("IngredientGetListSuccessMessage");
+
+            return Common.AJAXRequest.call(
+                this,
+                Common.RequestTypes.DELETE,
+                RECIPE_URL + "/deletelist",
+                aRecipeIdList,
+                function (oResponse) {
+                    onDeleteListSuccess(oResponse, oModel, sPath, sSuccessMessage);
                 }.bind(this),
                 sErrorMessage,
                 bAsync

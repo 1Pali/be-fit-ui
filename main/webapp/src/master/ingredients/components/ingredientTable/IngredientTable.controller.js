@@ -3,13 +3,17 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/f/library",
 	"pc/my/be-fit/src/api/Request",
-	"pc/my/be-fit/src/dialog/factory"
+	"pc/my/be-fit/src/dialog/factory",
+	"pc/my/be-fit/src/dialog/ingredients/deleteIngredient",
+	"pc/my/be-fit/src/util/util"
 ], function(
 	Controller,
 	JSONModel,
 	FioriLibrary,
 	Request,
-	DialogFactory
+	DialogFactory,
+	DeleteIngredientDialog,
+	Util
 	) {
     "use strict";
 
@@ -35,7 +39,14 @@ sap.ui.define([
 		},
 
 		onDeletePress: function (oEvent) {
+			DeleteIngredientDialog.getDialog.call(this, this._deleteIngredients);
+		},
 
+		_deleteIngredients: function () {
+			var aDeletedIngredients = this.getView().byId("idIngredientTable").getSelectedItems()
+				.map(row => row.getBindingContext("data").getObject().id);
+
+			Request.Ingredient.deleteList.call(this, aDeletedIngredients, Util.getModel.call(this, "data"), "/ingredients", true);
 		}
     });
 

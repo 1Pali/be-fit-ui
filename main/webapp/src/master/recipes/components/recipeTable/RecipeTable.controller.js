@@ -3,13 +3,17 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/f/library",
 	"pc/my/be-fit/src/api/Request",
-	"pc/my/be-fit/src/dialog/factory"
+	"pc/my/be-fit/src/dialog/factory",
+	"pc/my/be-fit/src/dialog/recipes/deleteRecipe",
+	"pc/my/be-fit/src/util/util"
 ], function(
 	Controller,
 	JSONModel,
 	FioriLibrary,
 	Request,
-	DialogFactory
+	DialogFactory,
+	DeleteRecipeDialog,
+	Util
 	) {
     "use strict";
 
@@ -35,7 +39,14 @@ sap.ui.define([
 		},
 
 		onDeletePress: function (oEvent) {
+			DeleteRecipeDialog.getDialog.call(this, this._deleteRecipes);
+		},
 
+		_deleteRecipes: function () {
+			var aDeletedRecipes = this.getView().byId("idRecipeTable").getSelectedItems()
+				.map(row => row.getBindingContext("data").getObject().id);
+
+			Request.Recipe.deleteList.call(this, aDeletedRecipes, Util.getModel.call(this, "data"), "/recipes", true);
 		}
 
     });

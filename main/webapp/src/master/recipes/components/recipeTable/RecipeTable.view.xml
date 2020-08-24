@@ -5,7 +5,7 @@
       controllerName="pc.my.be-fit.src.master.recipes.components.recipeTable.RecipeTable"
 >
     <Table
-       id="idRecipesTable"
+       id="idRecipeTable"
        inset="false"
        mode="MultiSelect"
        items="{
