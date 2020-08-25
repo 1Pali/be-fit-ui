@@ -2,11 +2,16 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/mvc/Controller",
     "pc/my/be-fit/src/model/section/editIngredient",
-    "pc/my/be-fit/src/util/util"
-], function (JSONModel, Controller, EditIngredient, Util) {
+    "pc/my/be-fit/src/util/util",
+    "pc/my/be-fit/src/model/formatter",
+    "sap/ui/core/ValueState"
+], function (JSONModel, Controller, EditIngredient, Util, Formatter, ValueState) {
     "use strict";
 
     return Controller.extend("pc.my.be-fit.src.detail.ingredients.components.body.sections.information.GeneralInformation", {
+
+        formatter: Formatter,
+
         onInit: function () {
             this.getView().setModel(EditIngredient.getInitial(), "generalInformartionSection");
         },
@@ -18,14 +23,13 @@ sap.ui.define([
                 aFieldValidationGroup[sId] = true;
                 var bIsValid = Util.isFieldGroupValid(aFieldValidationGroup);
                 Util.getModel.call(this, "ui").setProperty("/footerSaveButtonEnabled", bIsValid);
-                return "None";
+                return ValueState.None;
             } else {
                 aFieldValidationGroup[sId] = false;
                 var bIsValid = Util.isFieldGroupValid(aFieldValidationGroup);
                 Util.getModel.call(this, "ui").setProperty("/footerSaveButtonEnabled", bIsValid);
-                return "Error";
+                return ValueState.Error;
             }
         }
-
     });
 });

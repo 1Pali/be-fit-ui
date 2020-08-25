@@ -9,6 +9,7 @@ sap.ui.define([
         getInitial: function () {
             return new JSONModel({
                 fieldValidationGroup: {
+                    isIngredientType: false,
                     isName: false,
                     isEnergy: false,
                     isProtein: false,

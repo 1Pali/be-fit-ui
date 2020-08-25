@@ -46,6 +46,7 @@ sap.ui.define([
 			var aDeletedIngredients = this.getView().byId("idIngredientTable").getSelectedItems()
 				.map(row => row.getBindingContext("data").getObject().id);
 
+			//TODO need to implement some dialog which will display error logs in case that some of ingredients will not be deleted
 			Request.Ingredient.deleteList.call(this, aDeletedIngredients, Util.getModel.call(this, "data"), "/ingredients", true);
 		}
     });

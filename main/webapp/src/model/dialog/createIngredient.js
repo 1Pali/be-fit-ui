@@ -9,6 +9,7 @@ sap.ui.define([
         getInitial: function () {
             return new JSONModel({
                 data: {
+                    ingredientTypeSelectedKey: null,
                     name: null,
                     description: null,
                     energy: null,
@@ -19,6 +20,7 @@ sap.ui.define([
                     price: null
                 },
                 fieldValidationGroup: {
+                    cidType: false,
                     cidName: false,
                     cidEnergy: false,
                     cidProtein: false,

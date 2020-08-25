@@ -5,11 +5,15 @@ sap.ui.define([
     "pc/my/be-fit/src/dialog/ingredients/deleteIngredient",
     "pc/my/be-fit/src/api/Request",
     "sap/m/MessageToast",
-    "pc/my/be-fit/src/dialog/confirmDialog"
-], function (JSONModel, Controller, Util, DeleteIngredientDialog, Request, MessageToast, ConfirmDialog) {
+    "pc/my/be-fit/src/dialog/confirmDialog",
+    "pc/my/be-fit/src/model/formatter"
+], function (JSONModel, Controller, Util, DeleteIngredientDialog, Request, MessageToast, ConfirmDialog, Formatter) {
     "use strict";
 
     return Controller.extend("pc.my.be-fit.src.detail.ingredients.DetailIngredients", {
+
+        formatter: Formatter,
+
         onInit: function () {
             Util.getRouter.call(this).getRoute("MasterIngredients").attachPatternMatched(this._onIngredientMatched, this);
             Util.getRouter.call(this).getRoute("DetailIngredients").attachPatternMatched(this._onIngredientMatched, this);

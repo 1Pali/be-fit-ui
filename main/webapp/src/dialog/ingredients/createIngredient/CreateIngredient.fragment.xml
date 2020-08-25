@@ -12,6 +12,34 @@
         <content>
             <VBox>
                 <Label
+                        text="{i18n>cidCategoryType}"
+                        labelFor="cidCategoryType"
+                />
+                <ComboBox
+                        id="cidType"
+                        selectedKey="{dialog>/data/ingredientTypeSelectedKey}"
+                        selectionChange="onComboBoxChange"
+                        width="100%"
+                        required="true"
+                        items="{
+                            path: 'data>/ingredientTypes',
+                            sorter: {
+                                path: 'name'
+                            }
+                        }"
+                >
+                    <core:Item
+                            key="{data>id}"
+                            text="{
+                                path: 'data>name',
+                                formatter: '.formatter.getTranslatedText'
+                            }"
+                    />
+                </ComboBox>
+            </VBox>
+
+            <VBox>
+                <Label
                         text="{i18n>cidName}"
                         labelFor="cidName"
                 />

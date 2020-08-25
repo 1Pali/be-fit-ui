@@ -4,14 +4,18 @@ sap.ui.define([
     "pc/my/be-fit/src/util/util",
     "pc/my/be-fit/src/api/Request",
     "pc/my/be-fit/src/model/dialog/createIngredient",
-    "pc/my/be-fit/src/model/entity/entity"
-], function(Parent, Fragment, Util, Request, CreateIngredient, Entity) {
+    "pc/my/be-fit/src/model/entity/entity",
+    "pc/my/be-fit/src/model/formatter",
+    "sap/ui/core/ValueState"
+], function(Parent, Fragment, Util, Request, CreateIngredient, Entity, Formatter, ValueState) {
     "use strict";
 
     var CREATE_INGREDIENT_DIALOG_FRAGMENT = "pc.my.be-fit.src.dialog.ingredients.createIngredient.CreateIngredient";
     var CREATE_INGREDIENT_DIALOG_CONTROLLER = "pc.my.be-fit.src.dialog.ingredients.createIngredient.CreateIngredient";
 
     return Parent.extend(CREATE_INGREDIENT_DIALOG_CONTROLLER, {
+
+        formatter: Formatter,
 
         constructor: function(oCaller) {
             this._oCaller = oCaller;
@@ -27,6 +31,21 @@ sap.ui.define([
             }.bind(this));
         },
 
+        onComboBoxChange: function (oEvent) {
+            var sId = oEvent.getParameter("id");
+            if(oEvent.getSource().getRequired()) {
+                if (oEvent.getParameter("selectedItem")) {
+                    oEvent.getSource().setValueState(ValueState.None);
+                    this._getDialogModel().getProperty("/fieldValidationGroup")[sId] =  true;
+                } else {
+                    oEvent.getSource().setValueState(ValueState.Error);
+                    this._getDialogModel().getProperty("/fieldValidationGroup")[sId] = false;
+                }
+
+                this.validateFields();
+            }
+        },
+
         onFieldChange: function (oEvent) {
             var sId = oEvent.getParameter("id");
             if(oEvent.getSource().getRequired()) {
@@ -34,7 +53,6 @@ sap.ui.define([
                 this.validateFields();
             }
         },
-
 
         validateFields: function () {
             var oActionModel = this._getDialogModel();
@@ -60,8 +78,9 @@ sap.ui.define([
             var nFat = Number(oDialogModel.getProperty("/data/fat"));
             var nFiber = Number(oDialogModel.getProperty("/data/fiber"));
             var nPrice = Number(oDialogModel.getProperty("/data/price"));
+            var nIngredientTypeId = Number(oDialogModel.getProperty("/data/ingredientTypeSelectedKey"));
 
-            var oIngredient = Entity.Ingredient.newObject(sName, nEnergy, nProtein, nCarbohydrate, nFat, nFiber, nPrice, null);
+            var oIngredient = Entity.Ingredient.newObject(sName, nEnergy, nProtein, nCarbohydrate, nFat, nFiber, nPrice, null, nIngredientTypeId);
 
             Request.Ingredient.create.call(this._oCaller, oIngredient, Util.getModel.call(this._oCaller, "data"), "/ingredients", true);
             this._oDialog.close();

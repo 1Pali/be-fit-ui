@@ -3,6 +3,7 @@
         xmlns="sap.m"
         xmlns:mvc="sap.ui.core.mvc"
         xmlns:form="sap.ui.layout.form"
+        xmlns:core="sap.ui.core"
 >
     <form:Form
         id="isGeneralInformation"
@@ -27,6 +28,40 @@
         <form:formContainers>
             <form:FormContainer>
                 <form:formElements>
+                    <form:FormElement
+                            label="{i18n>isIngredientType}"
+                    >
+                        <form:fields>
+                            <ComboBox
+                                id="isIngredientType"
+                                selectedKey="{data>idIngredientType}"
+                                valueState="{
+                                    parts: [
+                                        {path: 'data>idIngredientType'},
+                                        {value: 'isIngredientType'}
+                                    ],
+                                    formatter: '.getStateAndValidate'
+                                }"
+                                selectionChange="onFieldChange"
+                                width="100%"
+                                required="true"
+                                items="{
+                                    path: 'data>/ingredientTypes',
+                                    sorter: {
+                                        path: 'name'
+                                    }
+                                }"
+                            >
+                                <core:Item
+                                    key="{data>id}"
+                                    text="{
+                                        path: 'data>name',
+                                        formatter: '.formatter.getTranslatedText'
+                                    }"
+                                />
+                            </ComboBox>
+                        </form:fields>
+                    </form:FormElement>
                     <form:FormElement
                         label="{i18n>isName}"
                     >

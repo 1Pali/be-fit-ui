@@ -3,7 +3,7 @@ sap.ui.define([
     "use strict";
 
     return {
-        newObject: function (sName, nEnergy, nProtein, nCarbohydrate, nFat, nFiber, nPrice, sDescription) {
+        newObject: function (sName, nEnergy, nProtein, nCarbohydrate, nFat, nFiber, nPrice, sDescription, nIngredientTypeId) {
             return {
                 name: sName,
                 energy: nEnergy,
@@ -12,10 +12,9 @@ sap.ui.define([
                 fat: nFat,
                 fiber: nFiber,
                 price: nPrice,
-                description: sDescription
+                description: sDescription,
+                idIngredientType: nIngredientTypeId
             };
         }
-
-
     };
 });

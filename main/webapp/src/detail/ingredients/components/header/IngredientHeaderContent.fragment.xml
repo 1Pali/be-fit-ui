@@ -20,6 +20,14 @@
             >
                 <layout:VerticalLayout>
                     <ObjectStatus
+                            title="{i18n>ihcIngredientTypeName}"
+                            text="{
+                                path: 'data>ingredientTypeName',
+                                formatter: '.formatter.getTranslatedText'
+                            }"
+                            class="sapUiTinyMarginBottom"
+                    />
+                    <ObjectStatus
                             title="{i18n>ihcEnergy}"
                             text="{data>energy}"
                             class="sapUiTinyMarginBottom"
