@@ -97,7 +97,9 @@ sap.ui.define([
             var oActualIngredient = Util.getBindingObject.call(this, "data");
             var oPreviousIngredient = Util.getModel.call(this, "ui").getProperty("/ingredient/previousIngredient");
 
-            if (Util.isFlatObjectEqual(oActualIngredient, oPreviousIngredient)) {
+            var oImageUploader = sap.ui.getCore().byId("__xmlview5--imageUploader");
+
+            if (Util.isFlatObjectEqual(oActualIngredient, oPreviousIngredient) && !oImageUploader.getValue()) {
                 MessageToast.show(Util.getResourceBundle.call(this).getText("NoChangeMessage"));
                 Util.toggleShowFooter.call(this);
             } else {
@@ -105,9 +107,14 @@ sap.ui.define([
                     Request.Ingredient.update.call(this, oActualIngredient, Util.getModel.call(this, "data"),
                         Util.getBindingPath.call(this, "data"), true);
 
-                    Util.toggleShowFooter.call(this);
+                    if (oImageUploader.getValue()) {
+                        oImageUploader.upload();
+                    } else {
+                        Util.toggleShowFooter.call(this);
+                    }
                 });
             }
+
         },
 
         onFooterCancelPress: function (oEvent) {

@@ -8,6 +8,7 @@ sap.ui.define([
     return {
         getInitial: new JSONModel({
             ingredients: undefined,
+            selectedImage: undefined,
             recipes: undefined,
             dailyFoodPlannings: undefined
         })

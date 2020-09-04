@@ -2,7 +2,7 @@
         controllerName="pc.my.be-fit.src.detail.ingredients.components.body.sections.picture.Picture"
         xmlns="sap.m"
         xmlns:mvc="sap.ui.core.mvc"
-        xmlns:form="sap.ui.layout.form"
+        xmlns:u="sap.ui.unified"
 >
     <Toolbar
         visible="{ui>/editMode}"
@@ -10,11 +10,20 @@
         id="PictureToolBar"
     >
         <ToolbarSpacer/>
-        <Button
-            text="{i18n>ipUploadButton}"
-            icon="sap-icon://upload"
-            press="onUploadPicturePress"
+        <u:FileUploader
+            id="imageUploader"
+            name="file"
+            icon="sap-icon://browse-folder"
+            iconOnly="true"
+            uploadUrl="/api/v1/file"
+            uploadComplete="handleUploadComplete"
+
         />
+<!--        <Button-->
+<!--            text="{i18n>ipUploadButton}"-->
+<!--            icon="sap-icon://upload"-->
+<!--            press="onUploadPicturePress"-->
+<!--        />-->
     </Toolbar>
     <FlexBox
             wrap="Wrap"
@@ -30,7 +39,7 @@
                 class="sapUiTinyMarginEnd"
         >
             <Image
-                src="https://1.osiva-semena.sk/3488-big_default/paradajka-mercedes-f1-lycopersicon-lycopersicum-rajciak-semena-5-ks.jpg"
+                src="{data>/selectedImage/file/$value}"
                 width="100%"
             />
         </FlexBox>
