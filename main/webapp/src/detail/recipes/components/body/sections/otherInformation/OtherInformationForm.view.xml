@@ -1,5 +1,5 @@
 <mvc:View
-        controllerName="pc.my.be-fit.src.detail.recipes.components.body.sections.otherInformation.OtherInformationForm"
+        controllerName="com.pepa.befit.be_fit_ui.src.detail.recipes.components.body.sections.otherInformation.OtherInformationForm"
         xmlns="sap.m"
         xmlns:mvc="sap.ui.core.mvc"
         xmlns:form="sap.ui.layout.form"

@@ -5,7 +5,7 @@ sap.ui.define([
 ) {
     "use strict";
 
-    return Controller.extend("pc.my.be-fit.src.master.recipes.MasterRecipes", {
+    return Controller.extend("com.pepa.befit.be_fit_ui.src.master.recipes.MasterRecipes", {
 
         onInit: function () {
 

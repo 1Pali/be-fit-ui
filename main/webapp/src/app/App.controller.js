@@ -2,7 +2,7 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
     "sap/m/MessageBox",
-    "pc/my/be-fit/src/api/Request"
+    "com/pepa/befit/be_fit_ui/src/api/Request"
 ], function(
     Controller,
     JSONModel,
@@ -11,7 +11,7 @@ sap.ui.define([
 ) {
     "use strict";
 
-    return Controller.extend("pc.my.be-fit.src.app.App", {
+    return Controller.extend("com.pepa.befit.be_fit_ui.src.app.App", {
         onInit: function () {
             this.oOwnerComponent = this.getOwnerComponent();
             this.oRouter = this.oOwnerComponent.getRouter();

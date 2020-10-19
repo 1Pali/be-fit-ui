@@ -1,5 +1,5 @@
 <mvc:View
-        controllerName="pc.my.be-fit.src.detail.dailyFoodPlanning.DetailDailyFoodPlanning"
+        controllerName="com.pepa.befit.be_fit_ui.src.detail.dailyFoodPlanning.DetailDailyFoodPlanning"
         xmlns="sap.uxap"
         xmlns:m="sap.m"
         xmlns:mvc="sap.ui.core.mvc"

@@ -6,20 +6,20 @@
 	xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:tnt="sap.tnt"
 	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
-	controllerName="pc.my.be-fit.src.app.App"
+	controllerName="com.pepa.befit.be_fit_ui.src.app.App"
 	id="appView"
 >
 	<tnt:ToolPage id="toolPage">
 		<tnt:header>
 			<core:Fragment
-				fragmentName="pc.my.be-fit.src.app.fragments.ToolHeader"
+				fragmentName="com.pepa.befit.be_fit_ui.src.app.fragments.ToolHeader"
 				type="XML"
 			/>
 		</tnt:header>
 
 		<tnt:sideContent>
 			<core:Fragment
-				fragmentName="pc.my.be-fit.src.app.fragments.SideNavigation"
+				fragmentName="com.pepa.befit.be_fit_ui.src.app.fragments.SideNavigation"
 				type="XML"
 			/>
 		</tnt:sideContent>

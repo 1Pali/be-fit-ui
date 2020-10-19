@@ -7,7 +7,7 @@ sap.ui.define([
 ) {
     "use strict";
 
-    return Controller.extend("pc.my.be-fit.src.master.dailyFoodPlanning.MasterDailyFoodPlanning", {
+    return Controller.extend("com.pepa.befit.be_fit_ui.src.master.dailyFoodPlanning.MasterDailyFoodPlanning", {
 
         _onObjectMatched: function () {
             //preselect 'All' by default

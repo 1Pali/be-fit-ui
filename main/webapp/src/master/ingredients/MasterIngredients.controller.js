@@ -1,7 +1,7 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"pc/my/be-fit/src/api/Request",
-	"pc/my/be-fit/src/util/util"
+	"com/pepa/befit/be_fit_ui/src/api/Request",
+	"com/pepa/befit/be_fit_ui/src/util/util"
 ], function(
 	Controller,
 	Request,
@@ -9,7 +9,7 @@ sap.ui.define([
 ) {
     "use strict";
 
-    return Controller.extend("pc.my.be-fit.src.master.ingredients.MasterIngredients", {
+    return Controller.extend("com.pepa.befit.be_fit_ui.src.master.ingredients.MasterIngredients", {
 		onInit: function () {
 			Request.IngredientType.getList.call(this, Util.getModel.call(this, "data"), "/ingredientTypes", true);
 		},

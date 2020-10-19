@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="pc.my.be-fit.src.detail.ingredients.DetailIngredients"
+    controllerName="com.pepa.befit.be_fit_ui.src.detail.ingredients.DetailIngredients"
     xmlns="sap.uxap"
     xmlns:m="sap.m"
     xmlns:f="sap.f"
@@ -19,28 +19,28 @@
     >
         <headerTitle>
             <core:Fragment
-                fragmentName="pc.my.be-fit.src.detail.ingredients.components.header.IngredientHeader"
+                fragmentName="com.pepa.befit.be_fit_ui.src.detail.ingredients.components.header.IngredientHeader"
                 type="XML"
             />
         </headerTitle>
 
         <headerContent>
             <core:Fragment
-                    fragmentName="pc.my.be-fit.src.detail.ingredients.components.header.IngredientHeaderContent"
+                    fragmentName="com.pepa.befit.be_fit_ui.src.detail.ingredients.components.header.IngredientHeaderContent"
                     type="XML"
             />
         </headerContent>
 
         <sections>
             <core:Fragment
-                    fragmentName="pc.my.be-fit.src.detail.ingredients.components.body.Sections"
+                    fragmentName="com.pepa.befit.be_fit_ui.src.detail.ingredients.components.body.Sections"
                     type="XML"
             />
         </sections>
 
         <footer>
             <core:Fragment
-                fragmentName="pc.my.be-fit.src.detail.ingredients.components.footer.Footer"
+                fragmentName="com.pepa.befit.be_fit_ui.src.detail.ingredients.components.footer.Footer"
                 type="XML"
             />
         </footer>

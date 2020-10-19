@@ -1,15 +1,15 @@
 sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/mvc/Controller",
-    "pc/my/be-fit/src/util/util",
-    "pc/my/be-fit/src/dialog/recipes/deleteRecipe",
-    "pc/my/be-fit/src/api/Request",
+    "com/pepa/befit/be_fit_ui/src/util/util",
+    "com/pepa/befit/be_fit_ui/src/dialog/recipes/deleteRecipe",
+    "com/pepa/befit/be_fit_ui/src/api/Request",
     "sap/m/MessageToast",
-    "pc/my/be-fit/src/dialog/confirmDialog"
+    "com/pepa/befit/be_fit_ui/src/dialog/confirmDialog"
 ], function (JSONModel, Controller, Util, DeleteRecipeDialog, Request, MessageToast, ConfirmDialog) {
     "use strict";
 
-    return Controller.extend("pc.my.be-fit.src.detail.recipes.DetailRecipes", {
+    return Controller.extend("com.pepa.befit.be_fit_ui.src.detail.recipes.DetailRecipes", {
         onInit: function () {
             Util.getRouter.call(this).getRoute("MasterRecipes").attachPatternMatched(this._onRecipeMatched, this);
             Util.getRouter.call(this).getRoute("DetailRecipes").attachPatternMatched(this._onRecipeMatched, this);

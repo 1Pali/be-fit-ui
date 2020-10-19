@@ -1,5 +1,5 @@
 sap.ui.define([
-    'pc/my/be-fit/src/util/util',
+    'com/pepa/befit/be_fit_ui/src/util/util',
     'sap/m/Dialog',
     'sap/m/DialogType',
     'sap/m/Text',

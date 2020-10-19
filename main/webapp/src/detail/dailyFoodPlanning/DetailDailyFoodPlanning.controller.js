@@ -1,11 +1,11 @@
 sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/mvc/Controller",
-    "pc/my/be-fit/src/util/util"
+    "com/pepa/befit/be_fit_ui/src/util/util"
 ], function (JSONModel, Controller, Util) {
     "use strict";
 
-    return Controller.extend("pc.my.be-fit.src.detail.dailyFoodPlanning.DetailDailyFoodPlanning", {
+    return Controller.extend("com.pepa.befit.be_fit_ui.src.detail.dailyFoodPlanning.DetailDailyFoodPlanning", {
         onInit: function () {
 
         },

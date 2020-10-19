@@ -12,7 +12,7 @@
             <ObjectPageSubSection>
                 <blocks>
                     <mvc:XMLView
-                        viewName="pc.my.be-fit.src.detail.recipes.components.body.sections.information.GeneralInformation"
+                        viewName="com.pepa.befit.be_fit_ui.src.detail.recipes.components.body.sections.information.GeneralInformation"
                     />
                 </blocks>
             </ObjectPageSubSection>
@@ -27,7 +27,7 @@
             <ObjectPageSubSection>
                 <blocks>
                     <mvc:XMLView
-                        viewName="pc.my.be-fit.src.detail.recipes.components.body.sections.otherInformation.OtherInformationForm"
+                        viewName="com.pepa.befit.be_fit_ui.src.detail.recipes.components.body.sections.otherInformation.OtherInformationForm"
                     />
                 </blocks>
             </ObjectPageSubSection>

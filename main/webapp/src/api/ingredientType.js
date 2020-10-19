@@ -1,5 +1,5 @@
 sap.ui.define([
-    "pc/my/be-fit/src/api/common",
+    "com/pepa/befit/be_fit_ui/src/api/common",
     "sap/m/MessageToast",
 ], function (Common, MessageToast) {
     "use strict";

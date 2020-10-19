@@ -1,6 +1,6 @@
 sap.ui.define([
     "sap/m/MessageToast",
-    "pc/my/be-fit/src/dialog/BusyDialog"
+    "com/pepa/befit/be_fit_ui/src/dialog/BusyDialog"
 ], function(
     MessageToast,
     BusyDialog

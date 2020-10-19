@@ -3,7 +3,7 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:l="sap.ui.layout"
 	xmlns:f="sap.f"
-	controllerName="pc.my.be-fit.src.master.dailyFoodPlanning.MasterDailyFoodPlanning"
+	controllerName="com.pepa.befit.be_fit_ui.src.master.dailyFoodPlanning.MasterDailyFoodPlanning"
 >
 	<f:DynamicPage
 		id="overviewPage"

@@ -1,5 +1,5 @@
 sap.ui.define([
-    "pc/my/be-fit/src/dialog/confirmDialog"
+    "com/pepa/befit/be_fit_ui/src/dialog/confirmDialog"
 ], function (
     ConfirmDialog
 ) {

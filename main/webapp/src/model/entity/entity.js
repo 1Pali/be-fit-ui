@@ -1,6 +1,6 @@
 sap.ui.define([
-    "pc/my/be-fit/src/model/entity/ingredient",
-    "pc/my/be-fit/src/model/entity/recipe"
+    "com/pepa/befit/be_fit_ui/src/model/entity/ingredient",
+    "com/pepa/befit/be_fit_ui/src/model/entity/recipe"
 ], function(
     Ingredient,
     Recipe

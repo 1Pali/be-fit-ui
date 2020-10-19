@@ -1,17 +1,17 @@
 sap.ui.define([
     "sap/ui/base/Object",
     "sap/ui/core/Fragment",
-    "pc/my/be-fit/src/util/util",
-    "pc/my/be-fit/src/api/Request",
-    "pc/my/be-fit/src/model/dialog/createIngredient",
-    "pc/my/be-fit/src/model/entity/entity",
-    "pc/my/be-fit/src/model/formatter",
+    "com/pepa/befit/be_fit_ui/src/util/util",
+    "com/pepa/befit/be_fit_ui/src/api/Request",
+    "com/pepa/befit/be_fit_ui/src/model/dialog/createIngredient",
+    "com/pepa/befit/be_fit_ui/src/model/entity/entity",
+    "com/pepa/befit/be_fit_ui/src/model/formatter",
     "sap/ui/core/ValueState"
 ], function(Parent, Fragment, Util, Request, CreateIngredient, Entity, Formatter, ValueState) {
     "use strict";
 
-    var CREATE_INGREDIENT_DIALOG_FRAGMENT = "pc.my.be-fit.src.dialog.ingredients.createIngredient.CreateIngredient";
-    var CREATE_INGREDIENT_DIALOG_CONTROLLER = "pc.my.be-fit.src.dialog.ingredients.createIngredient.CreateIngredient";
+    var CREATE_INGREDIENT_DIALOG_FRAGMENT = "com.pepa.befit.be_fit_ui.src.dialog.ingredients.createIngredient.CreateIngredient";
+    var CREATE_INGREDIENT_DIALOG_CONTROLLER = "com.pepa.befit.be_fit_ui.src.dialog.ingredients.createIngredient.CreateIngredient";
 
     return Parent.extend(CREATE_INGREDIENT_DIALOG_CONTROLLER, {
 

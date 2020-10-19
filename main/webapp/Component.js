@@ -3,8 +3,8 @@ sap.ui.define([
     'sap/f/library',
     'sap/f/FlexibleColumnLayoutSemanticHelper',
     "sap/ui/model/json/JSONModel",
-    "pc/my/be-fit/src/model/data",
-    "pc/my/be-fit/src/model/ui"
+    "com/pepa/befit/be_fit_ui/src/model/data",
+    "com/pepa/befit/be_fit_ui/src/model/ui"
 ], function(
     UIComponent,
     FioriLibrary,
@@ -15,7 +15,7 @@ sap.ui.define([
 ) {
     "use strict";
 
-    return UIComponent.extend("pc.my.be-fit.Component", {
+    return UIComponent.extend("com.pepa.befit.be_fit_ui.Component", {
         metadata : {
             manifest : "json"
         },

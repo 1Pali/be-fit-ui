@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (JSONModel, Controller) {
     "use strict";
 
-    return Controller.extend("pc.my.be-fit.src.detail.recipes.components.body.sections.otherInformation.OtherInformationForm", {
+    return Controller.extend("com.pepa.befit.be_fit_ui.src.detail.recipes.components.body.sections.otherInformation.OtherInformationForm", {
         onInit: function () {
 
         },

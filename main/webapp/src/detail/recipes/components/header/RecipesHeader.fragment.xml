@@ -14,21 +14,21 @@
 
         <snappedHeading>
             <core:Fragment
-                fragmentName="pc.my.be-fit.src.detail.recipes.components.header.fragments.SnappedHeading"
+                fragmentName="com.pepa.befit.be_fit_ui.src.detail.recipes.components.header.fragments.SnappedHeading"
                 type="XML"
             />
         </snappedHeading>
 
         <navigationActions>
             <core:Fragment
-                fragmentName="pc.my.be-fit.src.detail.recipes.components.header.fragments.NavigationActions"
+                fragmentName="com.pepa.befit.be_fit_ui.src.detail.recipes.components.header.fragments.NavigationActions"
                 type="XML"
             />
         </navigationActions>
 
         <actions>
             <core:Fragment
-                fragmentName="pc.my.be-fit.src.detail.recipes.components.header.fragments.Actions"
+                fragmentName="com.pepa.befit.be_fit_ui.src.detail.recipes.components.header.fragments.Actions"
                 type="XML"
             />
         </actions>

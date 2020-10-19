@@ -1,16 +1,16 @@
 sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/mvc/Controller",
-    "pc/my/be-fit/src/util/util",
-    "pc/my/be-fit/src/dialog/ingredients/deleteIngredient",
-    "pc/my/be-fit/src/api/Request",
+    "com/pepa/befit/be_fit_ui/src/util/util",
+    "com/pepa/befit/be_fit_ui/src/dialog/ingredients/deleteIngredient",
+    "com/pepa/befit/be_fit_ui/src/api/Request",
     "sap/m/MessageToast",
-    "pc/my/be-fit/src/dialog/confirmDialog",
-    "pc/my/be-fit/src/model/formatter"
+    "com/pepa/befit/be_fit_ui/src/dialog/confirmDialog",
+    "com/pepa/befit/be_fit_ui/src/model/formatter"
 ], function (JSONModel, Controller, Util, DeleteIngredientDialog, Request, MessageToast, ConfirmDialog, Formatter) {
     "use strict";
 
-    return Controller.extend("pc.my.be-fit.src.detail.ingredients.DetailIngredients", {
+    return Controller.extend("com.pepa.befit.be_fit_ui.src.detail.ingredients.DetailIngredients", {
 
         formatter: Formatter,
 

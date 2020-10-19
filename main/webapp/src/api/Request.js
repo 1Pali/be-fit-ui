@@ -1,8 +1,8 @@
 sap.ui.define([
-    "pc/my/be-fit/src/api/common",
-    "pc/my/be-fit/src/api/ingredient",
-    "pc/my/be-fit/src/api/recipe",
-    "pc/my/be-fit/src/api/ingredientType"
+    "com/pepa/befit/be_fit_ui/src/api/common",
+    "com/pepa/befit/be_fit_ui/src/api/ingredient",
+    "com/pepa/befit/be_fit_ui/src/api/recipe",
+    "com/pepa/befit/be_fit_ui/src/api/ingredientType"
 ], function(
     Common,
     Ingredient,

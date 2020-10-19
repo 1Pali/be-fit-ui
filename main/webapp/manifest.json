@@ -1,7 +1,7 @@
 {
 	"_version": "1.0.0",
 	"sap.app": {
-		"id": "pc.my.be-fit",
+		"id": "com.pepa.befit.be_fit_ui",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"title": "{{MAIN_TITLE}}"
@@ -22,12 +22,12 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "pc.my.be-fit.src.app.App",
+			"viewName": "com.pepa.befit.be_fit_ui.src.app.App",
 			"type": "XML",
 			"async": true
 		},
 		"config": {
-			"defaultView": "pc.my.be-fit.src.app.App"
+			"defaultView": "com.pepa.befit.be_fit_ui.src.app.App"
 		},
 		"dependencies": {
 			"minUI5Version": "1.54.3",
@@ -54,7 +54,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "pc.my.be-fit.i18n.i18n"
+					"bundleName": "com.pepa.befit.be_fit_ui.i18n.i18n"
 				}
 			}
 		},
@@ -134,32 +134,32 @@
 			"targets": {
 				"MasterIngredients": {
 					"viewName": "MasterIngredients",
-					"viewPath": "pc.my.be-fit.src.master.ingredients",
+					"viewPath": "com.pepa.befit.be_fit_ui.src.master.ingredients",
 					"controlAggregation": "beginColumnPages"
 				},
 				"DetailIngredients": {
 					"viewName": "DetailIngredients",
-					"viewPath": "pc.my.be-fit.src.detail.ingredients",
+					"viewPath": "com.pepa.befit.be_fit_ui.src.detail.ingredients",
 					"controlAggregation": "midColumnPages"
 				},
 				"MasterRecipes": {
 					"viewName": "MasterRecipes",
-					"viewPath": "pc.my.be-fit.src.master.recipes",
+					"viewPath": "com.pepa.befit.be_fit_ui.src.master.recipes",
 					"controlAggregation": "beginColumnPages"
 				},
 				"DetailRecipes": {
 					"viewName": "DetailRecipes",
-					"viewPath": "pc.my.be-fit.src.detail.recipes",
+					"viewPath": "com.pepa.befit.be_fit_ui.src.detail.recipes",
 					"controlAggregation": "midColumnPages"
 				},
 				"MasterDailyFoodPlanning": {
 					"viewName": "MasterDailyFoodPlanning",
-					"viewPath": "pc.my.be-fit.src.master.dailyFoodPlanning",
+					"viewPath": "com.pepa.befit.be_fit_ui.src.master.dailyFoodPlanning",
 					"controlAggregation": "beginColumnPages"
 				},
 				"DetailDailyFoodPlanning": {
 					"viewName": "DetailDailyFoodPlanning",
-					"viewPath": "pc.my.be-fit.src.detail.dailyFoodPlanning",
+					"viewPath": "com.pepa.befit.be_fit_ui.src.detail.dailyFoodPlanning",
 					"controlAggregation": "midColumnPages"
 				}
 			}

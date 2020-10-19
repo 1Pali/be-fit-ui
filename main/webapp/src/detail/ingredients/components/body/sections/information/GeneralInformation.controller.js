@@ -1,14 +1,14 @@
 sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/mvc/Controller",
-    "pc/my/be-fit/src/model/section/editIngredient",
-    "pc/my/be-fit/src/util/util",
-    "pc/my/be-fit/src/model/formatter",
+    "com/pepa/befit/be_fit_ui/src/model/section/editIngredient",
+    "com/pepa/befit/be_fit_ui/src/util/util",
+    "com/pepa/befit/be_fit_ui/src/model/formatter",
     "sap/ui/core/ValueState"
 ], function (JSONModel, Controller, EditIngredient, Util, Formatter, ValueState) {
     "use strict";
 
-    return Controller.extend("pc.my.be-fit.src.detail.ingredients.components.body.sections.information.GeneralInformation", {
+    return Controller.extend("com.pepa.befit.be_fit_ui.src.detail.ingredients.components.body.sections.information.GeneralInformation", {
 
         formatter: Formatter,
 

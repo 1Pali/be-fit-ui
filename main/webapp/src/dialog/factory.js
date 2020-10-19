@@ -1,6 +1,6 @@
 sap.ui.define([
-    "pc/my/be-fit/src/dialog/ingredients/createIngredient/CreateIngredient",
-    "pc/my/be-fit/src/dialog/recipes/createRecipe/CreateRecipe"
+    "com/pepa/befit/be_fit_ui/src/dialog/ingredients/createIngredient/CreateIngredient",
+    "com/pepa/befit/be_fit_ui/src/dialog/recipes/createRecipe/CreateRecipe"
 ], function(
     CreateIngredient,
     CreateRecipe

@@ -1,12 +1,12 @@
 sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/mvc/Controller",
-    "pc/my/be-fit/src/model/section/editRecipe",
-    "pc/my/be-fit/src/util/util"
+    "com/pepa/befit/be_fit_ui/src/model/section/editRecipe",
+    "com/pepa/befit/be_fit_ui/src/util/util"
 ], function (JSONModel, Controller, EditRecipe, Util) {
     "use strict";
 
-    return Controller.extend("pc.my.be-fit.src.detail.recipes.components.body.sections.information.GeneralInformation", {
+    return Controller.extend("com.pepa.befit.be_fit_ui.src.detail.recipes.components.body.sections.information.GeneralInformation", {
         onInit: function () {
             this.getView().setModel(EditRecipe.getInitial(), "generalInformartionSection");
         },

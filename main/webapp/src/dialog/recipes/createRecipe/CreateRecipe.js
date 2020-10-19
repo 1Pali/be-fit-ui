@@ -1,15 +1,15 @@
 sap.ui.define([
     "sap/ui/base/Object",
     "sap/ui/core/Fragment",
-    "pc/my/be-fit/src/util/util",
-    "pc/my/be-fit/src/api/Request",
-    "pc/my/be-fit/src/model/dialog/createRecipe",
-    "pc/my/be-fit/src/model/entity/entity"
+    "com/pepa/befit/be_fit_ui/src/util/util",
+    "com/pepa/befit/be_fit_ui/src/api/Request",
+    "com/pepa/befit/be_fit_ui/src/model/dialog/createRecipe",
+    "com/pepa/befit/be_fit_ui/src/model/entity/entity"
 ], function(Parent, Fragment, Util, Request, CreateRecipe, Entity) {
     "use strict";
 
-    var CREATE_RECIPE_DIALOG_FRAGMENT = "pc.my.be-fit.src.dialog.recipes.createRecipe.CreateRecipe";
-    var CREATE_RECIPE_DIALOG_CONTROLLER = "pc.my.be-fit.src.dialog.recipes.createRecipe.CreateRecipe";
+    var CREATE_RECIPE_DIALOG_FRAGMENT = "com.pepa.befit.be_fit_ui.src.dialog.recipes.createRecipe.CreateRecipe";
+    var CREATE_RECIPE_DIALOG_CONTROLLER = "com.pepa.befit.be_fit_ui.src.dialog.recipes.createRecipe.CreateRecipe";
 
     return Parent.extend(CREATE_RECIPE_DIALOG_CONTROLLER, {
 

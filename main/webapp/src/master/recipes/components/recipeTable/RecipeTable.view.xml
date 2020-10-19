@@ -2,7 +2,7 @@
       xmlns:core="sap.ui.core"
       xmlns:mvc="sap.ui.core.mvc"
       xmlns="sap.m"
-      controllerName="pc.my.be-fit.src.master.recipes.components.recipeTable.RecipeTable"
+      controllerName="com.pepa.befit.be_fit_ui.src.master.recipes.components.recipeTable.RecipeTable"
 >
     <Table
        id="idRecipeTable"
@@ -17,14 +17,14 @@
     >
         <headerToolbar>
             <core:Fragment
-                fragmentName="pc.my.be-fit.src.master.recipes.components.recipeTable.fragments.HeaderToolBar"
+                fragmentName="com.pepa.befit.be_fit_ui.src.master.recipes.components.recipeTable.fragments.HeaderToolBar"
                 type="XML"
             />
         </headerToolbar>
 
         <columns>
             <core:Fragment
-                fragmentName="pc.my.be-fit.src.master.recipes.components.recipeTable.fragments.TableColumns"
+                fragmentName="com.pepa.befit.be_fit_ui.src.master.recipes.components.recipeTable.fragments.TableColumns"
                 type="XML"
             />
         </columns>
@@ -35,7 +35,7 @@
             >
                 <cells>
                     <core:Fragment
-                        fragmentName="pc.my.be-fit.src.master.recipes.components.recipeTable.fragments.TableCells"
+                        fragmentName="com.pepa.befit.be_fit_ui.src.master.recipes.components.recipeTable.fragments.TableCells"
                         type="XML"
                     />
                 </cells>

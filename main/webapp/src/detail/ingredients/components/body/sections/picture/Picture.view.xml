@@ -1,5 +1,5 @@
 <mvc:View
-        controllerName="pc.my.be-fit.src.detail.ingredients.components.body.sections.picture.Picture"
+        controllerName="com.pepa.befit.be_fit_ui.src.detail.ingredients.components.body.sections.picture.Picture"
         xmlns="sap.m"
         xmlns:mvc="sap.ui.core.mvc"
         xmlns:u="sap.ui.unified"

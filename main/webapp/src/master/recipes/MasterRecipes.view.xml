@@ -3,7 +3,7 @@
  	xmlns="sap.m"
 	xmlns:l="sap.ui.layout"
     xmlns:f="sap.f"
-    controllerName="pc.my.be-fit.src.master.recipes.MasterRecipes"
+    controllerName="com.pepa.befit.be_fit_ui.src.master.recipes.MasterRecipes"
 >
 	<f:DynamicPage
 		id="overviewPage"
@@ -25,7 +25,7 @@
 							class="sapUiSmallMarginEnd"
 						/>
 						<mvc:XMLView
-							viewName="pc.my.be-fit.src.master.recipes.components.recipeTable.RecipeTable"
+							viewName="com.pepa.befit.be_fit_ui.src.master.recipes.components.recipeTable.RecipeTable"
 						/>
 					</l:BlockLayoutCell>
 				</l:BlockLayoutRow>
