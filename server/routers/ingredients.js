@@ -22,22 +22,30 @@ router.get('/:id([0-9]{3,})', function(req, res){
 
 router.post('/', function(req, res){
     //Check if all fields are provided and are valid:
-    if(!req.body.name ||
-        !req.body.year.toString().match(/^[0-9]{4}$/g) ||
-        !req.body.rating.toString().match(/^[0-9]\.[0-9]$/g)){
-
-        res.status(400);
-        res.json({message: "Bad Request"});
-    } else {
+    // if(!req.body.name ||
+    //     !req.body.year.toString().match(/^[0-9]{4}$/g) ||
+    //     !req.body.rating.toString().match(/^[0-9]\.[0-9]$/g)){
+    //
+    //     res.status(400);
+    //     res.json({message: "Bad Request"});
+    // } else {
         var newId = ingredients[ingredients.length-1].id+1;
-        ingredients.push({
+
+        var oIngredient = {
             id: newId,
             name: req.body.name,
-            year: req.body.year,
-            rating: req.body.rating
-        });
-        res.json({message: "New ingredients created.", location: "/ingredients/" + newId});
-    }
+            description: req.body.description,
+            energy: req.body.energy,
+            protein: req.body.protein,
+            carbohydrate: req.body.carbohydrate,
+            fat: req.body.fat,
+            fiber: req.body.fiber,
+            price: req.body.price
+        };
+
+        ingredients.push(oIngredient);
+        res.json({oIngredient});
+    // }
 });
 
 router.put('/:id', function(req, res){

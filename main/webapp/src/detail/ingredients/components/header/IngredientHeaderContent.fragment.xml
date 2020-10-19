@@ -1,0 +1,71 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+        xmlns:layout="sap.ui.layout"
+>
+    <FlexBox
+        wrap="Wrap"
+        fitContainer="true"
+        alignItems="Center"
+    >
+        <FlexBox
+            visible="{= ${ui>/editMode} === false}"
+            wrap="NoWrap"
+            fitContainer="true"
+            alignItems="Stretch"
+            class="sapUiTinyMarginEnd"
+        >
+            <VBox
+                class="sapUiMediumMarginEnd"
+            >
+                <layout:VerticalLayout>
+                    <ObjectStatus
+                            title="{i18n>ihcIngredientTypeName}"
+                            text="{
+                                path: 'data>ingredientTypeName',
+                                formatter: '.formatter.getTranslatedText'
+                            }"
+                            class="sapUiTinyMarginBottom"
+                    />
+                    <ObjectStatus
+                            title="{i18n>ihcEnergy}"
+                            text="{data>energy}"
+                            class="sapUiTinyMarginBottom"
+                    />
+                    <ObjectStatus
+                            title="{i18n>ihcProtein}"
+                            text="{data>protein}"
+                            class="sapUiTinyMarginBottom"
+                    />
+                    <ObjectStatus
+                            title="{i18n>ihcCarbohydrate}"
+                            text="{data>carbohydrate}"
+                            class="sapUiTinyMarginBottom"
+                    />
+                </layout:VerticalLayout>
+            </VBox>
+
+            <VBox
+                class="sapUiMediumMarginEnd"
+            >
+                <layout:VerticalLayout>
+                    <ObjectStatus
+                            title="{i18n>ihcFat}"
+                            text="{data>fat}"
+                            class="sapUiTinyMarginBottom"
+                    />
+                    <ObjectStatus
+                            title="{i18n>ihcFiber}"
+                            text="{data>fiber}"
+                            class="sapUiTinyMarginBottom"
+                    />
+                    <ObjectStatus
+                            title="{i18n>ihcPrice}"
+                            text="{data>price}"
+                            class="sapUiTinyMarginBottom"
+                    />
+                </layout:VerticalLayout>
+            </VBox>
+        </FlexBox>
+    </FlexBox>
+</core:FragmentDefinition>

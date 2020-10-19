@@ -1,0 +1,47 @@
+<mvc:View
+        controllerName="com.pepa.befit.be_fit_ui.src.detail.ingredients.components.body.sections.picture.Picture"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:u="sap.ui.unified"
+>
+    <Toolbar
+        visible="{ui>/editMode}"
+        class="sapUiTinyMargin"
+        id="PictureToolBar"
+    >
+        <ToolbarSpacer/>
+        <u:FileUploader
+            id="imageUploader"
+            name="file"
+            icon="sap-icon://browse-folder"
+            iconOnly="true"
+            uploadUrl="/api/v1/file"
+            uploadComplete="handleUploadComplete"
+
+        />
+<!--        <Button-->
+<!--            text="{i18n>ipUploadButton}"-->
+<!--            icon="sap-icon://upload"-->
+<!--            press="onUploadPicturePress"-->
+<!--        />-->
+    </Toolbar>
+    <FlexBox
+            wrap="Wrap"
+            fitContainer="true"
+            alignItems="Center"
+            justifyContent="Center"
+    >
+
+        <FlexBox
+                wrap="NoWrap"
+                fitContainer="true"
+                alignItems="Center"
+                class="sapUiTinyMarginEnd"
+        >
+            <Image
+                src="{data>/selectedImage/file/$value}"
+                width="100%"
+            />
+        </FlexBox>
+    </FlexBox>
+</mvc:View>

@@ -1,0 +1,22 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+>
+    <FlexBox
+        wrap="Wrap"
+        fitContainer="true"
+        alignItems="Center"
+    >
+        <FlexBox
+            wrap="NoWrap"
+            fitContainer="true"
+            alignItems="Center"
+            class="sapUiTinyMarginEnd"
+        >
+            <Title
+                text="{data>name}"
+                wrapping="true"
+            />
+        </FlexBox>
+    </FlexBox>
+</core:FragmentDefinition>

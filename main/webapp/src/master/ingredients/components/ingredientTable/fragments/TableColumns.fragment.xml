@@ -1,0 +1,64 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Column>
+        <Text
+            text="{i18n>IngredientName}"
+        />
+    </Column>
+
+    <Column
+        minScreenWidth="Tablet"
+        demandPopin="true"
+    >
+        <Text
+            text="{i18n>IngredientEnergy}"
+        />
+    </Column>
+
+    <Column
+        minScreenWidth="Tablet"
+        demandPopin="true"
+    >
+        <Text
+            text="{i18n>IngredientProteins}"
+        />
+    </Column>
+
+    <Column
+        minScreenWidth="Tablet"
+        demandPopin="true"
+    >
+        <Text
+            text="{i18n>IngredientCarbohydrates}"
+        />
+    </Column>
+
+    <Column
+        minScreenWidth="Tablet"
+        demandPopin="true"
+    >
+        <Text
+            text="{i18n>IngredientFats}"
+        />
+    </Column>
+
+    <Column
+        minScreenWidth="Tablet"
+        demandPopin="true"
+    >
+        <Text
+            text="{i18n>IngredientFiber}"
+        />
+    </Column>
+
+    <Column
+            minScreenWidth="Tablet"
+            demandPopin="true"
+    >
+        <Text
+                text="{i18n>IngredientPrice}"
+        />
+    </Column>
+</core:FragmentDefinition>

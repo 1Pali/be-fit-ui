@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+>
+    <Button
+        text="{i18n>EditIngredientButton}"
+        tooltip="{i18n>EditIngredientButtonToolTip}"
+        visible="{= ${ui>/editMode} === false}"
+        type="Emphasized"
+        press=".onEditPress"
+    />
+
+    <Button
+        text="{i18n>DeleteIngredientButton}"
+        tooltip="{i18n>DeleteIngredientButtonToolTip}"
+        type="Transparent"
+        press=".onDeletePress"
+    />
+</core:FragmentDefinition>

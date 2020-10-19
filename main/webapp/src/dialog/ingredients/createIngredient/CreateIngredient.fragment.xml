@@ -1,0 +1,154 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+>
+    <Dialog
+            id="CreateIngredientDialog"
+            title="{i18n>cidTitle}"
+            class="sapUiContentPadding"
+            initialFocus="cidCreateButton"
+            afterClose="onAfterClose"
+    >
+        <content>
+            <VBox>
+                <Label
+                        text="{i18n>cidCategoryType}"
+                        labelFor="cidCategoryType"
+                />
+                <ComboBox
+                        id="cidType"
+                        selectedKey="{dialog>/data/ingredientTypeSelectedKey}"
+                        selectionChange="onComboBoxChange"
+                        width="100%"
+                        required="true"
+                        items="{
+                            path: 'data>/ingredientTypes',
+                            sorter: {
+                                path: 'name'
+                            }
+                        }"
+                >
+                    <core:Item
+                            key="{data>id}"
+                            text="{
+                                path: 'data>name',
+                                formatter: '.formatter.getTranslatedText'
+                            }"
+                    />
+                </ComboBox>
+            </VBox>
+
+            <VBox>
+                <Label
+                        text="{i18n>cidName}"
+                        labelFor="cidName"
+                />
+                <Input
+                        id="cidName"
+                        liveChange="onFieldChange"
+                        value="{dialog>/data/name}"
+                        required="true"
+                />
+            </VBox>
+
+            <VBox>
+                <Label
+                        text="{i18n>cidEnergy}"
+                        labelFor="cidEnergy"
+                />
+                <Input
+                        id="cidEnergy"
+                        type="Number"
+                        liveChange="onFieldChange"
+                        value="{dialog>/data/energy}"
+                        required="true"
+                />
+            </VBox>
+
+            <VBox>
+                <Label
+                        text="{i18n>cidProtein}"
+                        labelFor="cidProtein"
+                />
+                <Input
+                        id="cidProtein"
+                        type="Number"
+                        liveChange="onFieldChange"
+                        value="{dialog>/data/protein}"
+                        required="true"
+                />
+            </VBox>
+
+            <VBox>
+                <Label
+                        text="{i18n>cidCarbohydrate}"
+                        labelFor="cidCarbohydrate"
+                />
+                <Input
+                        id="cidCarbohydrate"
+                        type="Number"
+                        liveChange="onFieldChange"
+                        value="{dialog>/data/carbohydrate}"
+                        required="true"
+                />
+            </VBox>
+
+            <VBox>
+                <Label
+                        text="{i18n>cidFat}"
+                        labelFor="cidFat"
+                />
+                <Input
+                        id="cidFat"
+                        type="Number"
+                        liveChange="onFieldChange"
+                        value="{dialog>/data/fat}"
+                        required="true"
+                />
+            </VBox>
+
+            <VBox>
+                <Label
+                        text="{i18n>cidFiber}"
+                        labelFor="cidFiber"
+                />
+                <Input
+                        id="cidFiber"
+                        type="Number"
+                        liveChange="onFieldChange"
+                        value="{dialog>/data/fiber}"
+                        required="true"
+                />
+            </VBox>
+
+            <VBox>
+                <Label
+                        text="{i18n>cidPrice}"
+                        labelFor="cidPrice"
+                />
+                <Input
+                        id="cidPrice"
+                        type="Number"
+                        liveChange="onFieldChange"
+                        value="{dialog>/data/price}"
+                        required="false"
+                />
+            </VBox>
+        </content>
+        <beginButton>
+            <Button
+                    id="cidCreateButton"
+                    enabled="{dialog>/enableConfirmButton}"
+                    text="{i18n>cidCreateButton}"
+                    press="onCreatePress"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                    id="cidCancelButton"
+                    text="{i18n>cidCancelButton}"
+                    press="onCancelPress"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

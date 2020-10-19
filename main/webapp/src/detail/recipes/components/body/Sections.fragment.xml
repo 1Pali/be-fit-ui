@@ -1,0 +1,37 @@
+<core:FragmentDefinition
+        xmlns="sap.uxap"
+        xmlns:core="sap.ui.core"
+        xmlns:mvc="sap.ui.core.mvc"
+>
+    <ObjectPageSection
+        title="{i18n>GeneralInformationSection}"
+        titleUppercase="false"
+        visible="{ui>/editMode}"
+    >
+        <subSections>
+            <ObjectPageSubSection>
+                <blocks>
+                    <mvc:XMLView
+                        viewName="com.pepa.befit.be_fit_ui.src.detail.recipes.components.body.sections.information.GeneralInformation"
+                    />
+                </blocks>
+            </ObjectPageSubSection>
+        </subSections>
+    </ObjectPageSection>
+
+    <ObjectPageSection
+        title="{i18n>GeneralInformationSection}"
+        titleUppercase="false"
+    >
+        <subSections>
+            <ObjectPageSubSection>
+                <blocks>
+                    <mvc:XMLView
+                        viewName="com.pepa.befit.be_fit_ui.src.detail.recipes.components.body.sections.otherInformation.OtherInformationForm"
+                    />
+                </blocks>
+            </ObjectPageSubSection>
+        </subSections>
+    </ObjectPageSection>
+
+</core:FragmentDefinition>

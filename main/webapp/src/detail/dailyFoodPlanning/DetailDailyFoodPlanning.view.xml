@@ -1,0 +1,37 @@
+<mvc:View
+        controllerName="com.pepa.befit.be_fit_ui.src.detail.dailyFoodPlanning.DetailDailyFoodPlanning"
+        xmlns="sap.uxap"
+        xmlns:m="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+>
+    <ObjectPageLayout
+            id="ObjectPageLayout"
+            showTitleInHeaderContent="true"
+            alwaysShowContentHeader="false"
+            preserveHeaderStateOnScroll="false"
+            headerContentPinnable="true"
+            isChildPage="true"
+            upperCaseAnchorBar="false"
+            showFooter="{ui>/footerVisibility}"
+    >
+        <headerTitle>
+
+        </headerTitle>
+
+        <headerContent>
+
+        </headerContent>
+
+        <sections>
+
+        </sections>
+
+        <footer>
+            <m:OverflowToolbar>
+                <m:ToolbarSpacer/>
+                <m:Button type="Accept" text="Save"/>
+                <m:Button type="Reject" text="Cancel"/>
+            </m:OverflowToolbar>
+        </footer>
+    </ObjectPageLayout>
+</mvc:View>

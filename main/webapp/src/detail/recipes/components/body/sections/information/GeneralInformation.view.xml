@@ -1,0 +1,53 @@
+<mvc:View
+        controllerName="com.pepa.befit.be_fit_ui.src.detail.recipes.components.body.sections.information.GeneralInformation"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:form="sap.ui.layout.form"
+>
+    <form:Form
+        id="isGeneralInformation"
+    >
+        <form:layout>
+            <form:ResponsiveGridLayout
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="12"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="0"
+                emptySpanL="0"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="2"
+                columnsL="2"
+                columnsM="2"
+                singleContainerFullSize="false"
+            />
+        </form:layout>
+        <form:formContainers>
+            <form:FormContainer>
+                <form:formElements>
+                    <form:FormElement
+                            label="{i18n>isName}"
+                    >
+                        <form:fields>
+                            <Input
+                                id="isName"
+                                value="{data>name}"
+                                valueState="{
+                                    parts: [
+                                        {path: 'data>name'},
+                                        {value: 'isName'}
+                                    ],
+                                    formatter: '.getStateAndValidate'
+                                }"
+                                change="onFieldChange"
+                                required="true"
+                            />
+                        </form:fields>
+                    </form:FormElement>
+                </form:formElements>
+            </form:FormContainer>
+        </form:formContainers>
+    </form:Form>
+</mvc:View>

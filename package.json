@@ -1,9 +1,10 @@
 {
-  "name": "pc.my.be-fit",
+  "name": "com.pepa.befit.be_fit_ui",
   "version": "1.0.0",
   "description": "Demo for network graph for landscape visualization for TechEd 2018",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "http-proxy-middleware": "^1.0.5"
   },
   "scripts": {
     "start": "node server/server.js"

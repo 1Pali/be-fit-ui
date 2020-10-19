@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+>
+    <OverflowToolbar>
+        <ToolbarSpacer/>
+        <Button
+            type="Emphasized"
+            text="{i18n>FooterSaveButton}"
+            enabled="{= ${ui>/footerSaveButtonEnabled} === true}"
+            press=".onFooterSavePress"
+        />
+        <Button
+            type="Transparent"
+            text="{i18n>FooterCancelButton}"
+            press=".onFooterCancelPress"
+        />
+    </OverflowToolbar>
+</core:FragmentDefinition>

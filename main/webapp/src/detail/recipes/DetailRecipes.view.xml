@@ -1,0 +1,45 @@
+<mvc:View
+    controllerName="com.pepa.befit.be_fit_ui.src.detail.recipes.DetailRecipes"
+    xmlns="sap.uxap"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+>
+    <ObjectPageLayout
+        id="ObjectPageLayout"
+        showTitleInHeaderContent="true"
+        alwaysShowContentHeader="false"
+        preserveHeaderStateOnScroll="false"
+        headerContentPinnable="true"
+        isChildPage="true"
+        upperCaseAnchorBar="false"
+        showFooter="{ui>/footerVisibility}"
+    >
+        <headerTitle>
+            <core:Fragment
+                fragmentName="com.pepa.befit.be_fit_ui.src.detail.recipes.components.header.RecipesHeader"
+                type="XML"
+            />
+        </headerTitle>
+
+        <headerContent>
+            <core:Fragment
+                    fragmentName="com.pepa.befit.be_fit_ui.src.detail.recipes.components.header.RecipesHeaderContent"
+                    type="XML"
+            />
+        </headerContent>
+
+        <sections>
+            <core:Fragment
+                fragmentName="com.pepa.befit.be_fit_ui.src.detail.recipes.components.body.Sections"
+                type="XML"
+            />
+        </sections>
+
+        <footer>
+            <core:Fragment
+                fragmentName="com.pepa.befit.be_fit_ui.src.detail.recipes.components.footer.Footer"
+                type="XML"
+            />
+        </footer>
+    </ObjectPageLayout>
+</mvc:View>

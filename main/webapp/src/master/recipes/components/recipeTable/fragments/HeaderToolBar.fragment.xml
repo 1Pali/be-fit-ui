@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <OverflowToolbar>
+        <content>
+            <ToolbarSpacer/>
+            <Button
+                text="{i18n>CreateRecipeButton}"
+                press="onCreatePress"
+            />
+
+            <Button
+                text="{i18n>DeleteRecipeButton}"
+                press="onDeletePress"
+            />
+        </content>
+    </OverflowToolbar>
+</core:FragmentDefinition>

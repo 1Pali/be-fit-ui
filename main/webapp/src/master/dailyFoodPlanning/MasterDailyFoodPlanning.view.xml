@@ -1,0 +1,32 @@
+<mvc:View
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.f"
+	controllerName="com.pepa.befit.be_fit_ui.src.master.dailyFoodPlanning.MasterDailyFoodPlanning"
+>
+	<f:DynamicPage
+		id="overviewPage"
+		class="overviewPage"
+	>
+		<f:content>
+			<l:BlockLayout
+				class="overviewPageBlockLayout"
+			    background="Transparent"
+			>
+				<l:BlockLayoutRow>
+					<l:BlockLayoutCell
+						width="100%"
+						class="overviewPageBlockLayoutCell"
+					>
+						<Title
+							level="H1"
+							text="{i18n>DAILY_FOOD_PLANNING}"
+							class="sapUiSmallMarginEnd"
+						/>
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
+			</l:BlockLayout>
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>

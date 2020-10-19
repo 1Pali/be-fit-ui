@@ -1,0 +1,45 @@
+<mvc:View
+      xmlns:core="sap.ui.core"
+      xmlns:mvc="sap.ui.core.mvc"
+      xmlns="sap.m"
+      controllerName="com.pepa.befit.be_fit_ui.src.master.recipes.components.recipeTable.RecipeTable"
+>
+    <Table
+       id="idRecipeTable"
+       inset="false"
+       mode="MultiSelect"
+       items="{
+            path: 'data>/recipes',
+            sorter: {
+                path: 'name'
+            }
+       }"
+    >
+        <headerToolbar>
+            <core:Fragment
+                fragmentName="com.pepa.befit.be_fit_ui.src.master.recipes.components.recipeTable.fragments.HeaderToolBar"
+                type="XML"
+            />
+        </headerToolbar>
+
+        <columns>
+            <core:Fragment
+                fragmentName="com.pepa.befit.be_fit_ui.src.master.recipes.components.recipeTable.fragments.TableColumns"
+                type="XML"
+            />
+        </columns>
+        <items>
+            <ColumnListItem
+                type="Navigation"
+                press=".onTableListItemPress"
+            >
+                <cells>
+                    <core:Fragment
+                        fragmentName="com.pepa.befit.be_fit_ui.src.master.recipes.components.recipeTable.fragments.TableCells"
+                        type="XML"
+                    />
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</mvc:View>

@@ -1,0 +1,17 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Text
+        visible="{= ${ui>/editMode} === false}"
+        text="{data>description}"
+    />
+
+    <TextArea
+        visible="{ui>/editMode}"
+        valueLiveUpdate="true"
+        value="{data>description}"
+        width="100%"
+        growing="true"
+    />
+</core:FragmentDefinition>

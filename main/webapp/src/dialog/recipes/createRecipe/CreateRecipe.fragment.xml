@@ -1,0 +1,42 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+>
+    <Dialog
+            id="CreateIngredientDialog"
+            title="{i18n>crdTitle}"
+            class="sapUiContentPadding"
+            initialFocus="crdCreateButton"
+            afterClose="onAfterClose"
+    >
+        <content>
+            <VBox>
+                <Label
+                        text="{i18n>crdName}"
+                        labelFor="crdName"
+                />
+                <Input
+                        id="crdName"
+                        liveChange="onFieldChange"
+                        value="{dialog>/data/name}"
+                        required="true"
+                />
+            </VBox>
+        </content>
+        <beginButton>
+            <Button
+                    id="crdCreateButton"
+                    enabled="{dialog>/enableConfirmButton}"
+                    text="{i18n>crdCreateButton}"
+                    press="onCreatePress"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                    id="crdCancelButton"
+                    text="{i18n>crdCancelButton}"
+                    press="onCancelPress"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

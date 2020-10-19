@@ -1,0 +1,36 @@
+<mvc:View
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:tnt="sap.tnt"
+	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	controllerName="com.pepa.befit.be_fit_ui.src.app.App"
+	id="appView"
+>
+	<tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<core:Fragment
+				fragmentName="com.pepa.befit.be_fit_ui.src.app.fragments.ToolHeader"
+				type="XML"
+			/>
+		</tnt:header>
+
+		<tnt:sideContent>
+			<core:Fragment
+				fragmentName="com.pepa.befit.be_fit_ui.src.app.fragments.SideNavigation"
+				type="XML"
+			/>
+		</tnt:sideContent>
+
+		<tnt:mainContents>
+			<f:FlexibleColumnLayout
+				id="flexibleColumnLayout"
+				stateChange=".onStateChanged"
+				backgroundDesign="Solid"
+				layout="{/layout}"
+			/>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+</mvc:View>

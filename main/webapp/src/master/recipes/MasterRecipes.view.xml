@@ -1,0 +1,35 @@
+<mvc:View
+	xmlns:mvc="sap.ui.core.mvc"
+ 	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+    xmlns:f="sap.f"
+    controllerName="com.pepa.befit.be_fit_ui.src.master.recipes.MasterRecipes"
+>
+	<f:DynamicPage
+		id="overviewPage"
+		class="overviewPage"
+	>
+		<f:content>
+			<l:BlockLayout
+			   class="overviewPageBlockLayout"
+			   background="Transparent"
+			>
+				<l:BlockLayoutRow>
+					<l:BlockLayoutCell
+						width="100%"
+					    class="overviewPageBlockLayoutCell"
+					>
+						<Title
+							level="H1"
+							text="{i18n>RECIPES}"
+							class="sapUiSmallMarginEnd"
+						/>
+						<mvc:XMLView
+							viewName="com.pepa.befit.be_fit_ui.src.master.recipes.components.recipeTable.RecipeTable"
+						/>
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
+			</l:BlockLayout>
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>

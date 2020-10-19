@@ -1,0 +1,48 @@
+<mvc:View
+    controllerName="com.pepa.befit.be_fit_ui.src.detail.ingredients.DetailIngredients"
+    xmlns="sap.uxap"
+    xmlns:m="sap.m"
+    xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+>
+    <ObjectPageLayout
+        id="ObjectPageLayout"
+        showTitleInHeaderContent="true"
+        alwaysShowContentHeader="false"
+        preserveHeaderStateOnScroll="false"
+        headerContentPinnable="true"
+        isChildPage="true"
+        upperCaseAnchorBar="false"
+        showFooter="{ui>/footerVisibility}"
+    >
+        <headerTitle>
+            <core:Fragment
+                fragmentName="com.pepa.befit.be_fit_ui.src.detail.ingredients.components.header.IngredientHeader"
+                type="XML"
+            />
+        </headerTitle>
+
+        <headerContent>
+            <core:Fragment
+                    fragmentName="com.pepa.befit.be_fit_ui.src.detail.ingredients.components.header.IngredientHeaderContent"
+                    type="XML"
+            />
+        </headerContent>
+
+        <sections>
+            <core:Fragment
+                    fragmentName="com.pepa.befit.be_fit_ui.src.detail.ingredients.components.body.Sections"
+                    type="XML"
+            />
+        </sections>
+
+        <footer>
+            <core:Fragment
+                fragmentName="com.pepa.befit.be_fit_ui.src.detail.ingredients.components.footer.Footer"
+                type="XML"
+            />
+        </footer>
+    </ObjectPageLayout>
+</mvc:View>
