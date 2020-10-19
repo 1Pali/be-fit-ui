@@ -15,8 +15,8 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const jsonPlaceholderProxy = createProxyMiddleware({
     //LOCAL DEVELOPMENT ONLY otherwise switch to deployed app url
-    target: 'http://localhost:8080/',
-    // target: 'https://be-fit-be.herokuapp.com',
+    // target: 'http://localhost:8080/',
+    target: 'https://be-fit-be.herokuapp.com',
     changeOrigin: true, // for vhosted sites, changes host header to match to target's host
     logLevel: 'debug',
 });
